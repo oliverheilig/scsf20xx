@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{533BB382-F49F-4945-EA80-4B01D58C1AB0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Microsoft.Practices.CompositeUI.Tests</RootNamespace>
+    <AssemblyName>Microsoft.Practices.CompositeUI.Tests</AssemblyName>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids><FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Practices.ObjectBuilder, Version=1.0.51206.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Lib\Microsoft.Practices.ObjectBuilder.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BuilderStrategies\CommandStrategyFixture.cs" />
+    <Compile Include="Collections\UIExtensionSiteCollectionFixture.cs" />
+    <Compile Include="Collections\UIExtensionSiteFixture.cs" />
+    <Compile Include="Commands\CommandAdapterFixture.cs" />
+    <Compile Include="EventBroker\WorkItemEventTopicCollectionFixture.cs" />
+    <Compile Include="SmartParts\SmartPartInfoProviderFixture.cs" />
+    <Compile Include="SmartParts\WorkspaceComposerFixture.cs" />
+    <Compile Include="SmartParts\WorkspaceFixture.cs" />
+    <Compile Include="StateElementFixture.cs" />
+    <Compile Include="TestResourceFile.cs" />
+    <Compile Include="Utility\DataEventArgsFixture.cs" />
+    <Compile Include="Utility\GuardFixture.cs" />
+    <Compile Include="Utility\ListDictionaryFixture.cs" />
+    <Compile Include="Utility\ReaderLockFixture.cs" />
+    <Compile Include="Utility\WriterLockFixture.cs" />
+    <Compile Include="Visualizer\CabVisualizerFixture.cs" />
+    <Compile Include="Collections\ManagedObjectCollectionFixture.cs" />
+    <Compile Include="Collections\ServiceCollectionFixture.cs" />
+    <Compile Include="Commands\AdapterMapFixture.cs" />
+    <Compile Include="Commands\CommandHandlerAttributeFixture.cs" />
+    <Compile Include="Commands\EventCommandAdapterFixture.cs" />
+    <Compile Include="Commands\EventTopicCommandFixture.cs" />
+    <Compile Include="ComponentDependencyAttributeFixture.cs" />
+    <Compile Include="ConfigurationModel\ModuleInfoFixture.cs" />
+    <Compile Include="ConfigurationModel\ServiceCollectionFixture.cs" />
+    <Compile Include="ConfigurationModel\SolutionProfileReaderFixture.cs" />
+    <Compile Include="ControllerFixture.cs" />
+    <Compile Include="Commands\CommandFixture.cs" />
+    <Compile Include="ConfigurationModel\TestSection.cs" />
+    <Compile Include="BuilderStrategies\EventBrokerStrategyFixture.cs" />
+    <Compile Include="EventBroker\EventTopicFixture.cs" />
+    <Compile Include="EventBroker\EventTopicScopingFixture.cs" />
+    <Compile Include="EventBroker\EventTopicSubscriptionModesFixture.cs" />
+    <Compile Include="EventBroker\RunInBackgroundWorkerFixture.cs" />
+    <Compile Include="Instrumentation\TraceSourceAttributeFixture.cs" />
+    <Compile Include="Instrumentation\TraceSourceCatalogServiceFixture.cs" />
+    <Compile Include="LifecycleWorkItemFixture.cs" />
+    <EmbeddedResource Include="Mocks\Src\ReflectionModule1.cs" />
+    <EmbeddedResource Include="Mocks\Src\ReflectionModule2.cs" />
+    <EmbeddedResource Include="Mocks\Src\ReflectionModule3.cs" />
+    <Compile Include="Mocks\MockBuilderContext.cs" />
+    <Compile Include="Services\FileCatalogModuleEnumeratorFixture.cs" />
+    <Compile Include="Services\ReflectionModuleEnumeratorFixture.cs" />
+    <Compile Include="Services\WorkItemTypeCatalogServiceFixture.cs" />
+    <Compile Include="Services\WorkItemExtensionServiceFixture.cs" />
+    <Compile Include="DictionaryEventArgsFixture.cs" />
+    <Compile Include="EventBroker\EventBrokerAttributesTestFixture.cs" />
+    <Compile Include="EventBroker\EventInspectorTestFixture.cs">
+    </Compile>
+    <Compile Include="Mocks\GlobalEventHandler.cs">
+    </Compile>
+    <Compile Include="Mocks\LocalEventPublisher.cs">
+    </Compile>
+    <Compile Include="Mocks\GlobalEventPublisher.cs">
+    </Compile>
+    <EmbeddedResource Include="Mocks\Src\ModuleExposingServices.cs" />
+    <EmbeddedResource Include="Mocks\Src\ModuleExposingSameServices.cs" />
+    <EmbeddedResource Include="Mocks\Src\ModuleReferencedAssembly.cs" />
+    <EmbeddedResource Include="Mocks\Src\ModuleReferencingAssembly.cs" />
+    <EmbeddedResource Include="Mocks\Src\ModuleThrowingException.cs" />
+    <Compile Include="Mocks\MockListener.cs" />
+    <Compile Include="Mocks\MockNarrator.cs" />
+    <EmbeddedResource Include="Mocks\Src\ModuleExposingOnlyServices.cs" />
+    <EmbeddedResource Include="Mocks\Src\ModuleExposingDuplicatedServices.cs" />
+    <EmbeddedResource Include="Mocks\Src\ModuleDependency2.cs" />
+    <EmbeddedResource Include="Mocks\Src\ModuleDependency1.cs" />
+    <Compile Include="ModuleAttributeTestFixture.cs" />
+    <Compile Include="ModuleDependencyAttributeTestFixture.cs" />
+    <Compile Include="ModuleDependencySolverTestFixture.cs" />
+    <Compile Include="SampleConfigurationProvider.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\IsolatedStorageStatePersistenceServiceFixture.cs" />
+    <Compile Include="Services\StreamStatePersistenceServiceTestFixture.cs" />
+    <Compile Include="Services\DataProtectionCryptographyServiceFixture.cs" />
+    <Compile Include="Services\FileStatePersistenceServiceTestFixture.cs" />
+    <Compile Include="Services\ModuleLoaderServiceFixture.cs" />
+    <Compile Include="Services\ServiceAttributeTestFixture.cs" />
+    <Compile Include="SmartParts\SmartPartInfoFixture.cs" />
+    <Compile Include="SimpleWorkItemActivationServiceFixture.cs" />
+    <Compile Include="SmartParts\WorkspaceCancelEventArgsFixture.cs" />
+    <Compile Include="StateAttributeFixture.cs" />
+    <Compile Include="StateFixture.cs" />
+    <Compile Include="TestableRootWorkItem.cs" />
+    <Compile Include="UIElements\UIElementAdapterFactoryCatalogFixture.cs" />
+    <Compile Include="UIElements\UIElementAdapterFixture.cs" />
+    <Compile Include="WorkItemExtensionFixture.cs" />
+    <Compile Include="WorkItemFixture.cs">
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Services\FileCatalogReaderServiceFixture.xml" />
+    <EmbeddedResource Include="Services\FileCatalogReaderServiceFixtureModuleWithoutUpdateLocation.xml" />
+    <EmbeddedResource Include="Services\FileCatalogReaderServiceFixtureWithRoles.xml" />
+    <EmbeddedResource Include="Services\FileCatalogWithoutModules.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Source\CompositeUI\CompositeUI.csproj">
+      <Project>{C478E40B-A05E-4C69-9AB3-7A3BB374243F}</Project>
+      <Name>CompositeUI</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.VisualBasic.PowerPacks.10.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft Visual Basic PowerPacks 10.0</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />
+  <PropertyGroup>
+    <PostBuildEvent>if exist "$(ProjectDir)\app.config" copy "$(ProjectDir)\app.config" "$(TargetPath).config"</PostBuildEvent>
+  </PropertyGroup>
+</Project>

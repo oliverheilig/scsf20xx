@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{6D707276-16E0-4CDA-8370-9C0F50A11B44}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{B2FA45EB-E01B-489B-8819-3FEFEA7A4E49}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DE4ADD3D-A408-4ADA-9B7E-FEFC3BD7ED75}"
+	ProjectSection(SolutionItems) = preProject
+		Source\Solution Items\GlobalAssemblyInfo.cs = Source\Solution Items\GlobalAssemblyInfo.cs
+		localtestrun.testrunconfig = localtestrun.testrunconfig
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompositeUI", "Source\CompositeUI\CompositeUI.csproj", "{C478E40B-A05E-4C69-9AB3-7A3BB374243F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompositeUI.WinForms", "Source\CompositeUI.WinForms\CompositeUI.WinForms.csproj", "{073BCD60-F2FB-4DB9-92FB-403C8F9E8DD0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompositeUI.Tests", "UnitTests\CompositeUI\CompositeUI.Tests.csproj", "{533BB382-F49F-4945-EA80-4B01D58C1AB0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompositeUI.WinForms.Tests", "UnitTests\CompositeUI.WinForms\CompositeUI.WinForms.Tests.csproj", "{006913B7-12A3-4FF1-5295-32825D100C9C}"
+EndProject
+Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = CompositeUI-CS-VSTS3.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C478E40B-A05E-4C69-9AB3-7A3BB374243F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C478E40B-A05E-4C69-9AB3-7A3BB374243F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C478E40B-A05E-4C69-9AB3-7A3BB374243F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C478E40B-A05E-4C69-9AB3-7A3BB374243F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{073BCD60-F2FB-4DB9-92FB-403C8F9E8DD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{073BCD60-F2FB-4DB9-92FB-403C8F9E8DD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{073BCD60-F2FB-4DB9-92FB-403C8F9E8DD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{073BCD60-F2FB-4DB9-92FB-403C8F9E8DD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{533BB382-F49F-4945-EA80-4B01D58C1AB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{533BB382-F49F-4945-EA80-4B01D58C1AB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{533BB382-F49F-4945-EA80-4B01D58C1AB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{533BB382-F49F-4945-EA80-4B01D58C1AB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{006913B7-12A3-4FF1-5295-32825D100C9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{006913B7-12A3-4FF1-5295-32825D100C9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{006913B7-12A3-4FF1-5295-32825D100C9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{006913B7-12A3-4FF1-5295-32825D100C9C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C478E40B-A05E-4C69-9AB3-7A3BB374243F} = {6D707276-16E0-4CDA-8370-9C0F50A11B44}
+		{073BCD60-F2FB-4DB9-92FB-403C8F9E8DD0} = {6D707276-16E0-4CDA-8370-9C0F50A11B44}
+		{533BB382-F49F-4945-EA80-4B01D58C1AB0} = {B2FA45EB-E01B-489B-8819-3FEFEA7A4E49}
+		{006913B7-12A3-4FF1-5295-32825D100C9C} = {B2FA45EB-E01B-489B-8819-3FEFEA7A4E49}
+	EndGlobalSection
+EndGlobal

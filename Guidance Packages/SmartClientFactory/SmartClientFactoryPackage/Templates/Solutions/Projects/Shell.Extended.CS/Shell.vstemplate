@@ -1,0 +1,38 @@
+<VSTemplate Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+	<TemplateData>
+		<Name>CAB Shell</Name>
+		<Description>Creates a new CAB Shell Project</Description>
+		<ProjectType>CSharp</ProjectType>
+		<ProjectSubType>
+		</ProjectSubType>
+		<SortOrder>1000</SortOrder>
+		<CreateNewFolder>true</CreateNewFolder>
+		<DefaultName>CAB Shell</DefaultName>
+		<ProvideDefaultName>true</ProvideDefaultName>
+		<LocationField>Enabled</LocationField>
+		<EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+		<Icon>__TemplateIcon.ico</Icon>
+    <RequiredFrameworkVersion>3.5</RequiredFrameworkVersion>
+	</TemplateData>
+	<TemplateContent>
+		<Project TargetFileName="Shell.csproj" File="Shell.csproj.template" ReplaceParameters="true">
+			<Folder Name="Properties" TargetFolderName="Properties">
+				<ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.cs">AssemblyInfo.cs.template</ProjectItem>
+			</Folder>
+			<ProjectItem ReplaceParameters="true" TargetFileName="App.config">App.config.template</ProjectItem>
+			<ProjectItem ReplaceParameters="true" TargetFileName="ProfileCatalog.xml">ProfileCatalog.xml</ProjectItem>
+			<ProjectItem ReplaceParameters="true" TargetFileName="ShellApplication.cs">ShellApplication.cs.template</ProjectItem>
+			<ProjectItem ReplaceParameters="true" TargetFileName="ShellForm.cs">ShellForm.cs.template</ProjectItem>
+			<ProjectItem ReplaceParameters="true" TargetFileName="ShellForm.Designer.cs">ShellForm.Designer.cs</ProjectItem>
+			<ProjectItem ReplaceParameters="true" TargetFileName="ShellForm.resx">ShellForm.resx</ProjectItem>
+		</Project>
+	</TemplateContent>
+	<WizardExtension>
+		<Assembly>Microsoft.Practices.RecipeFramework.VisualStudio</Assembly>
+		<FullClassName>Microsoft.Practices.RecipeFramework.VisualStudio.Templates.UnfoldTemplate</FullClassName>
+	</WizardExtension>
+	<WizardData>
+		<Template xmlns="http://schemas.microsoft.com/pag/gax-template" SchemaVersion="1.0">
+		</Template>
+	</WizardData>
+</VSTemplate>

@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{0B24ECDA-674A-421E-B328-8A0F1ECE3DEA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{B44518E6-23F4-4871-87D6-AC5033BD2490}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{339C14BC-C155-44B7-BD90-D5E44174AED7}"
+	ProjectSection(SolutionItems) = preProject
+		localtestrun.testrunconfig = localtestrun.testrunconfig
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompositeUI", "..\CAB\CS\Source\CompositeUI\CompositeUI.csproj", "{C478E40B-A05E-4C69-9AB3-7A3BB374243F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompositeUI.WPF", "Source\CompositeUI.WPF\CompositeUI.WPF.csproj", "{BCEBB59F-2887-4092-B539-B7E8B87F916D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompositeUI.WPF.Tests", "UnitTests\CompositeUI.WPF.Tests\CompositeUI.WPF.Tests.csproj", "{07CB338F-4D91-4708-950F-6873873B9AB5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompositeUI.WinForms", "..\CAB\CS\Source\CompositeUI.WinForms\CompositeUI.WinForms.csproj", "{073BCD60-F2FB-4DB9-92FB-403C8F9E8DD0}"
+EndProject
+Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = CompositeUI-WPFExtensions-VSTS2.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C478E40B-A05E-4C69-9AB3-7A3BB374243F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C478E40B-A05E-4C69-9AB3-7A3BB374243F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C478E40B-A05E-4C69-9AB3-7A3BB374243F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C478E40B-A05E-4C69-9AB3-7A3BB374243F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCEBB59F-2887-4092-B539-B7E8B87F916D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCEBB59F-2887-4092-B539-B7E8B87F916D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCEBB59F-2887-4092-B539-B7E8B87F916D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCEBB59F-2887-4092-B539-B7E8B87F916D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07CB338F-4D91-4708-950F-6873873B9AB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07CB338F-4D91-4708-950F-6873873B9AB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07CB338F-4D91-4708-950F-6873873B9AB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07CB338F-4D91-4708-950F-6873873B9AB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{073BCD60-F2FB-4DB9-92FB-403C8F9E8DD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{073BCD60-F2FB-4DB9-92FB-403C8F9E8DD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{073BCD60-F2FB-4DB9-92FB-403C8F9E8DD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{073BCD60-F2FB-4DB9-92FB-403C8F9E8DD0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{339C14BC-C155-44B7-BD90-D5E44174AED7} = {0B24ECDA-674A-421E-B328-8A0F1ECE3DEA}
+		{C478E40B-A05E-4C69-9AB3-7A3BB374243F} = {0B24ECDA-674A-421E-B328-8A0F1ECE3DEA}
+		{BCEBB59F-2887-4092-B539-B7E8B87F916D} = {0B24ECDA-674A-421E-B328-8A0F1ECE3DEA}
+		{073BCD60-F2FB-4DB9-92FB-403C8F9E8DD0} = {0B24ECDA-674A-421E-B328-8A0F1ECE3DEA}
+		{07CB338F-4D91-4708-950F-6873873B9AB5} = {B44518E6-23F4-4871-87D6-AC5033BD2490}
+	EndGlobalSection
+EndGlobal

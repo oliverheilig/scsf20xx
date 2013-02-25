@@ -1,0 +1,14 @@
+<#@ template language="VB" #>
+<#@ assembly name="System.dll" #>
+<#@ property processor="PropertyProcessor" name="CreateModuleInterface" #>
+<#@ property processor="PropertyProcessor" name="RootNamespace" #>
+<#@ property processor="PropertyProcessor" name="ModuleNamespace" #>
+
+Namespace Constants
+	''' <summary>
+	''' Constants for command names.
+	'''</summary>
+	Public Class CommandNames 
+		inherits <#= CreateModuleInterface ? ModuleNamespace : RootNamespace #>.Interface.Constants.CommandNames
+	End Class
+End Namespace

@@ -1,0 +1,24 @@
+Imports System
+Imports System.Text
+Imports System.Collections.Generic
+Imports Microsoft.VisualStudio.TestTools.UnitTesting
+Imports $ModuleNamespace$.Tests.Support
+Imports $RootNamespace$.Infrastructure.Interface
+Imports $ModuleNamespace$
+
+''' <summary>
+''' Summary description for ModuleControllerTestFixture
+''' </summary>
+<TestClass()> _
+Public Class ModuleControllerTestFixture
+
+    '' This is a sample test checking that ModuleController handles Foo event
+    '
+    '<TestMethod()> _
+    'Public Sub ModuleControllerHandlesEventFoo()
+    'Dim rootWorkItem As New TestableRootWorkItem()
+    'Dim wi As ControlledWorkItem(Of ModuleController) = rootWorkItem.WorkItems.AddNew(Of ControlledWorkItem(Of ModuleController))()
+    '    Assert.IsTrue(wi.EventTopics.Contains("Foo"))
+    '    Assert.IsTrue(wi.EventTopics("Foo").ContainsSubscription(wi.Controller, "OnStatusUpdate"))
+    'End Sub
+End Class

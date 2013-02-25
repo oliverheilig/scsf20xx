@@ -1,0 +1,17 @@
+
+1) Right Click On SmartClientFactoryPackage -> Properties
+
+2) Set "Start External Programe:" to
+
+	C:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\IDE\devenv.exe  (for 64bit VS)
+	C:\Program Files      \Microsoft Visual Studio 10.0\Common7\IDE\devenv.exe  (for 32bit VS)
+
+3) Set "command command line argument:" to
+	/rootSuffix Exp
+
+4) On Windows Start Menu:
+   Start -> All Programs -> Microsoft Visual Studio 2010 SDK -> Tools -> Reset the Microsoft Visual Studio 2010 Experimental Instance
+
+5) Press Ctrl + F5
+
+This will starts an experimental instance of Visual Studio

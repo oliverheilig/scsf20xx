@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Recipe Name="UpdateDisconnectedServiceAgentCS"
+        xmlns="http://schemas.microsoft.com/pag/gax-core"
+        xmlns:xi="http://www.w3.org/2001/XInclude"
+        Bound="false">
+  <xi:include href="../Common/CommonTypeAliases.xml"
+				xpointer="xmlns(gax=http://schemas.microsoft.com/pag/gax-core) xpointer(/gax:Types)" />
+  <Caption>Update Disconnected Service Agent...</Caption>
+  <Description>Update Disconnected Service Agent...</Description>	
+  <HostData>
+		<Icon ID="2137" />
+    <CommandBar Menu="SCFProjectFolder" />
+  </HostData>
+  <Arguments>
+    <xi:include href="../Common/UpdateSmartClientFactoryDSACommon.xml"
+					  xpointer="xmlns(gax=http://schemas.microsoft.com/pag/gax-core) 
+            xpointer(/Recipe/gax:Arguments/gax:Argument)" />
+
+    <Argument Name="TempNamespace" Type="System.String">
+      <ValueProvider Type="Evaluator"
+                     Expression="$(CurrentNamespace).DSA" />
+    </Argument>
+    <Argument Name="AppConfigFileName" Type="System.String">
+      <ValueProvider Type="Evaluator"
+                     Expression="App.config" />
+    </Argument>
+    <Argument Name="AgentFileName" Type="System.String">
+      <ValueProvider Type="Evaluator"
+                     Expression="$(FolderPath)\Agent.cs"
+                     />
+    </Argument>
+    <Argument Name="AgentCallbackFileName" Type="System.String">
+      <ValueProvider Type="Evaluator"
+                     Expression="$(FolderPath)\Callback.cs"
+                     />
+    </Argument>
+    <Argument Name="AgentCallbackBaseFileName" Type="System.String">
+      <ValueProvider Type="Evaluator"
+                     Expression="$(AgentCallbackFileName)\Callbackbase.cs"
+                     />
+    </Argument>
+    <Argument Name="RecipeLanguage" Type="System.String">
+      <ValueProvider Type="Evaluator" Expression="CS"></ValueProvider>
+    </Argument>
+  </Arguments>
+	<GatheringServiceData>
+		<Wizard xmlns="http://schemas.microsoft.com/pag/gax-wizards" SchemaVersion="1.0" Help="ms-help://MS.VSCC.v90/MS.VSIPCC.v90/ms.practices.scsf.2008apr/SCSF/html/03-01-060-How_to_Create_a_Disconnected_Service_Agent.htm">
+			<Pages>
+        <Page Type="Microsoft.Practices.SmartClientFactory.CustomWizardPages.EndpointPage, Microsoft.Practices.SmartClientFactory.GuidancePackage">
+          <Title>Disconnected Agent Properties</Title>
+          <LinkTitle>Disconnected Agent</LinkTitle>
+        </Page>
+
+			</Pages>
+		</Wizard>
+	</GatheringServiceData>
+	<Actions CoordinatorServiceType="Microsoft.Practices.RecipeFramework.Extensions.Coordinators.ConditionalCoordinator, Microsoft.Practices.RecipeFramework.Extensions">
+
+    <Action Name="RenderAgent" Type="TextTemplateAction"
+				Template="Text\DisconnectedAgent.CS\DisconnectedAgent.t4">
+      <Input Name="ProxyType" RecipeArgument="ProxyType" />
+      <Input Name="ProxyFactoryTypeFullName" RecipeArgument="ProxyFactoryTypeFullName" />
+      <Input Name="MethodsList" RecipeArgument="ServiceAgentMethods" />
+			<Input Name="TargetNamespace" RecipeArgument="TargetNamespace" />
+			<Input Name="Behaviors" RecipeArgument="Behaviors" />
+			<Input Name="Endpoint" RecipeArgument="Endpoint"/>
+			<Input Name="Expiration" RecipeArgument="Expiration" />
+			<Input Name="MaxRetries" RecipeArgument="MaxRetries"/>
+			<Input Name="Stamps" RecipeArgument="Stamps"/>
+			<Input Name="Tag" RecipeArgument="Tag"/>
+			<Output Name="Content"/>
+		</Action>
+    <Action Name="RenderAgentCallback" Type="TextTemplateAction"
+				Template="Text\DisconnectedAgent.CS\DisconnectedAgentCallback.t4">
+			<Input Name="ProxyType" RecipeArgument="ProxyType" />
+      <Input Name="MethodsList" RecipeArgument="ServiceAgentMethods" />
+      <Input Name="Behaviors" RecipeArgument="Behaviors" />
+      <Input Name="TargetNamespace" RecipeArgument="TargetNamespace" />
+			<Output Name="Content"/>
+		</Action>
+    <Action Name="RenderAgentCallbackBase" Type="TextTemplateAction"
+				Template="Text\DisconnectedAgent.CS\DisconnectedAgentCallbackBase.t4">
+			<Input Name="ProxyType" RecipeArgument="ProxyType" />
+      <Input Name="MethodsList" RecipeArgument="ServiceAgentMethods" />
+      <Input Name="Behaviors" RecipeArgument="Behaviors" />
+      <Input Name="TargetNamespace" RecipeArgument="TargetNamespace" />
+			<Output Name="Content"/>
+		</Action>
+
+    <xi:include href="../Common/UpdateSmartClientFactoryDSACommon.xml"
+        xpointer="xmlns(gax=http://schemas.microsoft.com/pag/gax-core) 
+            xpointer(/Recipe/gax:ActionsAddItemsAndReferences/gax:Action)" />
+
+    <xi:include href="../Common/UpdateSmartClientFactoryDSACommon.xml"
+        xpointer="xmlns(gax=http://schemas.microsoft.com/pag/gax-core) 
+            xpointer(/Recipe/gax:ActionsUpdateAppConfig/gax:Action)" />
+
+    <!-- Display the HTML information page -->
+    <Action Name="ShowCreateSolutionHelp" Type="Microsoft.Practices.SmartClientFactory.Actions.ShowUrlAction, Microsoft.Practices.SmartClientFactory.GuidancePackage">
+      <Input Name="ShowDocs" RecipeArgument="ShowDocumentation"/>
+      <Input Name="Url" RecipeArgument="DocumentationUrl" />
+    </Action>
+  </Actions>
+</Recipe>
+

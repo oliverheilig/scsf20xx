@@ -1,0 +1,17 @@
+Imports Microsoft.VisualStudio.TestTools.UnitTesting
+Imports System
+Imports System.Text
+Imports System.Collections.Generic
+Imports Microsoft.Practices.CompositeUI
+Imports $RootNamespace$.Infrastructure.Interface
+Imports System.Collections
+Imports $ModuleNamespace$.Tests.Support
+
+'''<summary>
+''' Summary description for ModuleTestFixture
+''' </summary>
+<TestClass()> _
+Public Class ModuleInitializerTestFixture
+
+
+End Class

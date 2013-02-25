@@ -1,0 +1,81 @@
+Imports System
+Imports System.Windows.Forms
+Imports Microsoft.Practices.ObjectBuilder
+Imports $RootNamespace$.Infrastructure.Interface.Constants
+
+Public Class ShellLayoutView
+    Inherits UserControl
+
+    Private _presenter As ShellLayoutViewPresenter
+
+    ''' <summary>
+    ''' Initializes a new instance of the <see cref="T:ShellLayoutView"/> class.
+    ''' </summary>
+    Sub New()
+
+        ' This call is required by the Windows Form Designer.
+        InitializeComponent()
+        _leftWorkspace.Name = WorkspaceNames.LeftWorkspace
+        _rightWorkspace.Name = WorkspaceNames.RightWorkspace
+    End Sub
+
+    ''' <summary>
+    ''' Sets the presenter.
+    ''' </summary>
+    ''' <value>The presenter.</value>
+    <CreateNew()> _
+    Public WriteOnly Property Presenter() As ShellLayoutViewPresenter
+        Set(ByVal value As ShellLayoutViewPresenter)
+            _presenter = value
+            _presenter.View = Me
+        End Set
+    End Property
+
+    ''' <summary>
+    ''' Gets the main menu strip.
+    ''' </summary>
+    ''' <value>The main menu strip.</value>
+    Friend ReadOnly Property MainMenuStrip() As MenuStrip
+        Get
+            Return _mainMenuStrip
+        End Get
+    End Property
+
+    ''' <summary>
+    ''' Gets the main status strip.
+    ''' </summary>
+    ''' <value>The main status strip.</value>
+    Friend ReadOnly Property MainStatusStrip() As StatusStrip
+        Get
+            Return _mainStatusStrip
+        End Get
+    End Property
+
+    ''' <summary>
+    ''' Gets the main toolbar strip.
+    ''' </summary>
+    ''' <value>The main toolbar strip.</value>
+    Friend ReadOnly Property MainToolbarStrip() As ToolStrip
+        Get
+            Return _mainToolStrip
+        End Get
+    End Property
+
+
+    ''' <summary>
+    ''' Close the application.
+    ''' </summary>
+    Private Sub OnFileExit(ByVal sender As Object, ByVal e As EventArgs) Handles _exitToolStripMenuItem.Click
+        _presenter.OnFileExit()
+    End Sub
+
+
+    ''' <summary>
+    ''' Sets the status label.
+    ''' </summary>
+    ''' <param name="text">The text.</param>
+    Public Sub SetStatusLabel(ByVal text As String)
+        _statusLabel.Text = text
+    End Sub
+
+End Class

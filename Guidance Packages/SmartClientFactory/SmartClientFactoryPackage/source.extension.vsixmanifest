@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Vsix xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="1.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2010">
+  <Identifier Id="Microsoft.Practices.SmartClientSoftwareFactory2010">
+    <Name>Smart Client Software Factory 2010</Name>
+    <Author>Microsoft</Author>
+    <Version>3.0</Version>
+    <Description xml:space="preserve">The Smart Client Software Factory is a Visual Studio extension that helps software teams create composite smart client applications.</Description>
+    <Locale>1033</Locale>
+    <MoreInfoUrl>http://smartclient.codeplex.com</MoreInfoUrl>
+    <License>EULA.rtf</License>
+    <Icon>scsf.ico</Icon>
+    <PreviewImage>scsf preview.png</PreviewImage>
+    <InstalledByMsi>false</InstalledByMsi>
+    <SupportedProducts>
+      <VisualStudio Version="11.0">
+        <Edition>Ultimate</Edition>
+        <Edition>Premium</Edition>
+        <Edition>Pro</Edition>
+      </VisualStudio>
+    </SupportedProducts>
+    <SupportedFrameworkRuntimeEdition MinVersion="3.5" MaxVersion="4.5" />
+  </Identifier>
+  <References>
+    <Reference Id="OpenGAX" MinVersion="3.0">
+      <Name>Guidance Automation Extensions</Name>
+    </Reference>
+  </References>
+  <Content>
+    <VsPackage>|%CurrentProject%;PkgdefProjectOutputGroup|</VsPackage>
+    <CustomExtension Type="GuidancePackage">SmartClientDevelopment.xml</CustomExtension>
+  </Content>
+</Vsix>

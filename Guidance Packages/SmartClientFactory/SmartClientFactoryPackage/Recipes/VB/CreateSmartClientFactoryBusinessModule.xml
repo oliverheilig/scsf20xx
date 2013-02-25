@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Recipe Name="CreateBusinessModuleVB" 
+        xmlns="http://schemas.microsoft.com/pag/gax-core" 
+        xmlns:xi="http://www.w3.org/2001/XInclude">
+  <xi:include href="../Common/CommonTypeAliases.xml"
+				xpointer="xmlns(gax=http://schemas.microsoft.com/pag/gax-core) xpointer(/gax:Types)" />
+  <Caption>Add Business Module</Caption>
+  <Description>Add Business Module</Description>
+  <HostData>
+    <CommandBar Menu="SCFSolution"/>
+    <CommandBar Menu="SCFSolutionFolder"/>
+  </HostData>
+  <Arguments>
+    <xi:include href="../Common/CreateSmartClientFactoryBusinessModuleCommon.xml"
+					  xpointer="xmlns(gax=http://schemas.microsoft.com/pag/gax-core) 
+            xpointer(/Recipe/gax:Arguments/gax:Argument)" />
+
+    <Argument Name="RecipeLanguage" Type="System.String">
+      <ValueProvider Type="Evaluator" Expression="VB"></ValueProvider>
+    </Argument>
+  </Arguments>
+  <GatheringServiceData>
+    <Wizard xmlns="http://schemas.microsoft.com/pag/gax-wizards" SchemaVersion="1.0" Help="ms-help://MS.VSCC.v90/MS.VSIPCC.v90/ms.practices.scsf.2008apr/SCSF/html/03-01-020-How_to_Create_a_Business_Module.htm">
+      <Pages>
+        <Page Type="Microsoft.Practices.SmartClientFactory.CustomWizardPages.CreateBusinessModulePage, Microsoft.Practices.SmartClientFactory.GuidancePackage">
+          <Title>Add Business Module</Title>
+          <LinkTitle>Business Module properties</LinkTitle>
+        </Page>
+      </Pages>
+    </Wizard>
+  </GatheringServiceData>
+  <Actions CoordinatorServiceType="Microsoft.Practices.RecipeFramework.Extensions.Coordinators.ConditionalCoordinator, Microsoft.Practices.RecipeFramework.Extensions">
+    <Action Name="UnfoldModuleProjects" Type="Microsoft.Practices.SmartClientFactory.Actions.UnfoldModuleProjectsAction, Microsoft.Practices.SmartClientFactory.GuidancePackage"
+      InterfaceTemplate="Projects\Module.Interface.VB\Module.Interface.vstemplate"
+      BaseTemplate="Projects\Module.Business.VB\Module.vstemplate"
+      TestProjectTemplate="Projects\Module.Business.Tests.VB\Module.Tests.vstemplate"
+      LayoutTemplate="Projects\Module.VB\Module.Layout.vstemplate">
+      <Input Name="CreateInterface" RecipeArgument="CreateModuleInterfaceLibrary"/>
+      <Input Name="CreateLayout" RecipeArgument="CreateLayoutModule"/>
+      <Input Name="CreateTestProject" RecipeArgument="CreateTestProject"/>
+      <Input Name="ModuleProject" RecipeArgument="ModuleProject"/>
+      <Input Name="ShellProject" RecipeArgument="ShellProject"/>
+      <Input Name="InterfaceProject" RecipeArgument="CommonProject"/>
+      <Output Name="ModuleProject"/>
+      <Output Name="ModuleInterfaceProject"/>
+      <Output Name="TestProject"/>
+    </Action>
+
+    <!-- Updates ProfileCatalog.xml with Modle info -->
+    <xi:include href="../Common/CreateSmartClientFactoryBusinessModuleCommon.xml"
+					  xpointer="xmlns(gax=http://schemas.microsoft.com/pag/gax-core) 
+            xpointer(/Recipe/gax:ActionsUpdateProfileCatalog/gax:Action)" />
+
+    <!-- Display the HTML information page -->
+    <Action Name="ShowCreateSolutionHelp" Type="Microsoft.Practices.SmartClientFactory.Actions.ShowUrlAction, Microsoft.Practices.SmartClientFactory.GuidancePackage">
+      <Input Name="ShowDocs" RecipeArgument="ShowDocumentation"/>
+      <Input Name="Url" RecipeArgument="DocumentationUrl" />
+    </Action>
+  </Actions>
+</Recipe>

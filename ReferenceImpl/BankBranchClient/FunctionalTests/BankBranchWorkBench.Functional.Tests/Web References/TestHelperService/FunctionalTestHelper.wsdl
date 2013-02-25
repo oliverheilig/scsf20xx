@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="ReInitializeGlobalBank">
+        <s:complexType />
+      </s:element>
+      <s:element name="ReInitializeGlobalBankResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ReInitializeGlobalBankSoapIn">
+    <wsdl:part name="parameters" element="tns:ReInitializeGlobalBank" />
+  </wsdl:message>
+  <wsdl:message name="ReInitializeGlobalBankSoapOut">
+    <wsdl:part name="parameters" element="tns:ReInitializeGlobalBankResponse" />
+  </wsdl:message>
+  <wsdl:portType name="FunctionalTestHelperSoap">
+    <wsdl:operation name="ReInitializeGlobalBank">
+      <wsdl:input message="tns:ReInitializeGlobalBankSoapIn" />
+      <wsdl:output message="tns:ReInitializeGlobalBankSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="FunctionalTestHelperSoap" type="tns:FunctionalTestHelperSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ReInitializeGlobalBank">
+      <soap:operation soapAction="http://tempuri.org/ReInitializeGlobalBank" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="FunctionalTestHelperSoap12" type="tns:FunctionalTestHelperSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ReInitializeGlobalBank">
+      <soap12:operation soapAction="http://tempuri.org/ReInitializeGlobalBank" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FunctionalTestHelper">
+    <wsdl:port name="FunctionalTestHelperSoap" binding="tns:FunctionalTestHelperSoap">
+      <soap:address location="http://localhost:54078/GlobalBankServices/FunctionalTestHelper.asmx" />
+    </wsdl:port>
+    <wsdl:port name="FunctionalTestHelperSoap12" binding="tns:FunctionalTestHelperSoap12">
+      <soap12:address location="http://localhost:54078/GlobalBankServices/FunctionalTestHelper.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

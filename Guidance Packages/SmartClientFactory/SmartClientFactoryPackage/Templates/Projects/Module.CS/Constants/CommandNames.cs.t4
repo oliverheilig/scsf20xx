@@ -1,0 +1,15 @@
+<#@ template language="C#" #>
+<#@ assembly name="System.dll" #>
+<#@ property processor="PropertyProcessor" name="CreateModuleInterface" #>
+<#@ property processor="PropertyProcessor" name="RootNamespace" #>
+<#@ property processor="PropertyProcessor" name="ModuleNamespace" #>
+
+namespace $ModuleNamespace$.Constants
+{
+	/// <summary>
+	/// Constants for command names.
+	/// </summary>
+	public class CommandNames : <#= CreateModuleInterface ? ModuleNamespace : RootNamespace #>.Interface.Constants.CommandNames
+	{
+	}
+}

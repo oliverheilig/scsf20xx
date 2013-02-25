@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AllWebReferencesOrProject" xml:space="preserve">
+    <value>All Web References or Project.</value>
+  </data>
+  <data name="CannotConvertProject" xml:space="preserve">
+    <value>This project cannot be converted to WPF.</value>
+  </data>
+  <data name="CheckoutException" xml:space="preserve">
+    <value>Failed to checkout the file {0}.</value>
+  </data>
+  <data name="ClassNotCompiledYet" xml:space="preserve">
+    <value>Type {0} from file {1} has not been compiled yet. Recompile project and retry.</value>
+  </data>
+  <data name="ClassNotExists" xml:space="preserve">
+    <value>The class is not valid</value>
+  </data>
+  <data name="ClassRequired" xml:space="preserve">
+    <value>A class is required.</value>
+  </data>
+  <data name="ConnectionSettingsSectionType" xml:space="preserve">
+    <value>Microsoft.Practices.SmartClient.ConnectionMonitor.Configuration.ConnectionSettingsSection, Microsoft.Practices.SmartClient.ConnectionMonitor</value>
+  </data>
+  <data name="DuplicatedMethodBehavior" xml:space="preserve">
+    <value>The behavior for a method can only be defined once.</value>
+  </data>
+  <data name="EndpointRequired" xml:space="preserve">
+    <value>Endpoint name cannot be empty</value>
+  </data>
+  <data name="EndpointsSectionType" xml:space="preserve">
+    <value>Microsoft.Practices.SmartClient.EndpointCatalog.Configuration.EndpointSection, Microsoft.Practices.SmartClient.EndpointCatalog</value>
+  </data>
+  <data name="ExpirationNotValid" xml:space="preserve">
+    <value>Expiration is not valid</value>
+  </data>
+  <data name="FolderNotExists" xml:space="preserve">
+    <value>The folder is not valid</value>
+  </data>
+  <data name="ModuleNameMustBeValidIdentifier" xml:space="preserve">
+    <value>Module name must be a valid identifier</value>
+  </data>
+  <data name="ModuleNameRequired" xml:space="preserve">
+    <value>Module name cannot be empty</value>
+  </data>
+  <data name="NetworkAddress" xml:space="preserve">
+    <value>http://www.contoso.com</value>
+  </data>
+  <data name="NetworkName" xml:space="preserve">
+    <value>Internet</value>
+  </data>
+  <data name="NoProxyFound" xml:space="preserve">
+    <value>Current selection is not a web reference, or the containing project has not been compiled since the web reference was added. Recompile project and retry.</value>
+  </data>
+  <data name="OneSelectedMethodNeeded" xml:space="preserve">
+    <value>At least one selected method is needed.</value>
+  </data>
+  <data name="OwnerProjectOrItemRequired" xml:space="preserve">
+    <value>Either an owning project or item must be specified.</value>
+  </data>
+  <data name="ProxyClassnotFoundMessage" xml:space="preserve">
+    <value>You attempted to update a disconnected service agent that uses the Web service proxy type {0}, but the current project does not contain this type. This can happen if the service implementation type name changes after you generate the disconnected service agent. You cannot use the Update Disconnected Service Agent recipe to update the selected disconnected service agent. Instead, you can manually update the source code of the existing disconnected service agent or use the Create Disconnected Service Agent recipe to create a new disconnected service agent.</value>
+  </data>
+  <data name="RequiredAttributeNotPresent" xml:space="preserve">
+    <value>The attribute {0} is required for this value provider.</value>
+  </data>
+  <data name="RequiredField" xml:space="preserve">
+    <value>This field is required</value>
+  </data>
+  <data name="ServiceMissing" xml:space="preserve">
+    <value>Cannot locate service {0}.</value>
+  </data>
+  <data name="SolutionBuildFailed" xml:space="preserve">
+    <value>Solution build failed. The recipe could not be executed.</value>
+  </data>
+  <data name="SolutionMustBeBuildToRunTheRecipe" xml:space="preserve">
+    <value>Solution must be build to execute the current recipe.</value>
+  </data>
+  <data name="SupportingLibrariesNotPresent" xml:space="preserve">
+    <value>One of the dlls {0} are not present in the folder</value>
+  </data>
+  <data name="ValidNamespaceRequired" xml:space="preserve">
+    <value>A valid namespace is required</value>
+  </data>
+  <data name="ViewNameMustBeValidIdentifier" xml:space="preserve">
+    <value>View name must be a valid identifier</value>
+  </data>
+  <data name="ViewNameRequired" xml:space="preserve">
+    <value>View name cannot be empty</value>
+  </data>
+  <data name="VsHierarchyNotProject" xml:space="preserve">
+    <value>Hierarchy is not a project.</value>
+  </data>
+  <data name="YouCantAddFormsViewIfWpfViewExists" xml:space="preserve">
+    <value>A WPF view file named '{0}' already exists. You can't add a non WPF view with the same name.</value>
+  </data>
+  <data name="YouCantAddWpfViewIfFormsViewExists" xml:space="preserve">
+    <value>A non WPF view file named '{0}' already exists. You can't add a WPF view with the same name.</value>
+  </data>
+</root>

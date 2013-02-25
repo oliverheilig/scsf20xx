@@ -1,0 +1,162 @@
+<#@ template language="C#" #>
+<#@ assembly name="System.dll" #>
+<#@ property processor="PropertyProcessor" Name="RootNamespace" #>
+<#@ property processor="PropertyProcessor" Name="WorkspaceTechnology" #>
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Class ShellLayoutView
+    Inherits System.Windows.Forms.UserControl
+
+    'UserControl1 overrides dispose to clean up the component list.
+    <System.Diagnostics.DebuggerNonUserCode()> _
+    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+        Try
+            If disposing Then
+                If _presenter IsNot Nothing Then
+                    _presenter.Dispose()
+                End If
+                
+                If components IsNot Nothing Then
+                    components.Dispose()
+                End If
+			End if
+        Finally
+            MyBase.Dispose(disposing)
+        End Try
+    End Sub
+
+    'Required by the Windows Form Designer
+    Private components As System.ComponentModel.IContainer
+
+    'NOTE: The following procedure is required by the Windows Form Designer
+    'It can be modified using the Windows Form Designer.  
+    'Do not modify it using the code editor.
+    <System.Diagnostics.DebuggerStepThrough()> _
+    Private Sub InitializeComponent()
+        Me._mainMenuStrip = New System.Windows.Forms.MenuStrip
+        Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
+        Me._exitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
+        Me._mainToolStrip = New System.Windows.Forms.ToolStrip
+        Me.splitContainer1 = New System.Windows.Forms.SplitContainer
+        Me._leftWorkspace = New Microsoft.Practices.CompositeUI.<#= WorkspaceTechnology #>.DeckWorkspace
+        Me._rightWorkspace = New Microsoft.Practices.CompositeUI.<#= WorkspaceTechnology #>.DeckWorkspace
+        Me._mainStatusStrip = New System.Windows.Forms.StatusStrip
+        Me._statusLabel = New System.Windows.Forms.ToolStripStatusLabel
+        Me._mainMenuStrip.SuspendLayout()
+        Me.splitContainer1.Panel1.SuspendLayout()
+        Me.splitContainer1.Panel2.SuspendLayout()
+        Me.splitContainer1.SuspendLayout()
+        Me._mainStatusStrip.SuspendLayout()
+        Me.SuspendLayout()
+        '
+        '_mainMenuStrip
+        '
+        Me._mainMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem})
+        Me._mainMenuStrip.Location = New System.Drawing.Point(0, 0)
+        Me._mainMenuStrip.Name = "_mainMenuStrip"
+        Me._mainMenuStrip.Size = New System.Drawing.Size(613, 24)
+        Me._mainMenuStrip.TabIndex = 0
+        Me._mainMenuStrip.Text = "MenuStrip1"
+        '
+        'FileToolStripMenuItem
+        '
+        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me._exitToolStripMenuItem})
+        Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
+        Me.FileToolStripMenuItem.Size = New System.Drawing.Size(35, 20)
+        Me.FileToolStripMenuItem.Text = "File"
+        '
+        '_exitToolStripMenuItem
+        '
+        Me._exitToolStripMenuItem.Name = "_exitToolStripMenuItem"
+        Me._exitToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.F4), System.Windows.Forms.Keys)
+        Me._exitToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
+        Me._exitToolStripMenuItem.Text = "E&xit"
+        '
+        '_mainToolStrip
+        '
+        Me._mainToolStrip.Location = New System.Drawing.Point(0, 24)
+        Me._mainToolStrip.Name = "_mainToolStrip"
+        Me._mainToolStrip.Size = New System.Drawing.Size(613, 25)
+        Me._mainToolStrip.TabIndex = 1
+        Me._mainToolStrip.Text = "ToolStrip1"
+        '
+        'splitContainer1
+        '
+        Me.splitContainer1.Location = New System.Drawing.Point(0, 49)
+        Me.splitContainer1.Name = "splitContainer1"
+        '
+        'splitContainer1.Panel1
+        '
+        Me.splitContainer1.Panel1.Controls.Add(Me._leftWorkspace)
+        '
+        'splitContainer1.Panel2
+        '
+        Me.splitContainer1.Panel2.Controls.Add(Me._rightWorkspace)
+        Me.splitContainer1.Size = New System.Drawing.Size(613, 413)
+        Me.splitContainer1.SplitterDistance = 204
+        Me.splitContainer1.TabIndex = 2
+        '
+        '_leftWorkspace
+        '
+        Me._leftWorkspace.Dock = System.Windows.Forms.DockStyle.Fill
+        Me._leftWorkspace.Location = New System.Drawing.Point(0, 0)
+        Me._leftWorkspace.Name = "_leftWorkspace"
+        Me._leftWorkspace.Size = New System.Drawing.Size(204, 413)
+        Me._leftWorkspace.TabIndex = 1
+        Me._leftWorkspace.Text = "DeckWorkspace2"
+        '
+        '_rightWorkspace
+        '
+        Me._rightWorkspace.Dock = System.Windows.Forms.DockStyle.Fill
+        Me._rightWorkspace.Location = New System.Drawing.Point(0, 0)
+        Me._rightWorkspace.Name = "_rightWorkspace"
+        Me._rightWorkspace.Size = New System.Drawing.Size(405, 413)
+        Me._rightWorkspace.TabIndex = 0
+        Me._rightWorkspace.Text = "DeckWorkspace1"
+        '
+        '_mainStatusStrip
+        '
+        Me._mainStatusStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me._statusLabel})
+        Me._mainStatusStrip.Location = New System.Drawing.Point(0, 462)
+        Me._mainStatusStrip.Name = "_mainStatusStrip"
+        Me._mainStatusStrip.Size = New System.Drawing.Size(613, 22)
+        Me._mainStatusStrip.TabIndex = 3
+        Me._mainStatusStrip.Text = "StatusStrip1"
+        '
+        '_statusLabel
+        '
+        Me._statusLabel.Name = "_statusLabel"
+        Me._statusLabel.Size = New System.Drawing.Size(38, 17)
+        Me._statusLabel.Text = "Ready"
+        '
+        'ShellLayoutView
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me._mainStatusStrip)
+        Me.Controls.Add(Me.splitContainer1)
+        Me.Controls.Add(Me._mainToolStrip)
+        Me.Controls.Add(Me._mainMenuStrip)
+        Me.Name = "ShellLayoutView"
+        Me.Size = New System.Drawing.Size(613, 484)
+        Me._mainMenuStrip.ResumeLayout(False)
+        Me._mainMenuStrip.PerformLayout()
+        Me.splitContainer1.Panel1.ResumeLayout(False)
+        Me.splitContainer1.Panel2.ResumeLayout(False)
+        Me.splitContainer1.ResumeLayout(False)
+        Me._mainStatusStrip.ResumeLayout(False)
+        Me._mainStatusStrip.PerformLayout()
+        Me.ResumeLayout(False)
+        Me.PerformLayout()
+
+    End Sub
+    Friend WithEvents _mainMenuStrip As System.Windows.Forms.MenuStrip
+    Friend WithEvents FileToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Private WithEvents _exitToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents _mainToolStrip As System.Windows.Forms.ToolStrip
+    Private WithEvents _leftWorkspace As Microsoft.Practices.CompositeUI.<#= WorkspaceTechnology #>.DeckWorkspace
+    Private WithEvents _rightWorkspace As Microsoft.Practices.CompositeUI.<#= WorkspaceTechnology #>.DeckWorkspace
+    Private WithEvents _mainStatusStrip As System.Windows.Forms.StatusStrip
+    Private WithEvents _statusLabel As System.Windows.Forms.ToolStripStatusLabel
+    Private WithEvents splitContainer1 As System.Windows.Forms.SplitContainer
+
+End Class

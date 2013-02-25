@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<GuidancePackage xmlns="http://schemas.microsoft.com/pag/gax-core"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+    Name="SmartClientFactoryPackage2010" 
+    Caption="Smart Client Software Factory 2010"
+    Description="Automation and guidance integrated into Visual Studio for building smart clients"
+    BindingRecipe="BindingRecipe" 
+    Guid="C87597D2-546A-4cd2-880A-69E9E443F4C2" 
+    SchemaVersion="1.0">
+  <Overview Url="Templates\Overview\intro.htm" />
+  <HostData>
+    <Menu Name="SCFItem" Text="Smart Client Factory">
+      <CommandBar Name="Item"/>
+    </Menu>
+    <Menu Name="SCFProject" Text="Smart Client Factory">
+      <CommandBar Name="Project"/>
+    </Menu>
+    <Menu Name="SCFProjectFolder" Text="Smart Client Factory">
+      <CommandBar Name="Folder"/>
+    </Menu>
+    <Menu Name="SCFSolution" Text="Smart Client Factory">
+      <CommandBar Name="Solution"/>
+    </Menu>
+    <Menu Name="SCFSolutionFolder" Text="Smart Client Factory">
+      <CommandBar Name="Solution Folder"/>
+    </Menu>
+    <Menu Name="SCF1075" Text="Smart Client Factory">
+      <CommandBar Guid="d309f791-903f-11d0-9efc-00a0c911004f" ID="1075"/>
+    </Menu>
+    <Menu Name="SCFWebReference" Text="Smart Client Factory">
+      <CommandBar Guid="D309F791-903F-11D0-9EFC-00A0C911004F" ID="1073" />
+    </Menu>
+  </HostData>
+  <Recipes>
+    <!--SCSF CS Recipes-->
+    <xi:include href="Recipes/CS/CreateSmartClientFactorySolution.xml"/>
+    <xi:include href="Recipes/CS/CreateSmartClientFactoryBusinessModule.xml"/>
+    <xi:include href="Recipes/CS/CreateSmartClientFactoryFoundationalModule.xml"/>
+    <xi:include href="Recipes/CS/CreateSmartClientFactoryView.xml"/>
+    <xi:include href="Recipes/CS/CreateSmartClientFactoryWPFView.xml"/>
+    <xi:include href="Recipes/CS/CreateSmartClientFactoryEventPublication.xml"/>
+    <xi:include href="Recipes/CS/CreateSmartClientFactoryEventSubscription.xml"/>
+    <xi:include href="Recipes/CS/CreateSmartClientFactoryDSA.xml"/>
+    <xi:include href="Recipes/CS/UpdateSmartClientFactoryDSA.xml"/>
+
+    <!--SCSF VB Recipes-->
+    <xi:include href="Recipes/VB/CreateSmartClientFactorySolution.xml"/>
+    <xi:include href="Recipes/VB/CreateSmartClientFactoryBusinessModule.xml"/>
+    <xi:include href="Recipes/VB/CreateSmartClientFactoryFoundationalModule.xml"/>
+    <xi:include href="Recipes/VB/CreateSmartClientFactoryView.xml"/>
+    <xi:include href="Recipes/VB/CreateSmartClientFactoryWPFView.xml"/>
+    <xi:include href="Recipes/VB/CreateSmartClientFactoryEventPublication.xml"/>
+    <xi:include href="Recipes/VB/CreateSmartClientFactoryEventSubscription.xml"/>
+    <xi:include href="Recipes/VB/CreateSmartClientFactoryDSA.xml"/>
+    <xi:include href="Recipes/VB/UpdateSmartClientFactoryDSA.xml"/>
+
+    <!--Common Recipes-->
+    <xi:include href="Recipes/Binding.xml"/>
+  </Recipes>
+</GuidancePackage>

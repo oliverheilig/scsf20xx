@@ -1,0 +1,15 @@
+﻿<SolutionProfile xmlns="http://schemas.microsoft.com/pag/cab-profile/2.0">
+  <Section Name="Services">
+    <Modules>
+      <ModuleInfo AssemblyFile="Infrastructure.Module.dll" />
+    </Modules>
+  </Section>
+  <Section Name="Apps">
+    <Dependencies>
+      <Dependency Name="Services" />
+    </Dependencies>
+    <Modules>
+      <ModuleInfo AssemblyFile="QuickStart.RestaurantModule.dll" />
+    </Modules>
+  </Section>
+</SolutionProfile>

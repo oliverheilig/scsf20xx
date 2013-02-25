@@ -1,0 +1,28 @@
+Imports Microsoft.VisualStudio.TestTools.UnitTesting
+Imports System
+Imports System.Text
+Imports System.Collections.Generic
+Imports Microsoft.Practices.CompositeUI
+Imports $RootNamespace$.Infrastructure.Interface
+Imports System.Collections
+Imports $ModuleNamespace$.Tests.Support
+Imports $ModuleNamespace$
+
+'''<summary>
+''' Summary description for ModuleTestFixture
+''' </summary>
+<TestClass()> _
+Public Class ModuleInitializerTestFixture
+
+    <TestMethod()> _
+    Public Sub OnLoadCreateModuleController()
+        Dim rootWorkItem As New TestableRootWorkItem()
+        Dim moduleInitializer As New ModuleInitializer(rootWorkItem)
+
+        moduleInitializer.Load()
+
+        Dim controllers As ICollection(Of ControlledWorkItem(Of ModuleController)) = rootWorkItem.WorkItems.FindByType(Of ControlledWorkItem(Of ModuleController))()
+        Assert.AreEqual(1, controllers.Count)
+    End Sub
+
+End Class

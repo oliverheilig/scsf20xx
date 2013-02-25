@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C1436BFA-C42F-418E-8E64-C1C4C8B9B81A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>
+    </RootNamespace>
+    <AssemblyName>BankTellerModule</AssemblyName>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <OptionStrict>On</OptionStrict>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\BankShell\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG,TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+    <NoWarn>42353,42354,42355</NoWarn>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\BankShell\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+    <NoWarn>42353,42354,42355</NoWarn>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Practices.ObjectBuilder, Version=1.0.51206.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Lib\Microsoft.Practices.ObjectBuilder.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Services\CustomerQueueService.vb" />
+    <Compile Include="WorkItems\BankTeller\BankTellerWorkItem.vb">
+    </Compile>
+    <Compile Include="WorkItems\BankTeller\SideBarView.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WorkItems\BankTeller\SideBarView.Designer.vb">
+      <DependentUpon>SideBarView.vb</DependentUpon>
+    </Compile>
+    <Compile Include="WorkItems\Customer\CustomerDetailController.vb" />
+    <Compile Include="Services\CustomerAccountService.vb" />
+    <Compile Include="WorkItems\Customer\CustomerAccountsView.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WorkItems\Customer\CustomerAccountsView.Designer.vb">
+      <DependentUpon>CustomerAccountsView.vb</DependentUpon>
+    </Compile>
+    <Compile Include="WorkItems\Customer\CustomerCommentsView.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WorkItems\Customer\CustomerCommentsView.Designer.vb">
+      <DependentUpon>CustomerCommentsView.vb</DependentUpon>
+    </Compile>
+    <Compile Include="WorkItems\BankTeller\CustomerQueueController.vb" />
+    <Compile Include="WorkItems\Customer\CustomerDetailView.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WorkItems\Customer\CustomerDetailView.Designer.vb">
+      <DependentUpon>CustomerDetailView.vb</DependentUpon>
+    </Compile>
+    <Compile Include="WorkItems\Customer\CustomerSummaryController.vb" />
+    <Compile Include="WorkItems\Customer\CustomerWorkItem.vb">
+    </Compile>
+    <Compile Include="WorkItems\Customer\CustomerHeaderView.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WorkItems\Customer\CustomerHeaderView.Designer.vb">
+      <DependentUpon>CustomerHeaderView.vb</DependentUpon>
+    </Compile>
+    <Compile Include="WorkItems\Customer\CustomerSummaryView.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WorkItems\Customer\CustomerSummaryView.Designer.vb">
+      <DependentUpon>CustomerSummaryView.vb</DependentUpon>
+    </Compile>
+    <Compile Include="WorkItems\BankTeller\CustomerQueueView.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WorkItems\BankTeller\CustomerQueueView.Designer.vb">
+      <DependentUpon>CustomerQueueView.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.vb" />
+    <Compile Include="BankTellerModuleInit.vb" />
+    <Compile Include="WorkItems\BankTeller\UserInfoView.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WorkItems\BankTeller\UserInfoView.Designer.vb">
+      <DependentUpon>UserInfoView.vb</DependentUpon>
+    </Compile>
+    <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\Blocks\CAB\VB\Source\CompositeUI.WinForms\CompositeUI.WinForms.vbproj">
+      <Project>{BD21FDDF-D601-4DD3-85E9-D2739D0DC768}</Project>
+      <Name>CompositeUI.WinForms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\Blocks\CAB\VB\Source\CompositeUI\CompositeUI.vbproj">
+      <Project>{695D739D-14CB-46BF-B72F-FFA386F86CD0}</Project>
+      <Name>CompositeUI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BankTellerCommon\BankTellerCommon.vbproj">
+      <Project>{504076DA-2FA9-4fe4-8060-A0AEA2BD7B9C}</Project>
+      <Name>BankTellerCommon</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkItems\BankTeller\SideBarView.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SideBarView.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkItems\Customer\CustomerAccountsView.resx">
+      <DependentUpon>CustomerAccountsView.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkItems\Customer\CustomerCommentsView.resx">
+      <DependentUpon>CustomerCommentsView.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkItems\Customer\CustomerHeaderView.resx">
+      <DependentUpon>CustomerHeaderView.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkItems\Customer\CustomerDetailView.resx">
+      <DependentUpon>CustomerDetailView.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkItems\Customer\CustomerSummaryView.resx">
+      <DependentUpon>CustomerSummaryView.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkItems\BankTeller\CustomerQueueView.resx">
+      <DependentUpon>CustomerQueueView.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkItems\BankTeller\UserInfoView.resx">
+      <DependentUpon>UserInfoView.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\Customer.datasource" />
+    <None Include="Properties\DataSources\CustomerAccount.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="System.Linq" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+</Project>

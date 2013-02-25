@@ -1,0 +1,46 @@
+<VSTemplate Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name>Add Foundational Module (VB)</Name>
+    <Description>Creates a CAB module that exposes services and UI components.</Description>
+    <ProjectType>VisualBasic</ProjectType>
+    <ProjectSubType>
+    </ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>Module.Basic</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <Icon>__TemplateIcon.ico</Icon>
+    <RequiredFrameworkVersion>3.5</RequiredFrameworkVersion>
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="Module.vbproj" File="Module.Basic.vbproj.template" ReplaceParameters="true">
+      <Folder Name="Constants" TargetFolderName="Constants">
+        <ProjectItem ReplaceParameters="true" TargetFileName="CommandNames.vb">CommandNames.vb.template</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="EventTopicNames.vb">EventTopicNames.vb.template</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="UIExtensionSiteNames.vb">UIExtensionSiteNames.vb.template</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="WorkspaceNames.vb">WorkspaceNames.Basic.vb.template</ProjectItem>
+      </Folder>
+      <ProjectItem ReplaceParameters="true" TargetFileName="ModuleInitializer.vb">Module.Basic.vb.template</ProjectItem>
+      <Folder Name="My Project" TargetFolderName="My Project">
+        <ProjectItem ReplaceParameters="true" TargetFileName="Application.myapp">Application.myapp.template</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Application.Designer.vb">Application.Designer.vb.template</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.vb">AssemblyInfo.vb.template</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Resources.resx">Resources.resx.template</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Resources.Designer.vb">Resources.Designer.vb.template</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Settings.settings">Settings.settings.template</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Settings.Designer.vb">Settings.Designer.vb.template</ProjectItem>
+      </Folder>
+      <Folder Name="Services" TargetFolderName="Services" />
+    </Project>
+  </TemplateContent>
+  <WizardExtension>
+    <Assembly>Microsoft.Practices.RecipeFramework.VisualStudio</Assembly>
+    <FullClassName>Microsoft.Practices.RecipeFramework.VisualStudio.Templates.UnfoldTemplate</FullClassName>
+  </WizardExtension>
+  <WizardData>
+    <Template xmlns="http://schemas.microsoft.com/pag/gax-template" SchemaVersion="1.0">
+    </Template>
+  </WizardData>
+</VSTemplate>

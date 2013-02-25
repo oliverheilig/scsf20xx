@@ -1,0 +1,45 @@
+'----------------------------------------------------------------------------------------
+'patterns & practices - Smart Client Software Factory - Guidance Package
+'
+'The EntityMapperTranslator class is a base helper implementation of an IEntityTranslator
+'that provides placeholders to translate from business entities to service and viceversa
+' 
+' 
+
+'
+'Latest version of this Guidance Package: http://go.microsoft.com/fwlink/?LinkId=62182
+'----------------------------------------------------------------------------------------
+
+Imports System
+Imports $RootNamespace$.Infrastructure.Interface.Services
+
+Namespace EntityTranslators
+
+    Public MustInherit Class EntityMapperTranslator(Of TBusinessEntity, TServiceEntity)
+        Inherits BaseTranslator
+
+
+        Public Overloads Overrides Function CanTranslate(ByVal targetType As System.Type, ByVal sourceType As System.Type) As Boolean
+
+            Return (TypeOf targetType Is TBusinessEntity AndAlso TypeOf sourceType Is TServiceEntity) OrElse _
+            (TypeOf targetType Is TServiceEntity AndAlso TypeOf sourceType Is TBusinessEntity)
+        End Function
+
+        Public Overloads Overrides Function Translate(ByVal service As [Interface].Services.IEntityTranslatorService, ByVal targetType As System.Type, ByVal source As Object) As Object
+            If TypeOf targetType Is TBusinessEntity Then
+                Return ServiceToBusiness(service, CType(source, TServiceEntity))
+            End If
+
+            If TypeOf targetType Is TServiceEntity Then
+                Return BusinessToService(service, CType(source, TBusinessEntity))
+            End If
+
+            Throw New EntityTranslatorException()
+        End Function
+
+        Protected MustOverride Function BusinessToService(ByVal service As IEntityTranslatorService, ByVal value As TBusinessEntity) As TServiceEntity
+
+        Protected MustOverride Function ServiceToBusiness(ByVal service As IEntityTranslatorService, ByVal value As TServiceEntity) As TBusinessEntity
+
+    End Class
+End Namespace

@@ -1,0 +1,39 @@
+<VSTemplate 
+	Version="2.0" 
+	Type="ProjectGroup"
+	xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+	<TemplateData>
+    <Name>Smart Client Application (Visual Basic)</Name>
+    <Description>Creates a smart client application that uses CAB and Enterprise Library</Description>
+    <ProjectType>VisualBasic</ProjectType>
+    <SortOrder>90</SortOrder>
+    <Icon>SCSFSolution.ico</Icon>
+    <CreateNewFolder>false</CreateNewFolder>
+    <DefaultName>SmartClient</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <RequiredFrameworkVersion>3.5</RequiredFrameworkVersion>
+  </TemplateData>
+	<TemplateContent>
+    <ProjectCollection>
+      <SolutionFolder Name="Source">
+        <SolutionFolder Name="Infrastructure">
+          <ProjectTemplateLink ProjectName="Infrastructure.Interface">Projects\Infrastructure.VB\Infrastructure.vstemplate</ProjectTemplateLink>
+          <ProjectTemplateLink ProjectName="Infrastructure.Library">Projects\Library.VB\Library.vstemplate</ProjectTemplateLink>
+          <ProjectTemplateLink ProjectName="Infrastructure.Module">Projects\Module.VB\Module.vstemplate</ProjectTemplateLink>
+        </SolutionFolder>
+      </SolutionFolder>
+    </ProjectCollection>
+  </TemplateContent>
+	<WizardExtension>
+		<Assembly>Microsoft.Practices.RecipeFramework.VisualStudio</Assembly>
+		<FullClassName>Microsoft.Practices.RecipeFramework.VisualStudio.Templates.UnfoldTemplate</FullClassName>
+	</WizardExtension>
+	<WizardData>
+		<Template xmlns="http://schemas.microsoft.com/pag/gax-template"
+              SchemaVersion="1.0"
+              Recipe="CreateSmartClientFactorySolutionVB">
+			<References>
+			</References>
+		</Template>
+	</WizardData>
+</VSTemplate>

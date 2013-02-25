@@ -1,0 +1,46 @@
+﻿<SolutionProfile xmlns="http://schemas.microsoft.com/pag/cab-profile/2.0">
+  <Section Name="Infrastructure">
+	<Modules>
+		<ModuleInfo AssemblyFile="GlobalBank.Support.Module.dll" />
+		<ModuleInfo AssemblyFile="GlobalBank.Infrastructure.Module.dll" />
+	</Modules>
+  </Section>
+  <Section Name="BranchSystems">
+	<Dependencies>
+	  <Dependency Name="Infrastructure" />
+	</Dependencies>
+	<Modules>
+	  <ModuleInfo AssemblyFile="GlobalBank.BranchSystems.Layout.dll" Name="BranchSystems.Layout"/>
+	  <ModuleInfo AssemblyFile="GlobalBank.BranchSystems.Module.dll">
+		<Dependencies>
+		  <Dependency Name="BranchSystems.Layout" />
+		</Dependencies>
+		<Roles>
+		  <Role Allow="Greeter"/>
+		  <Role Allow="Officer"/>
+		  <Role Allow="BranchManager"/>
+		</Roles>
+	  </ModuleInfo>
+	</Modules>
+  </Section>
+  <Section Name="LinesOfBusiness">
+    <Dependencies>
+	  <Dependency Name="Infrastructure" />
+      <Dependency Name="BranchSystems" />
+    </Dependencies>
+	<Modules>
+	  <ModuleInfo AssemblyFile="GlobalBank.BasicAccounts.Module.dll">
+		<Roles>
+		  <Role Allow="Officer"/>
+		  <Role Allow="BranchManager"/>
+		</Roles>
+	  </ModuleInfo>
+	  <ModuleInfo AssemblyFile="GlobalBank.CreditCardAccounts.Module.dll">
+		<Roles>
+		  <Role Allow="Officer"/>
+		  <Role Allow="BranchManager"/>
+		</Roles>
+	  </ModuleInfo>
+	</Modules>
+  </Section>
+</SolutionProfile>

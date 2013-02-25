@@ -1,0 +1,33 @@
+Imports Microsoft.Practices.CompositeUI.EventBroker
+Imports $RootNamespace$.Infrastructure.Interface
+Imports $RootNamespace$.Infrastructure.Interface.Constants
+
+Public Class ShellLayoutViewPresenter
+    Inherits Presenter(Of ShellLayoutView)
+
+    Protected Overrides Sub OnViewSet()
+        WorkItem.UIExtensionSites.RegisterSite(UIExtensionSiteNames.MainMenu, View.MainMenuStrip)
+        WorkItem.UIExtensionSites.RegisterSite(UIExtensionSiteNames.MainStatus, View.MainStatusStrip)
+        WorkItem.UIExtensionSites.RegisterSite(UIExtensionSiteNames.MainToolbar, View.MainToolbarStrip)
+    End Sub
+
+
+    ''' <summary>
+    ''' Status update handler. Updates the status strip on the main form.
+    ''' </summary>
+    ''' <param name="sender">The sender.</param>
+    ''' <param name="e">The e.</param>
+    <EventSubscription(EventTopicNames.StatusUpdate, ThreadOption.UserInterface)> _
+    Public Sub StatusUpdateHandle(ByVal sender As Object, ByVal e As EventArgs(Of String))
+        View.SetStatusLabel(e.Data)
+    End Sub
+
+    ''' <summary>
+    ''' Called when the user asks to exit the application.
+    ''' </summary>
+    Public Sub OnFileExit()
+        View.ParentForm.Close()
+    End Sub
+
+
+End Class

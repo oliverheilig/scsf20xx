@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Arguments xmlns="http://schemas.microsoft.com/pag/gax-core">
+  <Argument Name="CABDlls" Required="true" Type="System.String">
+    <ValueProvider Type="Evaluator" Expression="Microsoft.Practices.CompositeUI.dll;Microsoft.Practices.CompositeUI.WinForms.dll;Microsoft.Practices.ObjectBuilder.dll;Microsoft.Practices.CompositeUI.WPF.dll" />
+  </Argument>
+  <Argument Name="SmartClientBlocksDlls" Required="true" Type="System.String">
+    <ValueProvider Type="Evaluator" Expression="Microsoft.Practices.SmartClient.ConnectionMonitor.dll;Microsoft.Practices.SmartClient.DisconnectedAgent.dll;Microsoft.Practices.SmartClient.EndpointCatalog.dll;Microsoft.Practices.SmartClient.EnterpriseLibrary.dll" />
+  </Argument>
+  <Argument Name="CompositeUIDlls" Required="true" Type="System.String">
+    <ValueProvider Type="Evaluator" Expression="$(CABDlls);$(SmartClientBlocksDlls)" />
+  </Argument>
+  <Argument Name="EnterpriseLibraryDlls" Required="true" Type="System.String">
+    <ValueProvider Type="Evaluator" Expression="Microsoft.Practices.EnterpriseLibrary.Data.dll;Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll;Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging.dll;Microsoft.Practices.EnterpriseLibrary.Logging.dll;Microsoft.Practices.EnterpriseLibrary.Common.dll" />
+  </Argument>
+</Arguments>

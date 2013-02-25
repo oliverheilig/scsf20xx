@@ -1,0 +1,37 @@
+<VSTemplate Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name>Add Foundational Module Test (VB)</Name>
+    <Description>Creates the test project for a CAB foundational module.</Description>
+    <ProjectType>VisualBasic</ProjectType>
+    <ProjectSubType>
+    </ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>Module.Tests</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <Icon>__TemplateIcon.ico</Icon>
+    <RequiredFrameworkVersion>3.5</RequiredFrameworkVersion>
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="Module.Tests.vbproj" File="Module.Tests.vbproj.template" ReplaceParameters="true">
+      <ProjectItem ReplaceParameters="true" TargetFileName="ModuleInitializerTestFixture.vb">ModuleInitializerTestFixture.vb.template</ProjectItem>
+      <Folder Name="My Project" TargetFolderName="My Project">
+        <ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.vb">AssemblyInfo.vb.template</ProjectItem>
+      </Folder>
+      <Folder Name="Support" TargetFolderName="Support">
+        <ProjectItem ReplaceParameters="true" TargetFileName="TestableRootWorkItem.vb">TestableRootWorkItem.vb.template</ProjectItem>
+      </Folder>
+    </Project>
+  </TemplateContent>
+  <WizardExtension>
+    <Assembly>Microsoft.Practices.RecipeFramework.VisualStudio</Assembly>
+    <FullClassName>Microsoft.Practices.RecipeFramework.VisualStudio.Templates.UnfoldTemplate</FullClassName>
+  </WizardExtension>
+  <WizardData>
+    <Template xmlns="http://schemas.microsoft.com/pag/gax-template"
+			SchemaVersion="1.0">
+    </Template>
+  </WizardData>
+</VSTemplate>

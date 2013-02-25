@@ -1,0 +1,6 @@
+namespace SmartClientFactoryPackage.Tests.Mocks.MockViewFolder
+{
+	internal class MockView1
+	{
+	}
+}

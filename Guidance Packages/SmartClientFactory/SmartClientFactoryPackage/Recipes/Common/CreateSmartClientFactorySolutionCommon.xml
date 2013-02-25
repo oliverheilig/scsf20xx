@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Recipe Name="CreateSmartClientFactorySolutionCommon" >
+  <Arguments xmlns="http://schemas.microsoft.com/pag/gax-core" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <xi:include href="../Common/CommonArguments.xml"
+            xpointer="xmlns(gax=http://schemas.microsoft.com/pag/gax-core) xpointer(/gax:Arguments/gax:Argument)" />
+
+    <Argument Name="DocumentationUrl">
+      <ValueProvider Type="Evaluator" Expression="ms-help://MS.VSCC.v90/MS.VSIPCC.v90/ms.practices.scsf.2008apr/SCSF/html/02-08-050-Create_Smart_Client_Application_Next_Steps.htm"/>
+    </Argument>
+    <Argument Name="SupportLibrariesPath" Required="true" Type="System.String" >
+      <ValueProvider Type="RetrieveBlocksPathValueProvider" Stage="OnBeginRecipe"></ValueProvider>
+    </Argument>
+    <Argument Name="SolutionArgument" Type="EnvDTE.Solution, EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <Converter Type="SolutionConverter" />
+      <ValueProvider Type="Evaluator"
+              Expression="/">
+      </ValueProvider>
+    </Argument>
+    <Argument Name="ApplicationNameArgument">
+      <ValueProvider Type="Evaluator"
+              Expression="$(SolutionArgument.Properties.Item('Name').Value)">
+      </ValueProvider>
+    </Argument>
+    <Argument Name="RootNamespace" Required="true">
+      <ValueProvider Type="Evaluator" Expression="$(ApplicationNameArgument)" />
+    </Argument>
+    <Argument Name="InterfaceProject" Type="EnvDTE.Project, EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+              Required="false">
+      <ValueProvider Type="ProjectByNameProvider"
+          Name="Infrastructure.Interface" />
+    </Argument>
+    <Argument Name="LibraryProject" Type="EnvDTE.Project, EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+              Required="false">
+      <ValueProvider Type="ProjectByNameProvider"
+          Name="Infrastructure.Library" />
+    </Argument>
+    <Argument Name="ModuleProject" Type="EnvDTE.Project, EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+          Required="false">
+      <ValueProvider Type="ProjectByNameProvider"
+          Name="Infrastructure.Module" />
+    </Argument>
+    <Argument Name="InfrastructureSolutionFolder" Type="EnvDTE.Project, EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <ValueProvider Type="ProjectByNameProvider"
+          Name="Infrastructure" />
+    </Argument>
+    <Argument Name="CreateShellLayoutModule" Type="System.Boolean">
+      <ValueProvider Type="Evaluator" Expression="true" />
+    </Argument>
+    <Argument Name="UseSimpleShell" Type="System.Boolean">
+      <ValueProvider Type="Evaluator" Expression="false" />
+    </Argument>
+    
+    <Argument Name="SupportWPFViews" Type="System.Boolean">
+      <ValueProvider Type="Evaluator" Expression="false" />
+    </Argument>
+
+    <Argument Name="WorkspaceTechnology" Type="System.String">
+      <ValueProvider Type="Evaluator" Expression="WinForms" />
+    </Argument>
+    <Argument Name="ApplicationBaseClass" Type="System.String">
+      <ValueProvider Type="Evaluator" Expression="FormShellApplication" />
+    </Argument>
+
+    <Argument Name="ApplicationBaseClassNamespace" Type="System.String">
+      <ValueProvider Type="Evaluator" Expression="Microsoft.Practices.CompositeUI.WinForms" />
+    </Argument>
+    
+    <Argument Name="ShowDocumentation" Type="System.Boolean">
+      <ValueProvider Type="Evaluator" Expression="false" />
+    </Argument>
+    <Argument Name="SolutionDir" Type="System.String">
+      <ValueProvider Type="SolutionPathProvider" />
+    </Argument>
+
+    <Argument Name="CABAssembly" Type="System.String">
+      <ValueProvider Type="Evaluator"
+                     Expression="Microsoft.Practices.CompositeUI.dll"
+                     Stage="OnBeforeActions"/>
+    </Argument>
+    <Argument Name="CABWinFormsAssembly" Type="System.String">
+      <ValueProvider Type="Evaluator"
+                     Expression="Microsoft.Practices.CompositeUI.WinForms.dll"
+                     Stage="OnBeforeActions"/>
+    </Argument>
+    <Argument Name="CABWPFAssembly" Type="System.String">
+      <ValueProvider Type="Evaluator"
+                     Expression="Microsoft.Practices.CompositeUI.WPF.dll"
+                     Stage="OnBeforeActions" />
+    </Argument>
+    
+    <Argument Name="ObjectBuilderAssembly" Type="System.String">
+      <ValueProvider Type="Evaluator"
+                     Expression="Microsoft.Practices.ObjectBuilder.dll"
+                     Stage="OnBeforeActions"/>
+    </Argument>
+    <Argument Name="EntLibAssembly" Type="System.String">
+      <ValueProvider Type="Evaluator"
+                     Expression="Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll"
+                     Stage="OnBeforeActions"/>
+    </Argument>
+  </Arguments>
+
+  <!-- Folder creation & library files copy -->
+  <ActionsCopyFiles xmlns="http://schemas.microsoft.com/pag/gax-core">
+    <Action Name="CreateSolutionDirectory" Type="CreateDirectoryAction"
+      DirectoryName="Lib">
+      <Output Name="FullPath"/>
+    </Action>
+    <Action Name="CopyCABDLLs"
+        Type="FileCopyAction">
+      <Input Name="FileNames" RecipeArgument="CompositeUIDlls"/>
+      <Input Name="SourceDir" RecipeArgument="SupportLibrariesPath"/>
+      <Input Name="TargetDir" ActionOutput="CreateSolutionDirectory.FullPath"/>
+    </Action>
+    <Action Name="CopyEntLibDLLs"
+        Type="FileCopyAction">
+      <Input Name="FileNames" RecipeArgument="EnterpriseLibraryDlls"/>
+      <Input Name="SourceDir" RecipeArgument="SupportLibrariesPath"/>
+      <Input Name="TargetDir" ActionOutput="CreateSolutionDirectory.FullPath"/>
+    </Action>
+    <Action Name="CopySmartClientBlocksDLLs"
+        Type="FileCopyAction">
+      <Input Name="FileNames" RecipeArgument="SmartClientBlocksDlls"/>
+      <Input Name="SourceDir" RecipeArgument="SupportLibrariesPath"/>
+      <Input Name="TargetDir" ActionOutput="CreateSolutionDirectory.FullPath"/>
+    </Action>    
+  </ActionsCopyFiles>
+
+  <!-- Sets metadata to solution and project files-->
+  <ActionsSetMetadata xmlns="http://schemas.microsoft.com/pag/gax-core">
+  <!-- Set the Shell as the start up project -->
+  <Action Name="SetShellAsStartUp" Type="Microsoft.Practices.SmartClientFactory.Actions.SetProjectStartup, Microsoft.Practices.SmartClientFactory.GuidancePackage">
+    <Input Name="Project" ActionOutput="CreateShellProjects.ShellProject"/>
+  </Action>
+
+  <!-- Save solution constants -->
+  <Action Name="GetShellProjectGuid" Type="Microsoft.Practices.SmartClientFactory.Actions.GetProjectGuid, Microsoft.Practices.SmartClientFactory.GuidancePackage">
+    <Input Name="Project" ActionOutput="CreateShellProjects.ShellProject"/>
+    <Output Name="Guid"/>
+  </Action>
+  <Action Name="SaveShellProjectGuid" Type="Microsoft.Practices.SmartClientFactory.Actions.SetGlobalValueAction, Microsoft.Practices.SmartClientFactory.GuidancePackage"
+  PersistValue="true" ValueName="ShellProjectGuid">
+    <Input Name="Value" ActionOutput="GetShellProjectGuid.Guid"/>
+  </Action>
+  <Action Name="GetInterfaceProjectGuid" Type="Microsoft.Practices.SmartClientFactory.Actions.GetProjectGuid, Microsoft.Practices.SmartClientFactory.GuidancePackage">
+    <Input Name="Project" RecipeArgument="InterfaceProject"/>
+    <Output Name="Guid"/>
+  </Action>
+  <Action Name="SaveCommonProjectGuid" Type="Microsoft.Practices.SmartClientFactory.Actions.SetGlobalValueAction, Microsoft.Practices.SmartClientFactory.GuidancePackage"
+      PersistValue="true" ValueName="CommonProjectGuid">
+    <Input Name="Value" ActionOutput="GetInterfaceProjectGuid.Guid" />
+  </Action>
+  <Action Name="SaveRootNamespace" Type="Microsoft.Practices.SmartClientFactory.Actions.SetGlobalValueAction, Microsoft.Practices.SmartClientFactory.GuidancePackage"
+      PersistValue="true" ValueName="RootNamespace">
+    <Input Name="Value" RecipeArgument="RootNamespace"/>
+  </Action>
+  </ActionsSetMetadata>
+
+  <!-- Add projects references -->
+  <ActionsAddReferences xmlns="http://schemas.microsoft.com/pag/gax-core">
+    <Action Name="CABExpressionAction" Type="Microsoft.Practices.RecipeFramework.Extensions.Actions.General.EvaluateExpressionAction, Microsoft.Practices.RecipeFramework.Extensions"
+Expression="$(LibPath)\$(Assembly)">
+      <Input Name="LibPath" ActionOutput="CreateSolutionDirectory.FullPath" />
+      <Input Name="Assembly" RecipeArgument="CABAssembly" />
+      <Output Name="ReturnValue"/>
+    </Action>
+    <Action Name="CABWinFormsExpressionAction" Type="Microsoft.Practices.RecipeFramework.Extensions.Actions.General.EvaluateExpressionAction, Microsoft.Practices.RecipeFramework.Extensions"
+Expression="$(LibPath)\$(Assembly)">
+      <Input Name="LibPath" ActionOutput="CreateSolutionDirectory.FullPath" />
+      <Input Name="Assembly" RecipeArgument="CABWinFormsAssembly" />
+      <Output Name="ReturnValue"/>
+    </Action>
+
+    <Action Name="CABWPFExpressionAction" Type="Microsoft.Practices.RecipeFramework.Extensions.Actions.General.EvaluateExpressionAction, Microsoft.Practices.RecipeFramework.Extensions" Expression="$(LibPath)\$(Assembly)">
+      <Input Name="LibPath" ActionOutput="CreateSolutionDirectory.FullPath" />
+      <Input Name="Assembly" RecipeArgument="CABWPFAssembly" />
+      <Output Name="ReturnValue" />
+    </Action>
+    
+    <Action Name="ObjectBuilderExpressionAction" Type="Microsoft.Practices.RecipeFramework.Extensions.Actions.General.EvaluateExpressionAction, Microsoft.Practices.RecipeFramework.Extensions"
+Expression="$(LibPath)\$(Assembly)">
+      <Input Name="LibPath" ActionOutput="CreateSolutionDirectory.FullPath" />
+      <Input Name="Assembly" RecipeArgument="ObjectBuilderAssembly" />
+      <Output Name="ReturnValue"/>
+    </Action>
+
+    <Action Name="EntLibExpressionAction" Type="Microsoft.Practices.RecipeFramework.Extensions.Actions.General.EvaluateExpressionAction, Microsoft.Practices.RecipeFramework.Extensions"
+    Expression="$(LibPath)\$(Assembly)">
+      <Input Name="LibPath" ActionOutput="CreateSolutionDirectory.FullPath" />
+      <Input Name="Assembly" RecipeArgument="EntLibAssembly" />
+      <Output Name="ReturnValue"/>
+    </Action>
+    
+    <Action Name="AddCABReferenceToInterface" Type="AddAssemblyReferenceAction" >
+      <Input Name="AssemblyFilePath" ActionOutput="CABExpressionAction.ReturnValue"/>
+      <Input Name="ReferringProject" RecipeArgument="InterfaceProject"/>
+    </Action>
+    <Action Name="AddCABWinFormsReferenceToInterface" Type="AddAssemblyReferenceAction" >
+      <Input Name="AssemblyFilePath" ActionOutput="CABWinFormsExpressionAction.ReturnValue"/>
+      <Input Name="ReferringProject" RecipeArgument="InterfaceProject"/>
+    </Action>
+    <Action Name="AddObjectBuilderReferenceToInterface" Type="AddAssemblyReferenceAction" >
+      <Input Name="AssemblyFilePath" ActionOutput="ObjectBuilderExpressionAction.ReturnValue"/>
+      <Input Name="ReferringProject" RecipeArgument="InterfaceProject"/>
+    </Action>
+    <Action Name="AddEntLibReferenceToInterface" Type="AddAssemblyReferenceAction" >
+      <Input Name="AssemblyFilePath" ActionOutput="EntLibExpressionAction.ReturnValue"/>
+      <Input Name="ReferringProject" RecipeArgument="InterfaceProject"/>
+    </Action>
+    <Action Name="AddInterfaceProjectReferenceToLibrary" Type="AddProjectReferenceAction" >
+      <Input Name="ReferringProject" RecipeArgument="LibraryProject" />
+      <Input Name="ReferencedProject" RecipeArgument="InterfaceProject" />
+    </Action>
+    <Action Name="AddCABReferenceToLibrary" Type="AddAssemblyReferenceAction" >
+      <Input Name="AssemblyFilePath" ActionOutput="CABExpressionAction.ReturnValue"/>
+      <Input Name="ReferringProject" RecipeArgument="LibraryProject"/>
+    </Action>
+    <Action Name="AddCABWinFormsReferenceToLibrary" Type="AddAssemblyReferenceAction" >
+      <Input Name="AssemblyFilePath" ActionOutput="CABWinFormsExpressionAction.ReturnValue"/>
+      <Input Name="ReferringProject" RecipeArgument="LibraryProject"/>
+    </Action>
+    <Action Name="AddObjectBuilderReferenceToLibrary" Type="AddAssemblyReferenceAction" >
+      <Input Name="AssemblyFilePath" ActionOutput="ObjectBuilderExpressionAction.ReturnValue"/>
+      <Input Name="ReferringProject" RecipeArgument="LibraryProject"/>
+    </Action>
+    <Action Name="AddEntLibReferenceToLibrary" Type="AddAssemblyReferenceAction" >
+      <Input Name="AssemblyFilePath" ActionOutput="EntLibExpressionAction.ReturnValue"/>
+      <Input Name="ReferringProject" RecipeArgument="LibraryProject"/>
+    </Action>
+    <Action Name="AddInterfaceProjectReferenceToModule" Type="AddProjectReferenceAction" >
+      <Input Name="ReferringProject" RecipeArgument="ModuleProject" />
+      <Input Name="ReferencedProject" RecipeArgument="InterfaceProject" />
+    </Action>
+    <Action Name="AddCABReferenceToModule" Type="AddAssemblyReferenceAction" >
+      <Input Name="AssemblyFilePath" ActionOutput="CABExpressionAction.ReturnValue"/>
+      <Input Name="ReferringProject" RecipeArgument="ModuleProject"/>
+    </Action>
+    <Action Name="AddCABWinFormsReferenceToModule" Type="AddAssemblyReferenceAction" >
+      <Input Name="AssemblyFilePath" ActionOutput="CABWinFormsExpressionAction.ReturnValue"/>
+      <Input Name="ReferringProject" RecipeArgument="ModuleProject"/>
+    </Action>
+    <Action Name="AddObjectBuilderReferenceToModule" Type="AddAssemblyReferenceAction" >
+      <Input Name="AssemblyFilePath" ActionOutput="ObjectBuilderExpressionAction.ReturnValue"/>
+      <Input Name="ReferringProject" RecipeArgument="ModuleProject"/>
+    </Action>
+
+    <Action Name="AddInterfaceProjectReferenceToShell" Type="AddProjectReferenceAction" >
+      <Input Name="ReferringProject" ActionOutput="CreateShellProjects.ShellProject" />
+      <Input Name="ReferencedProject" RecipeArgument="InterfaceProject" />
+    </Action>
+    <Action Name="AddLibraryProjectReferenceToShell" Type="AddProjectReferenceAction" >
+      <Input Name="ReferringProject" ActionOutput="CreateShellProjects.ShellProject" />
+      <Input Name="ReferencedProject" RecipeArgument="LibraryProject" />
+    </Action>
+    <Action Name="AddInterfaceProjectReferenceToLayout" Type="AddProjectReferenceAction"
+            Condition="$(CreateShellLayoutModule)">
+      <Input Name="ReferringProject" ActionOutput="CreateShellProjects.LayoutProject" />
+      <Input Name="ReferencedProject" RecipeArgument="InterfaceProject" />
+    </Action>
+    <Action Name="AddLibraryProjectReferenceToLayout" Type="AddProjectReferenceAction"
+            Condition="$(CreateShellLayoutModule)">
+      <Input Name="ReferringProject" ActionOutput="CreateShellProjects.LayoutProject" />
+      <Input Name="ReferencedProject" RecipeArgument="LibraryProject" />
+    </Action>
+
+    <!--Set the correct assembly names-->
+    <Action Name="SetInterfaceAssemblyName" Type="Microsoft.Practices.SmartClientFactory.Actions.SetProjectAssemblyNameAction, Microsoft.Practices.SmartClientFactory.GuidancePackage">
+      <Input Name="Project" RecipeArgument="InterfaceProject" />
+      <Input Name="RootNamespace" RecipeArgument="RootNamespace" />
+    </Action>
+    <Action Name="SetLibraryAssemblyName" Type="Microsoft.Practices.SmartClientFactory.Actions.SetProjectAssemblyNameAction, Microsoft.Practices.SmartClientFactory.GuidancePackage">
+      <Input Name="Project" RecipeArgument="LibraryProject" />
+      <Input Name="RootNamespace" RecipeArgument="RootNamespace" />
+    </Action>
+    <Action Name="SetModuleAssemblyName" Type="Microsoft.Practices.SmartClientFactory.Actions.SetProjectAssemblyNameAction, Microsoft.Practices.SmartClientFactory.GuidancePackage">
+      <Input Name="Project" RecipeArgument="ModuleProject" />
+      <Input Name="RootNamespace" RecipeArgument="RootNamespace" />
+    </Action>
+    <Action Name="SetShellAssemblyName" Type="Microsoft.Practices.SmartClientFactory.Actions.SetProjectAssemblyNameAction, Microsoft.Practices.SmartClientFactory.GuidancePackage">
+      <Input Name="Project" ActionOutput="CreateShellProjects.ShellProject" />
+      <Input Name="RootNamespace" RecipeArgument="RootNamespace" />
+    </Action>
+    <Action Name="SetLayoutAssemblyName" Type="Microsoft.Practices.SmartClientFactory.Actions.SetProjectAssemblyNameAction, Microsoft.Practices.SmartClientFactory.GuidancePackage"
+    Condition="$(CreateShellLayoutModule)">
+      <Input Name="Project" ActionOutput="CreateShellProjects.LayoutProject" />
+      <Input Name="RootNamespace" RecipeArgument="RootNamespace" />
+    </Action>
+  </ActionsAddReferences>
+</Recipe>

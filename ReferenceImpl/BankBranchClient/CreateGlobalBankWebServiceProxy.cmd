@@ -1,0 +1,5 @@
+tf checkout .\Source\BasicAccounts\BasicAccounts.ServiceProxies\BasicAccounts.Proxies.cs
+wsdl /sharetypes /n:GlobalBank.BasicAccounts.ServiceProxies /o:.\Source\BasicAccounts\BasicAccounts.ServiceProxies\BasicAccounts.Proxies.cs http://localhost:54078/GlobalBankServices/AccountService.asmx
+
+tf checkout .\Source\BranchSystems\ServiceProxies\BranchSystems.Proxies.cs
+wsdl /sharetypes /n:GlobalBank.BranchSystems.ServiceProxies /o:.\Source\BranchSystems\ServiceProxies\BranchSystems.Proxies.cs http://localhost:54078/GlobalBankServices/CustomerFinder.asmx http://localhost:54078/GlobalBankServices/CustomerQueue.asmx http://localhost:54078/GlobalBankServices/AlertsService.asmx http://localhost:54078/GlobalBankServices/QuoteService.asmx http://localhost:54078/GlobalBankServices/CustomerProductsService.asmx

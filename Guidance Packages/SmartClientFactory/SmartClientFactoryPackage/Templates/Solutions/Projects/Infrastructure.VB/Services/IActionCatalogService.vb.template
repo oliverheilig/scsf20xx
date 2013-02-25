@@ -1,0 +1,34 @@
+'----------------------------------------------------------------------------------------
+' patterns & practices - Smart Client Software Factory - Guidance Package
+'
+' The IActionCatalogService defines the ability to conditionally execute code based upon 
+' aspects of a program that can change at run time 
+'
+'  
+'
+'
+' Latest version of this Guidance Package: http://go.microsoft.com/fwlink/?LinkId=62182
+'----------------------------------------------------------------------------------------
+
+Imports Microsoft.Practices.CompositeUI
+
+Namespace Services
+
+    Public Delegate Sub ActionDelegate(ByVal caller As Object, ByVal target As Object)
+
+    Public Interface IActionCatalogService
+
+        Function CanExecute(ByVal action As String) As Boolean
+        Function CanExecute(ByVal action As String, ByVal context As WorkItem, ByVal caller As Object, ByVal target As Object) As Boolean
+
+        Sub Execute(ByVal action As String, ByVal context As WorkItem, ByVal caller As Object, ByVal target As Object)
+
+        Sub RegisterSpecificCondition(ByVal action As String, ByVal actionCondition As IActionCondition)
+        Sub RegisterGeneralCondition(ByVal actionCondition As IActionCondition)
+        Sub RemoveSpecificCondition(ByVal action As String, ByVal actionCondition As IActionCondition)
+        Sub RemoveGeneralCondition(ByVal actionCondition As IActionCondition)
+
+        Sub RemoveActionImplementation(ByVal action As String)
+        Sub RegisterActionImplementation(ByVal action As String, ByVal actionDelegate As ActionDelegate)
+    End Interface
+End Namespace

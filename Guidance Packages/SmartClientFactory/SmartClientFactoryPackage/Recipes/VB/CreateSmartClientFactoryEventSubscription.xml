@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Recipe Name="AddEventSubscriptionVB" Bound="false"
+        xmlns="http://schemas.microsoft.com/pag/gax-core"
+        xmlns:xi="http://www.w3.org/2001/XInclude">
+  <xi:include href="../Common/CommonTypeAliases.xml"
+				xpointer="xmlns(gax=http://schemas.microsoft.com/pag/gax-core) xpointer(/gax:Types)" />
+  <Caption>Add Event Subscription...</Caption>
+  <Description>Adds a subscription to an event through CAB's Event Broker.</Description>
+  <HostData>
+    <CommandBar Menu="SCFItem" />
+    <CommandBar Menu="SCF1075"/>
+  </HostData>
+  <Arguments>
+    <xi:include href="../Common/CommonArguments.xml"
+					  xpointer="xmlns(gax=http://schemas.microsoft.com/pag/gax-core) xpointer(/gax:Arguments/gax:Argument)" />
+
+    <Argument Name="DocumentationUrl">
+      <ValueProvider Type="Evaluator" Expression="ms-help://MS.VSIPCC.v90/ms.practices.SCSF.2008apr/SCSF/html/02-08-130-Add_Event_Subscription_Recipe_Next_Steps.htm"/>
+    </Argument>
+    <Argument Name="ShowDocumentation" Type="System.Boolean">
+      <ValueProvider Type="Evaluator" Expression="false" />
+    </Argument><Argument Name="CurrentProject" Type="EnvDTE.Project, EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <ValueProvider Type="FirstSelectedProjectProvider" />
+    </Argument>
+    <Argument Name="CurrentClass" Type="EnvDTE.CodeClass, EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" >
+      <ValueProvider Type="Microsoft.Practices.SmartClientFactory.ValueProviders.CurrentClassProvider, Microsoft.Practices.SmartClientFactory.GuidancePackage" />
+    </Argument>
+    <Argument Name="CommonProjectGuid" Type="System.String">
+      <ValueProvider Type="Microsoft.Practices.RecipeFramework.Library.ValueProviders.GlobalValueProvider, Microsoft.Practices.RecipeFramework.Library"
+        Key="CommonProjectGuid" />
+    </Argument>
+    <Argument Name="CommonProject" Type="EnvDTE.Project, EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <ValueProvider
+        Type="Microsoft.Practices.SmartClientFactory.ValueProviders.GetProjectFromGuidProvider, Microsoft.Practices.SmartClientFactory.GuidancePackage"
+        FromArgument="CommonProjectGuid">
+        <MonitorArgument Name="CommonProjectGuid"/>
+      </ValueProvider>
+    </Argument>
+
+    <Argument Name="CommonProjectConstantsNamespace">
+      <ValueProvider Type="Evaluator" Expression="$(CommonProject.Properties.Item('DefaultNamespace').Value).Constants" />
+    </Argument>
+    <Argument Name="CurrentProjectConstantsNamespace">
+      <ValueProvider Type="Evaluator" Expression="$(CurrentProject.Properties.Item('DefaultNamespace').Value).Constants" />
+    </Argument>
+    <Argument Name="EventTopicNamesCodeClass" Type="EnvDTE.CodeClass, EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" >
+      <ValueProvider Type="Microsoft.Practices.SmartClientFactory.ValueProviders.ProjectCodeClassFromTypeNameProvider, Microsoft.Practices.SmartClientFactory.GuidancePackage"
+          TypeName="Constants.EventTopicNames" Project="CommonProject" >
+        <MonitorArgument Name="CommonProject" />
+      </ValueProvider>
+    </Argument>
+    
+    <Argument Name="ThreadOption" Type="Microsoft.Practices.SmartClientFactory.CABCompatibleTypes.ThreadOption, Microsoft.Practices.SmartClientFactory.GuidancePackage" >
+      <ValueProvider Type="Evaluator" Expression="UserInterface" />
+    </Argument>
+    <Argument Name="EventTopic" Type="System.String" Required="true" >
+    </Argument>
+    <Argument Name="EventArgs" Type="System.String">
+      <ValueProvider Type="Evaluator" Expression="System.EventArgs" />
+    </Argument>
+    <Argument Name="CABReference" Type="System.String">
+      <ValueProvider Type="Evaluator" Expression="Microsoft.Practices.CompositeUI.dll" />
+    </Argument>
+  </Arguments>
+  <GatheringServiceData>
+    <Wizard xmlns="http://schemas.microsoft.com/pag/gax-wizards" SchemaVersion="1.0" Help="ms-help://MS.VSCC.v90/MS.VSIPCC.v90/ms.practices.scsf.2008apr/SCSF/html/03-01-120-How_to_Subscribe_to_Events.htm">
+      <Pages>
+        <Page Type="Microsoft.Practices.SmartClientFactory.CustomWizardPages.CreateEventSubscriptionPage, Microsoft.Practices.SmartClientFactory.GuidancePackage">
+          <Title>Add Event Subscription...</Title>
+          <LinkTitle>Add Event Subscription properties</LinkTitle>
+        </Page>
+      </Pages>
+    </Wizard>
+  </GatheringServiceData>
+  <Actions CoordinatorServiceType="Microsoft.Practices.RecipeFramework.Extensions.Coordinators.ConditionalCoordinator, Microsoft.Practices.RecipeFramework.Extensions">
+    <!--Calculate needed values-->
+    <Action Name="CalculateHandlerMethodName" Type="Microsoft.Practices.RecipeFramework.Extensions.Actions.General.EvaluateExpressionAction, Microsoft.Practices.RecipeFramework.Extensions"
+        Expression="On$(EventTopic)">
+      <Input RecipeArgument="EventTopic" Name="EventTopic"/>
+      <Output Name="ReturnValue"/>
+    </Action>
+    <Action Name="CalculateAttributeValue" Type="Microsoft.Practices.RecipeFramework.Extensions.Actions.General.EvaluateExpressionAction, Microsoft.Practices.RecipeFramework.Extensions"
+        Expression="EventTopicNames.$(EventTopic), ThreadOption.$(ThreadOption)">
+      <Input RecipeArgument="EventTopic" Name="EventTopic"/>
+      <Input RecipeArgument="ThreadOption" Name="ThreadOption"/>
+      <Output Name="ReturnValue"/>
+    </Action>
+    <Action Name="CalculateEventArgsName" Type="Microsoft.Practices.RecipeFramework.Extensions.Actions.General.EvaluateExpressionAction, Microsoft.Practices.RecipeFramework.Extensions"
+        Expression="$(EventArgs)">
+      <Input RecipeArgument="EventArgs" Name="EventArgs"/>
+      <Output Name="ReturnValue"/>
+    </Action>
+
+    <!--Add the event handler method-->
+    <Action Name="AddEventHandler" Type="Microsoft.Practices.SmartClientFactory.Actions.AddFireMethodAction, Microsoft.Practices.SmartClientFactory.GuidancePackage"
+        Position="-1">
+      <Input Name="Class" RecipeArgument="CurrentClass"/>
+      <Input Name="MethodName" ActionOutput="CalculateHandlerMethodName.ReturnValue"/>
+      <Output Name="Method"/>
+    </Action>
+    <Action Name="AddEventArgsParameter" Type="Microsoft.Practices.SmartClientFactory.Actions.AddParameterAction, Microsoft.Practices.SmartClientFactory.GuidancePackage"
+      ParameterName="eventArgs">
+      <Input Name="ParameterType" ActionOutput="CalculateEventArgsName.ReturnValue"/>
+      <Input Name="Method" ActionOutput="AddEventHandler.Method"/>
+    </Action>
+    <Action Name="AddSenderParameter" Type="Microsoft.Practices.SmartClientFactory.Actions.AddParameterAction, Microsoft.Practices.SmartClientFactory.GuidancePackage"
+        ParameterName="sender"
+        ParameterType="System.Object">
+      <Input Name="Method" ActionOutput="AddEventHandler.Method"/>
+    </Action>
+    <Action Name="AddSubscriberAttribute" Type="Microsoft.Practices.SmartClientFactory.Actions.AddAttributeNoQuotesAction, Microsoft.Practices.SmartClientFactory.GuidancePackage"
+        AttributeName="EventSubscription">
+      <Input Name="CodeElement" ActionOutput="AddEventHandler.Method"/>
+      <Input Name="AttributeValue" ActionOutput="CalculateAttributeValue.ReturnValue"/>
+    </Action>
+
+    <!--Add needed usings-->
+    <Action Name="AddUsingForEventBroker" Type="Microsoft.Practices.SmartClientFactory.Actions.AddMissingUsingAction, Microsoft.Practices.SmartClientFactory.GuidancePackage"
+      UsingNamespace="Microsoft.Practices.CompositeUI.EventBroker">
+      <Input Name="Target" RecipeArgument="CurrentClass"/>
+    </Action>
+    <Action Name="AddUsingForConstants" Type="Microsoft.Practices.SmartClientFactory.Actions.AddUsingForEventTopicNames, Microsoft.Practices.SmartClientFactory.GuidancePackage" >
+      <Input Name="LocalUsingNamespace" RecipeArgument="CurrentProjectConstantsNamespace" />
+      <Input Name="GlobalUsingNamespace" RecipeArgument="CommonProjectConstantsNamespace" />
+      <Input Name="Target" RecipeArgument="CurrentClass"/>
+    </Action>
+
+    <Action Name="AddCommonProjectRef" Type="Microsoft.Practices.RecipeFramework.Library.Solution.Actions.AddProjectReferenceAction, Microsoft.Practices.RecipeFramework.Library">
+      <Input Name="ReferringProject" RecipeArgument="CurrentProject"/>
+      <Input Name="ReferencedProject" RecipeArgument="CommonProject"/>
+    </Action>
+    <Action Name="AddCABReference" Type="Microsoft.Practices.RecipeFramework.Library.Solution.Actions.AddReferenceAction, Microsoft.Practices.RecipeFramework.Library" >
+      <Input Name="ReferringProject" RecipeArgument="CurrentProject"/>
+      <Input Name="ReferenceName" RecipeArgument="CABReference"/>
+    </Action>
+
+    <!-- Display the HTML information page -->
+    <Action Name="ShowCreateSolutionHelp" Type="Microsoft.Practices.SmartClientFactory.Actions.ShowUrlAction, Microsoft.Practices.SmartClientFactory.GuidancePackage">
+      <Input Name="ShowDocs" RecipeArgument="ShowDocumentation"/>
+      <Input Name="Url" RecipeArgument="DocumentationUrl" />
+    </Action>
+  </Actions>
+</Recipe>

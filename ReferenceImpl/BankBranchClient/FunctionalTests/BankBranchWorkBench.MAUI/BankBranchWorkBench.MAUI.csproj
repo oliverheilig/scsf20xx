@@ -1,0 +1,103 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{44DD4789-1186-4F05-BF9C-734F2B77C834}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BankBranchWorkBench.MAUI</RootNamespace>
+    <AssemblyName>BankBranchWorkBench.MAUI</AssemblyName><FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Maui.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=0825ed996f7f8b30, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Lib\maui\Maui.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Maui.TestLog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=0825ed996f7f8b30, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Lib\maui\Maui.TestLog.dll</HintPath>
+    </Reference>
+    <Reference Include="ResourceManagerBasic, Version=1.0.2.0, Culture=neutral, PublicKeyToken=a2a7f5c5d9f1fcee, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Lib\maui\ResourceManagerBasic.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddCustomerToQueueAdapter.cs" />
+    <Compile Include="AddReasonAdapter.cs" />
+    <Compile Include="AuthenAdapter.cs" />
+    <Compile Include="BankWorkBench.cs" />
+    <Compile Include="CreditCardAdapter.cs" />
+    <Compile Include="CustomerSummaryAdapter.cs" />
+    <Compile Include="Entities\AccountSummary.cs" />
+    <Compile Include="Entities\AlertSummary.cs" />
+    <Compile Include="Entities\CreditCardSummary.cs" />
+    <Compile Include="Entities\CustomerResult.cs" />
+    <Compile Include="PurchaseCDAdapter.cs" />
+    <Compile Include="ResourceNames\Authen.cs" />
+    <Compile Include="ResourceNames\CreditCard.cs" />
+    <Compile Include="ResourceNames\CustomerSummary.cs" />
+    <Compile Include="ResourceNames\PurchaseCD.cs" />
+    <Compile Include="ResourceNames\RightPane.cs" />
+    <Compile Include="RightPaneAdapter.cs" />
+    <Compile Include="WindowNotFoundException.cs" />
+    <Compile Include="FindCustomerResultsAdapter.cs" />
+    <Compile Include="FindCustomerAdapter.cs" />
+    <Compile Include="Common\MAUIUtilities.cs" />
+    <Compile Include="Common\Utilities.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResourceNames\AddCustomerToQueue.cs" />
+    <Compile Include="ResourceNames\AddReason.cs" />
+    <Compile Include="ResourceNames\FindCustomerResults.cs" />
+    <Compile Include="ResourceNames\FindCustomer.cs" />
+    <Compile Include="ResourceNames\Shell.cs" />
+    <Compile Include="ShellAdapter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Source\Infrastructure\Shell\Shell.csproj">
+      <Project>{8C6D1E03-AFA6-4A22-B0BB-A0E988EF9642}</Project>
+      <Name>Shell</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

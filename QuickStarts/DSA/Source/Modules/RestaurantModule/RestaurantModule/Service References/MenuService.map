@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceReference>
+	<ProxyGenerationParameters
+		ServiceReferenceUri="http://localhost:8080/QuickStart.RestaurantService.Host/MenuService"
+		Name="MenuService"
+		NotifyPropertyChange="False"
+		UseObservableCollection="False">
+	</ProxyGenerationParameters>
+	<EndPoints>
+		<EndPoint
+			Address="http://localhost:8080/QuickStart.RestaurantService.Host/MenuService"
+			BindingConfiguration="WSHttpBinding_IMenuService"
+			Contract="QuickStart.RestaurantModule.RestaurantService.IMenuService"
+			>
+		</EndPoint>
+	</EndPoints>
+</ServiceReference>

@@ -1,0 +1,32 @@
+<VSTemplate Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name>Shell.Layout</Name>
+    <Description>Shell Layout</Description>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>
+    </ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>Shell.Layout</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <Icon>__TemplateIcon.ico</Icon>
+    <RequiredFrameworkVersion>3.5</RequiredFrameworkVersion>
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="Shell.Layout.csproj" File="Shell.Layout.csproj.template" ReplaceParameters="true">
+      <ProjectItem ReplaceParameters="true" TargetFileName="Module.cs">Module.cs.template</ProjectItem>
+      <Folder Name="Properties" TargetFolderName="Properties">
+        <ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.cs">AssemblyInfo.cs.template</ProjectItem>
+      </Folder>
+      <ProjectItem ReplaceParameters="true" TargetFileName="ShellLayoutView.cs">ShellLayoutView.cs.template</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="ShellLayoutView.resx">ShellLayoutView.resx</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="ShellLayoutViewPresenter.cs">ShellLayoutViewPresenter.cs.template</ProjectItem>			
+		</Project>
+  </TemplateContent>
+	<WizardExtension>
+		<Assembly>Microsoft.Practices.RecipeFramework.VisualStudio</Assembly>
+		<FullClassName>Microsoft.Practices.RecipeFramework.VisualStudio.Templates.UnfoldTemplate</FullClassName>
+	</WizardExtension>
+</VSTemplate>

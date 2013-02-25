@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Types xmlns="http://schemas.microsoft.com/pag/gax-core">
+  <!--ValueProviders-->
+  <TypeAlias Name="Evaluator" Type="Microsoft.Practices.RecipeFramework.Library.ValueProviders.ExpressionEvaluatorValueProvider, Microsoft.Practices.RecipeFramework.Library" />
+  <TypeAlias Name="RegistrySearch" Type="Microsoft.Practices.RecipeFramework.Extensions.ValueProviders.OS.LocalMachineEntryProvider, Microsoft.Practices.RecipeFramework.Extensions" />
+  <TypeAlias Name="ProjectByNameProvider" Type="Microsoft.Practices.RecipeFramework.Extensions.ValueProviders.VisualStudio.ProjectByNameProvider, Microsoft.Practices.RecipeFramework.Extensions" />
+  <TypeAlias Name="RefCreator" Type="Microsoft.Practices.RecipeFramework.Library.Actions.CreateUnboundReferenceAction, Microsoft.Practices.RecipeFramework.Library"/>
+  <TypeAlias Name="CodeClassProvider" Type="Microsoft.Practices.RecipeFramework.Library.CodeModel.ValueProviders.CodeClassProvider, Microsoft.Practices.RecipeFramework.Library"/>
+  <TypeAlias Name="FirstSelectedProjectProvider" Type="Microsoft.Practices.RecipeFramework.Extensions.ValueProviders.VisualStudio.FirstSelectedProjectProvider, Microsoft.Practices.RecipeFramework.Extensions"/>
+  <TypeAlias Name="CurrentItemProvider" Type="Microsoft.Practices.RecipeFramework.Extensions.ValueProviders.VisualStudio.CurrentItemProvider, Microsoft.Practices.RecipeFramework.Extensions" />
+  <TypeAlias Name="SolutionPathProvider" Type="Microsoft.Practices.RecipeFramework.Extensions.ValueProviders.VisualStudio.SolutionPathProvider, Microsoft.Practices.RecipeFramework.Extensions" />
+  <TypeAlias Name="IsNotNullProvider" Type="Microsoft.Practices.RecipeFramework.Extensions.ValueProviders.General.IsNotNullProvider, Microsoft.Practices.RecipeFramework.Extensions" />
+ 
+  <TypeAlias Name="ConditionalValueProvider" Type="Microsoft.Practices.SmartClientFactory.ValueProviders.ConditionalValueProvider, Microsoft.Practices.SmartClientFactory.GuidancePackage" />
+  <TypeAlias Name="TernaryOperationValueProvider" Type="Microsoft.Practices.SmartClientFactory.ValueProviders.TernaryOperationValueProvider, Microsoft.Practices.SmartClientFactory.GuidancePackage" />
+  <TypeAlias Name="RetrieveBlocksPathValueProvider" Type="Microsoft.Practices.SmartClientFactory.ValueProviders.RetrieveBlocksPathValueProvider, Microsoft.Practices.SmartClientFactory.GuidancePackage" />
+  <!--Converters-->
+  <TypeAlias Name="ProjectConverter" Type="Microsoft.Practices.RecipeFramework.Library.Converters.ProjectConverter, Microsoft.Practices.RecipeFramework.Library" />
+  <TypeAlias Name="SolutionConverter" Type="Microsoft.Practices.RecipeFramework.Library.Converters.SolutionConverter, Microsoft.Practices.RecipeFramework.Library" />
+  <!--Actions-->
+  <TypeAlias Name="CreateDirectoryAction" Type="Microsoft.Practices.RecipeFramework.Extensions.Actions.OS.CreateDirectoryAction, Microsoft.Practices.RecipeFramework.Extensions" />
+  <TypeAlias Name="FileCopyAction" Type="Microsoft.Practices.RecipeFramework.Extensions.Actions.OS.FileCopyAction, Microsoft.Practices.RecipeFramework.Extensions" />
+  <TypeAlias Name="TextTemplateAction" Type="Microsoft.Practices.RecipeFramework.VisualStudio.Library.Templates.TextTemplateAction, Microsoft.Practices.RecipeFramework.VisualStudio.Library" />
+  <TypeAlias Name="AddItemFromStringToProjectItemAction" Type="Microsoft.Practices.RecipeFramework.Extensions.Actions.VisualStudio.AddItemFromStringToProjectItemAction, Microsoft.Practices.RecipeFramework.Extensions" />
+  <TypeAlias Name="EvaluatorAction" Type="Microsoft.Practices.RecipeFramework.Extensions.Actions.General.EvaluateExpressionAction, Microsoft.Practices.RecipeFramework.Extensions" />
+  <TypeAlias Name="AddAssemblyReferenceAction" Type="Microsoft.Practices.RecipeFramework.Extensions.Actions.VisualStudio.AddAssemblyReferenceAction, Microsoft.Practices.RecipeFramework.Extensions" />
+  <TypeAlias Name="AddProjectReferenceAction" Type="Microsoft.Practices.RecipeFramework.Extensions.Actions.VisualStudio.AddProjectReferenceAction, Microsoft.Practices.RecipeFramework.Extensions" />
+</Types>

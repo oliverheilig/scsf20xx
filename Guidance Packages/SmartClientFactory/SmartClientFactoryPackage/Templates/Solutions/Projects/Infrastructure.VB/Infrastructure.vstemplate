@@ -1,0 +1,62 @@
+<VSTemplate Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name>Infrastructure module interface</Name>
+    <Description>Infrastructure module interface</Description>
+    <ProjectType>VisualBasic</ProjectType>
+    <ProjectSubType>
+    </ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>Int</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <Icon>__TemplateIcon.ico</Icon>
+    <RequiredFrameworkVersion>3.5</RequiredFrameworkVersion>
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="Infrastructure.Interface.vbproj" File="Infrastructure.vbproj.template" ReplaceParameters="true">
+      <ProjectItem ReplaceParameters="true" TargetFileName="ActionAttribute.vb">ActionAttribute.vb.template</ProjectItem>
+      <Folder Name="BusinessEntities" TargetFolderName="BusinessEntities" />
+      <Folder Name="Constants" TargetFolderName="Constants">
+        <ProjectItem ReplaceParameters="true" TargetFileName="CommandNames.vb">CommandNames.vb.template</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="EventTopicNames.vb">EventTopicNames.vb.template</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="UIExtensionSiteNames.vb">UIExtensionSiteNames.vb.template</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="WorkspaceNames.vb">WorkspaceNames.vb.template</ProjectItem>
+      </Folder>
+      <ProjectItem ReplaceParameters="true" TargetFileName="ControlledWorkItem.vb">ControlledWorkItem.vb.template</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="EventArgs.vb">EventArgs.vb.template</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="IWorkItemController.vb">IWorkItemController.vb.template</ProjectItem>
+      <Folder Name="My Project" TargetFolderName="My Project">
+        <ProjectItem ReplaceParameters="true" TargetFileName="Application.myapp">Application.myapp.template</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Application.Designer.vb">Application.Designer.vb.template</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.vb">AssemblyInfo.vb.template</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Resources.resx">Resources.resx</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Resources.Designer.vb">Resources.Designer.vb.template</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Settings.settings">Settings.settings.template</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Settings.Designer.vb">Settings.Designer.vb.template</ProjectItem>
+      </Folder>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Presenter.vb">Presenter.vb.template</ProjectItem>
+      <Folder Name="Services" TargetFolderName="Services">
+        <ProjectItem ReplaceParameters="true" TargetFileName="EntityTranslatorException.vb">EntityTranslatorException.vb.template</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="IActionCatalogService.vb">IActionCatalogService.vb.template</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="IActionCondition.vb">IActionCondition.vb.template</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="IEntityTranslator.vb">IEntityTranslator.vb.template</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="IEntityTranslatorService.vb">IEntityTranslatorService.vb.template</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="IImpersonationContext.vb">IImpersonationContext.vb.template</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="IImpersonationService.vb">IImpersonationService.vb.template</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="IWorkspaceLocatorService.vb">IWorkspaceLocatorService.vb.template</ProjectItem>
+      </Folder>
+      <ProjectItem ReplaceParameters="true" TargetFileName="WorkItemController.vb">WorkItemController.vb.template</ProjectItem>
+    </Project>
+  </TemplateContent>
+  <WizardExtension>
+    <Assembly>Microsoft.Practices.RecipeFramework.VisualStudio</Assembly>
+    <FullClassName>Microsoft.Practices.RecipeFramework.VisualStudio.Templates.UnfoldTemplate</FullClassName>
+  </WizardExtension>
+  <WizardData>
+    <Template xmlns="http://schemas.microsoft.com/pag/gax-template"
+			SchemaVersion="1.0">
+    </Template>
+  </WizardData>
+</VSTemplate>

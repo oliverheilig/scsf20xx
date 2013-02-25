@@ -1,0 +1,29 @@
+Imports Microsoft.Practices.CompositeUI
+Imports Microsoft.Practices.ObjectBuilder
+Imports $RootNamespace$.Infrastructure.Interface.Constants
+Imports $RootNamespace$.Infrastructure.Library.UI
+
+Public Class ModuleInitializer
+    Inherits ModuleInit
+
+    Private _rootWorkItem As WorkItem
+
+    <InjectionConstructor()> _
+    Sub New(<ServiceDependency()> ByVal rootWorkItem As WorkItem)
+        _rootWorkItem = rootWorkItem
+    End Sub
+
+    Public Overrides Sub Load()
+        MyBase.Load()
+
+        ' Add layout view to the shell
+
+        Dim _shellLayout As ShellLayoutView = _rootWorkItem.Items.AddNew(Of ShellLayoutView)()
+        _rootWorkItem.Workspaces(WorkspaceNames.LayoutWorkspace).Show(_shellLayout)
+
+        ' Add window workspace to be used for modal windows
+        Dim wsp As New WindowWorkspace(_shellLayout.ParentForm)
+        _rootWorkItem.Workspaces.Add(wsp, WorkspaceNames.ModalWindows)
+    End Sub
+
+End Class

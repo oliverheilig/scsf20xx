@@ -1,0 +1,73 @@
+<VSTemplate Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name>Infrastructure.Library</Name>
+    <Description>Infrastructure Library</Description>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>
+    </ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>Library</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <Icon>__TemplateIcon.ico</Icon>
+    <RequiredFrameworkVersion>3.5</RequiredFrameworkVersion>
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="Infrastructure.Library.csproj" File="Library.csproj.template" ReplaceParameters="true">
+      <Folder Name="EntLib" TargetFolderName="EntLib">
+        <ProjectItem ReplaceParameters="true" TargetFileName="EventTopicExceptionFormatter.cs">EventTopicExceptionFormatter.cs.template</ProjectItem>
+      </Folder>
+			<Folder Name="BuilderStrategies" TargetFolderName="BuilderStrategies">
+				<ProjectItem ReplaceParameters="true" TargetFileName="ActionStrategy.cs">ActionStrategy.cs.template</ProjectItem>
+			</Folder>
+			<Folder Name="EntityTranslators" TargetFolderName="EntityTranslators">
+				<ProjectItem ReplaceParameters="true" TargetFileName="BaseTranslator.cs">BaseTranslator.cs.template</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="EntityMapperTranslator.cs">EntityMapperTranslator.cs.template</ProjectItem>
+			</Folder>
+      <Folder Name="Properties" TargetFolderName="Properties">
+        <ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.cs">AssemblyInfo.cs.template</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Resources.resx">Resources.resx</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Resources.Designer.cs">Resources.Designer.cs.template</ProjectItem>
+      </Folder>
+      <Folder Name="Services" TargetFolderName="Services">
+				<ProjectItem ReplaceParameters="true" TargetFileName="ActionCatalogService.cs">ActionCatalogService.cs.template</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="ActionCatalogException.cs">ActionCatalogException.cs.template</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="DependentModuleInfo.cs">DependentModuleInfo.cs.template</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="DependentModuleLoaderService.cs">DependentModuleLoaderService.cs.template</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="EntityTranslatorService.cs">EntityTranslatorService.cs.template</ProjectItem>				
+				<ProjectItem ReplaceParameters="true" TargetFileName="IDependentModuleInfo.cs">IDependentModuleInfo.cs.template</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="IModuleInfoStore.cs">IModuleInfoStore.cs.template</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="IProfileCatalogService.cs">IProfileCatalogService.cs.template</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="ISolutionProfileParser.cs">ISolutionProfileParser.cs.template</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="ModuleMetadataReflectionHelper.cs">ModuleMetadataReflectionHelper.cs.template</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="ProfileCatalogModuleInfoStore.cs">ProfileCatalogModuleInfoStore.cs.template</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="SolutionProfileV1Parser.cs">SolutionProfileV1Parser.cs.template</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="SolutionProfileV2Parser.cs">SolutionProfileV2Parser.cs.template</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="WebServiceCatalogModuleInfoStore.cs">WebServiceCatalogModuleInfoStore.cs.template</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="WorkspaceLocatorService.cs">WorkspaceLocatorService.cs.template</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="XmlStreamDependentModuleEnumerator.cs">XmlStreamDependentModuleEnumerator.cs.template</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="XmlValidationHelper.cs">XmlValidationHelper.cs.template</ProjectItem>
+      </Folder>
+			<Folder Name="UI" TargetFolderName="UI">
+				<ProjectItem ReplaceParameters="true" TargetFileName="WindowSmartpartInfo.cs">WindowSmartpartInfo.cs.template</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="WindowWorkspace.cs">WindowWorkspace.cs.template</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="WindowWorkspaceSetting.cs">WindowWorkspaceSetting.cs.template</ProjectItem>
+			</Folder>
+			<ProjectItem ReplaceParameters="true" TargetFileName="SolutionProfileV1.xsd">SolutionProfileV1.xsd</ProjectItem>
+			<ProjectItem ReplaceParameters="true" TargetFileName="SolutionProfileV1.cs">SolutionProfileV1.cs</ProjectItem>
+			<ProjectItem ReplaceParameters="true" TargetFileName="SolutionProfileV2.xsd">SolutionProfileV2.xsd</ProjectItem>
+			<ProjectItem ReplaceParameters="true" TargetFileName="SolutionProfileV2.cs">SolutionProfileV2.cs</ProjectItem>
+			<Folder Name="Web References" TargetFolderName="Web References" />
+		</Project>
+	</TemplateContent>
+	<WizardExtension>
+		<Assembly>Microsoft.Practices.RecipeFramework.VisualStudio</Assembly>
+		<FullClassName>Microsoft.Practices.RecipeFramework.VisualStudio.Templates.UnfoldTemplate</FullClassName>
+	</WizardExtension>
+	<WizardData>
+		<Template xmlns="http://schemas.microsoft.com/pag/gax-template" SchemaVersion="1.0">
+		</Template>
+	</WizardData>
+</VSTemplate>

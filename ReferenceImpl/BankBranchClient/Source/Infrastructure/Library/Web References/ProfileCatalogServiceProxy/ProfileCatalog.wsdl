@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://schemas.microsoft.com/pag/cab-profile-service/1.0" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://schemas.microsoft.com/pag/cab-profile-service/1.0" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/pag/cab-profile-service/1.0">
+      <s:element name="GetProfileCatalog">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="roles" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetProfileCatalogResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProfileCatalogResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetProfileCatalogSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProfileCatalog" />
+  </wsdl:message>
+  <wsdl:message name="GetProfileCatalogSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProfileCatalogResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ProfileCatalogSoap">
+    <wsdl:operation name="GetProfileCatalog">
+      <wsdl:input message="tns:GetProfileCatalogSoapIn" />
+      <wsdl:output message="tns:GetProfileCatalogSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ProfileCatalogSoap" type="tns:ProfileCatalogSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetProfileCatalog">
+      <soap:operation soapAction="http://schemas.microsoft.com/pag/cab-profile-service/1.0/GetProfileCatalog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ProfileCatalogSoap12" type="tns:ProfileCatalogSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetProfileCatalog">
+      <soap12:operation soapAction="http://schemas.microsoft.com/pag/cab-profile-service/1.0/GetProfileCatalog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ProfileCatalog">
+    <wsdl:port name="ProfileCatalogSoap" binding="tns:ProfileCatalogSoap">
+      <soap:address location="http://localhost:54092/ProfileCatalogServices/ProfileCatalog.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ProfileCatalogSoap12" binding="tns:ProfileCatalogSoap12">
+      <soap12:address location="http://localhost:54092/ProfileCatalogServices/ProfileCatalog.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

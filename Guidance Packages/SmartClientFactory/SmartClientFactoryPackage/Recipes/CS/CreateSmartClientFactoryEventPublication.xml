@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Recipe Name="AddEventPublicationCS" Bound="false"
+        xmlns="http://schemas.microsoft.com/pag/gax-core"
+        xmlns:xi="http://www.w3.org/2001/XInclude">
+  <xi:include href="../Common/CommonTypeAliases.xml"
+				xpointer="xmlns(gax=http://schemas.microsoft.com/pag/gax-core) xpointer(/gax:Types)" />
+  <Caption>Add Event Publication...</Caption>
+  <Description>Adds a publication of an event through CAB's Event Broker.</Description>
+  <HostData>
+    <CommandBar Menu="SCFItem" />
+    <CommandBar Menu="SCF1075"/>
+  </HostData>
+  <Arguments>
+    <xi:include href="../Common/CreateSmartClientFactoryEventPublicationCommon.xml"
+					  xpointer="xmlns(gax=http://schemas.microsoft.com/pag/gax-core) 
+            xpointer(/Recipe/gax:Arguments/gax:Argument)" />
+
+    <Argument Name="CalculatedDelegateName" Type="System.String">
+      <ValueProvider Type="Evaluator" Expression="System.EventHandler&lt;$(EventArgs)&gt;"
+                     Stage="OnBeforeActions">
+        <MonitorArgument Name="EventArgs" />
+      </ValueProvider>
+    </Argument>
+  </Arguments>
+  <GatheringServiceData>
+    <Wizard xmlns="http://schemas.microsoft.com/pag/gax-wizards" SchemaVersion="1.0" Help="ms-help://MS.VSCC.v90/MS.VSIPCC.v90/ms.practices.scsf.2008apr/SCSF/html/03-01-110-How_to_Publish_Events.htm">
+      <Pages>
+        <Page Type="Microsoft.Practices.SmartClientFactory.CustomWizardPages.CreateEventPublicationPage, Microsoft.Practices.SmartClientFactory.GuidancePackage, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+          <Title>Add Event Publication</Title>
+          <LinkTitle>Add Event Publication properties</LinkTitle>
+        </Page>
+      </Pages>
+    </Wizard>
+  </GatheringServiceData>
+  <Actions CoordinatorServiceType="Microsoft.Practices.RecipeFramework.Extensions.Coordinators.ConditionalCoordinator, Microsoft.Practices.RecipeFramework.Extensions">
+    <xi:include href="../Common/CreateSmartClientFactoryEventPublicationCommon.xml"
+					  xpointer="xmlns(gax=http://schemas.microsoft.com/pag/gax-core) 
+            xpointer(/Recipe/gax:Actions/gax:Action)" />
+
+    <!-- Display the HTML information page -->
+    <Action Name="ShowCreateSolutionHelp" Type="Microsoft.Practices.SmartClientFactory.Actions.ShowUrlAction, Microsoft.Practices.SmartClientFactory.GuidancePackage">
+      <Input Name="ShowDocs" RecipeArgument="ShowDocumentation"/>
+      <Input Name="Url" RecipeArgument="DocumentationUrl" />
+    </Action>
+  </Actions>
+</Recipe>

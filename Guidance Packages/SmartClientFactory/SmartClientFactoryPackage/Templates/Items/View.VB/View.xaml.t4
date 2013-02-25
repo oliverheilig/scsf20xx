@@ -1,0 +1,19 @@
+<#@ template language="C#" #>
+<#@ assembly name="System.dll" #>
+<#@ property processor="PropertyProcessor" name="ClassName" #>
+<#@ property processor="PropertyProcessor" name="TargetNamespace" #>
+
+<UserControl x:Class="<#= ClassName #>"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+      <Label Grid.Row="0" Grid.Column="0" Content="Place your controls here" />
+    </Grid>
+</UserControl>

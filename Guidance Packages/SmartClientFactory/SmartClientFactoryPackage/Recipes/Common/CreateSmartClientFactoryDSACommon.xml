@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Recipe Name="CreateDisconnectedServiceAgentCommon">
+  <Arguments xmlns="http://schemas.microsoft.com/pag/gax-core">
+
+    <Argument Name="DocumentationUrl">
+      <ValueProvider Type="Evaluator" Expression="ms-help://MS.VSCC.v90/MS.VSIPCC.v90/ms.practices.scsf.2008apr/SCSF/html/02-08-100-Add_Disconnected_Service_Agent_Recipe_Next_Steps.htm"/>
+    </Argument>
+    <Argument Name="ShowDocumentation" Type="System.Boolean">
+      <ValueProvider Type="Evaluator" Expression="false" />
+    </Argument>
+    <Argument Name="ShellProjectGuid" Type="System.String">
+      <ValueProvider Type="Microsoft.Practices.RecipeFramework.Library.ValueProviders.GlobalValueProvider, Microsoft.Practices.RecipeFramework.Library"
+        Key="ShellProjectGuid" />
+    </Argument>
+    <Argument Name="ShellProject" Type="EnvDTE.Project, EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <ValueProvider
+        Type="Microsoft.Practices.SmartClientFactory.ValueProviders.GetProjectFromGuidProvider, Microsoft.Practices.SmartClientFactory.GuidancePackage"
+        FromArgument="ShellProjectGuid">
+        <MonitorArgument Name="ShellProjectGuid"/>
+      </ValueProvider>
+    </Argument>
+    
+    <Argument Name="SelectedProjectItem" Type="EnvDTE.ProjectItem, EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" Required="false">
+      <ValueProvider Type="CurrentItemProvider"/>
+    </Argument>
+    <Argument Name="BuildFailThrowsException" Type="System.Boolean">
+      <ValueProvider Type="Evaluator"
+                     Expression="false" />
+    </Argument>
+    <Argument Name="Built" Type="System.Boolean">
+      <ValueProvider Type="Microsoft.Practices.SmartClientFactory.ValueProviders.BuiltSolutionValueProvider, Microsoft.Practices.SmartClientFactory.GuidancePackage" 
+                     ThrowException="$(BuildFailThrowsException)"/>
+    </Argument>
+    <Argument Name="ProxyType" Type="System.Type">
+      <ValueProvider Type="Microsoft.Practices.SmartClientFactory.ValueProviders.ProxyTypeValueProvider, Microsoft.Practices.SmartClientFactory.GuidancePackage">
+        <MonitorArgument Name="Built"/>
+      </ValueProvider>
+		</Argument>
+    <Argument Name="OriginalTypeMethods" Type="System.Collections.Generic.List`1[[System.Reflection.MethodInfo]]">
+      <ValueProvider Type="Microsoft.Practices.SmartClientFactory.ValueProviders.TypeMethodsValueProvider, Microsoft.Practices.SmartClientFactory.GuidancePackage"
+                     CurrentType="ProxyType">
+        <MonitorArgument Name="ProxyType"/>
+      </ValueProvider>
+    </Argument>
+    <Argument Name="ProxyTechnology" Type="Microsoft.Practices.SmartClientFactory.ValueProviders.ProxyTechnology, Microsoft.Practices.SmartClientFactory.GuidancePackage">
+      <ValueProvider Type="Microsoft.Practices.SmartClientFactory.ValueProviders.ProxyTechnologyValueProvider, Microsoft.Practices.SmartClientFactory.GuidancePackage"
+                     ProxyType="$(ProxyType)">
+        <MonitorArgument Name="ProxyType"/>
+      </ValueProvider>
+    </Argument>
+    <Argument Name="Operations" Type="System.Collections.Generic.List`1[[System.String]]" Required="false">
+      <ValueProvider Type="Microsoft.Practices.SmartClientFactory.ValueProviders.WsdlOperationsValueProvider, Microsoft.Practices.SmartClientFactory.GuidancePackage"
+                     CurrentItem="$(SelectedProjectItem)" OriginalTypeMethods="$(OriginalTypeMethods)" ProxyTechnology="$(ProxyTechnology)">
+      </ValueProvider>
+    </Argument>
+
+    <Argument Name="ServiceAgentMethods" Type="System.Collections.Generic.List`1[[System.Reflection.MethodInfo]]">
+      <ValueProvider Type="Evaluator" Expression="$(OriginalTypeMethods)" >
+        <MonitorArgument Name="OriginalTypeMethods"/>
+      </ValueProvider>
+    </Argument>
+    <Argument Name="Behaviors" Type="Microsoft.Practices.SmartClientFactory.MethodBehaviors, Microsoft.Practices.SmartClientFactory.GuidancePackage" Required="false" />
+    <Argument Name="Endpoint" Type="System.String" >
+      <ValueProvider Type="Microsoft.Practices.SmartClientFactory.ValueProviders.EmptyStringValueProvider, Microsoft.Practices.SmartClientFactory.GuidancePackage" />
+    </Argument>
+    <Argument Name="Expiration" Type="System.Nullable`1[[System.TimeSpan]]" Required="false">
+      <ValueProvider Type="Evaluator" Expression="01.00:00:00" />
+    </Argument>
+    <Argument Name="MaxRetries" Type="System.Int32">
+      <ValueProvider Type="Evaluator" Expression="3" />
+    </Argument>
+    <Argument Name="Stamps" Type="System.Int32">
+      <ValueProvider Type="Evaluator" Expression="1" />
+    </Argument>
+		<Argument Name="Tag" Required="false" />
+    <Argument Name="Address" Type="System.String" Required="false">
+      <ValueProvider Type="Microsoft.Practices.SmartClientFactory.ValueProviders.ProxyAddressValueProvider, Microsoft.Practices.SmartClientFactory.GuidancePackage"
+                     ProxyType="$(ProxyType)"
+                     SelectedItem="$(SelectedProjectItem)">
+        <MonitorArgument Name="ProxyType"/>
+      </ValueProvider>
+    </Argument>
+    <Argument Name="SolutionPath" Type="System.String">
+      <ValueProvider Type="SolutionPathProvider"
+                     />
+    </Argument>
+    <Argument Name="ProxyTypeName" Type="System.String">
+      <ValueProvider Type="Evaluator"
+                     Expression="$(ProxyType.Name)">
+        <MonitorArgument Name="ProxyType"/>
+      </ValueProvider>
+    </Argument>
+    <Argument Name="ProxyFactoryTypeFullName" Type="System.String">
+      <ValueProvider Type="Microsoft.Practices.SmartClientFactory.ValueProviders.ProxyFactoryValueProvider, Microsoft.Practices.SmartClientFactory.GuidancePackage" 
+                     TypeExpression="$(ProxyType)"
+                     LanguageExpression="$(RecipeLanguage)">
+        <MonitorArgument Name="ProxyType"/>
+        <MonitorArgument Name="RecipeLanguage"/>
+      </ValueProvider>
+    </Argument>
+    <Argument Name="TargetNamespace" Type="System.String">
+      <ValueProvider Type="Evaluator"
+                     Expression="$(TempNamespace).$(ProxyTypeName)"
+                     Stage="OnBeforeActions"/>
+    </Argument>    
+    <Argument Name="DisconnectedAgentsFolder" Type="System.String">
+      <ValueProvider Type="Evaluator" 
+                     Expression="DSA" 
+                     />
+    </Argument>
+    <Argument Name="ProxyFolder" Type="System.String">
+      <ValueProvider Type="Evaluator"
+                     Expression="$(ProxyTypeName)"
+                     >
+        <MonitorArgument Name="ProxyType"/>
+      </ValueProvider>
+    </Argument>
+    <Argument Name="FolderPath" Type="System.String">
+      <ValueProvider Type="Evaluator" 
+                     Expression="$(DisconnectedAgentsFolder)\$(ProxyFolder)" 
+                     Stage="OnBeforeActions"/>
+    </Argument>
+     <Argument Name="LibPath" Type="System.String">
+      <ValueProvider Type="Evaluator" 
+                     Expression="$(SolutionPath)\Lib" 
+                     Stage="OnBeforeActions"/>
+    </Argument>
+    <Argument Name="DisconnectedBlockAssembly" Type="System.String">
+      <ValueProvider Type="Evaluator" 
+                     Expression="Microsoft.Practices.SmartClient.DisconnectedAgent.dll" 
+                     Stage="OnBeforeActions"/>
+    </Argument>
+  </Arguments>
+  <ActionsAddItemsAndReferences xmlns="http://schemas.microsoft.com/pag/gax-core">>
+    <!-- Add items to project -->
+    <Action Name="AddAgent" Type="Microsoft.Practices.SmartClientFactory.Actions.AddItemFromStringAction, Microsoft.Practices.SmartClientFactory.GuidancePackage"
+				Open="True" Overwrite="False"
+				Path="$(AgentFileName)">
+      <Input Name="Content" ActionOutput="RenderAgent.Content" />
+      <Input Name="OwnerProject" RecipeArgument="CurrentProject"/>
+    </Action>
+    <Action Name="AddAgentCallback" Type="Microsoft.Practices.SmartClientFactory.Actions.AddItemFromStringAction, Microsoft.Practices.SmartClientFactory.GuidancePackage"
+    Open="True" Overwrite="False"
+    Path="$(AgentCallbackFileName)">
+      <Input Name="Content" ActionOutput="RenderAgentCallback.Content" />
+      <Input Name="OwnerProject" RecipeArgument="CurrentProject"/>
+    </Action>
+    <Action Name="AddAgentCallbackBase" Type="Microsoft.Practices.SmartClientFactory.Actions.AddItemFromStringAction, Microsoft.Practices.SmartClientFactory.GuidancePackage"
+				Open="False" Overwrite="False"
+				Path="$(AgentCallbackBaseFileName)">
+			<Input Name="Content" ActionOutput="RenderAgentCallbackBase.Content" />
+			<Input Name="OwnerProject" RecipeArgument="CurrentProject"/>
+		</Action>
+
+    <!-- Add a reference to the DSA Block -->
+    <Action Name="ReferenceExpressionAction" Type="Microsoft.Practices.RecipeFramework.Extensions.Actions.General.EvaluateExpressionAction, Microsoft.Practices.RecipeFramework.Extensions"
+    Expression="$(LibPath)\$(DisconnectedBlockAssembly)">
+      <Input RecipeArgument="LibPath" Name="LibPath"/>
+      <Input RecipeArgument="DisconnectedBlockAssembly" Name="DisconnectedBlockAssembly"/>
+      <Output Name="ReturnValue"/>
+    </Action>
+    <Action Name="AddDisconnectedAgentReference" Type="AddAssemblyReferenceAction" >
+      <Input Name="AssemblyFilePath" ActionOutput="ReferenceExpressionAction.ReturnValue"/>
+      <Input Name="ReferringProject" RecipeArgument="CurrentProject"/>
+    </Action>
+  </ActionsAddItemsAndReferences>
+
+  <!-- Updates app.config with Network info -->
+  <ActionsUpdateAppConfig  xmlns="http://schemas.microsoft.com/pag/gax-core">
+    <Action Name="GetAppconfig" Type="Microsoft.Practices.SmartClientFactory.Actions.GetProjectItemAction, Microsoft.Practices.SmartClientFactory.GuidancePackage">
+      <Input Name="Project" RecipeArgument="ShellProject"/>
+      <Input Name="ItemName" RecipeArgument="AppConfigFileName"/>
+      <Output Name="ProjectItem"/>
+    </Action>
+
+    <Action Name="LoadXml" Type="Microsoft.Practices.RecipeFramework.Library.XML.Actions.LoadXmlAction, Microsoft.Practices.RecipeFramework.Library">
+      <Input Name="ProjectItem" ActionOutput="GetAppconfig.ProjectItem"/>
+      <Output Name="XmlDoc"/>
+    </Action>
+    <Action Name="AddNetworkSectionAction" Type="Microsoft.Practices.SmartClientFactory.Actions.AddNetworkSectionAction, Microsoft.Practices.SmartClientFactory.GuidancePackage">
+      <Input Name="XmlDoc" ActionOutput="LoadXml.XmlDoc"/>
+    </Action>
+    <Action Name="AddEndpointSectionAction" Type="Microsoft.Practices.SmartClientFactory.Actions.AddEndpointSectionAction, Microsoft.Practices.SmartClientFactory.GuidancePackage">
+      <Input Name="XmlDoc" ActionOutput="LoadXml.XmlDoc"/>
+      <Input Name="Endpoint" RecipeArgument="Endpoint"/>
+      <Input Name="Address" RecipeArgument="Address"/>
+    </Action>
+    <Action Name="SaveXml" Type="Microsoft.Practices.RecipeFramework.Library.XML.Actions.SaveXmlAction, Microsoft.Practices.RecipeFramework.Library">
+      <Input Name="ProjectItem" ActionOutput="GetAppconfig.ProjectItem"/>
+      <Input Name="XmlDoc" ActionOutput="LoadXml.XmlDoc"/>
+    </Action>
+  </ActionsUpdateAppConfig>
+</Recipe>
+

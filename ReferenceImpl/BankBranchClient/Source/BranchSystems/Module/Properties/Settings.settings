@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="GlobalBank.BranchSystems.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="CustomerQueueWebServiceUrl" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:54078/GlobalBankServices/CustomerQueue.asmx</Value>
+    </Setting>
+    <Setting Name="QuotesWebServiceUrl" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:54078/GlobalBankServices/QuoteService.asmx</Value>
+    </Setting>
+    <Setting Name="AlertsWebServiceUrl" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:54078/GlobalBankServices/AlertsService.asmx</Value>
+    </Setting>
+    <Setting Name="CustomerFinderWebServiceUrl" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:54078/GlobalBankServices/CustomerFinder.asmx</Value>
+    </Setting>
+    <Setting Name="ProductsWebServiceUrl" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:54078/GlobalBankServices/CustomerProductsService.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

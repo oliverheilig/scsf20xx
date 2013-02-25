@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Position ID="1"  Title="President">
+  <Position ID="2" Title="CEO">
+    <Position ID="3" Title="Sales Manager" />
+    <Position ID="4" Title="HR Manager" Status="Opened" />
+  </Position>
+  <Position ID="5" Title="CTO">
+    <Position ID="6" Title="Development Manager"/>
+  </Position>
+</Position>

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Blocks", "Blocks", "{C1F8A37E-DB2F-47F8-918F-F6C93337269F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickStarts.EndpointCatalog", "EndpointCatalog\QuickStarts.EndpointCatalog.csproj", "{C90A667E-2AB0-4F3A-BD71-445C4DEEB034}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartClient.EndpointCatalog", "..\..\Blocks\Offline\Source\EndpointCatalog\SmartClient.EndpointCatalog.csproj", "{24AC4E61-922C-45E5-A298-7B0578840D8D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C90A667E-2AB0-4F3A-BD71-445C4DEEB034}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C90A667E-2AB0-4F3A-BD71-445C4DEEB034}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C90A667E-2AB0-4F3A-BD71-445C4DEEB034}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C90A667E-2AB0-4F3A-BD71-445C4DEEB034}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24AC4E61-922C-45E5-A298-7B0578840D8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24AC4E61-922C-45E5-A298-7B0578840D8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24AC4E61-922C-45E5-A298-7B0578840D8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24AC4E61-922C-45E5-A298-7B0578840D8D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{24AC4E61-922C-45E5-A298-7B0578840D8D} = {C1F8A37E-DB2F-47F8-918F-F6C93337269F}
+	EndGlobalSection
+EndGlobal

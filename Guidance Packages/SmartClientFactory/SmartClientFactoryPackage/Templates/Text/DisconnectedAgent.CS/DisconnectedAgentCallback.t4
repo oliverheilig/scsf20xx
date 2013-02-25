@@ -1,0 +1,66 @@
+<#@ Template Language="C#" #>
+<#@ Assembly Name="System.dll" #>
+<#@ Assembly Name = "Microsoft.Practices.SmartClientFactory.GuidancePackage.dll" #>
+<#@ Import Namespace="System" #>
+<#@ Import Namespace="System.Collections.Generic" #>
+<#@ Import Namespace="System.Reflection" #>
+<#@ Import Namespace="System.Text" #>
+<#@ Import Namespace="Microsoft.Practices.SmartClientFactory" #>
+<#@ Import Namespace="Microsoft.Practices.SmartClientFactory.Converters" #>
+<#@ property processor="PropertyProcessor" Name="ProxyType" #>
+<#@ property processor="PropertyProcessor" Name="MethodsList" #>
+<#@ property processor="PropertyProcessor" Name="Behaviors" #>
+<#@ property processor="PropertyProcessor" Name="TargetNamespace" #>
+<#
+	List<MethodInfo> methods = ProxyMethodsConverter.GetMethods(this.ProxyType, this.MethodsList);
+#>
+using Microsoft.Practices.SmartClient.DisconnectedAgent;
+<#= RenderImports(methods) #>
+namespace <#= this.TargetNamespace #>
+{
+	// Generated code for the web service.
+	// Use this proxy to make requests to the service when working in an application that is occasionally connected
+    public class Callback : CallbackBase
+    {
+<# 
+	MethodBehaviors behaviors = AgentTemplateHelper.BuildBehaviors(this.ProxyType, this.Behaviors, this.MethodsList);
+	Dictionary<string, int> overloadedMethods = new Dictionary<string, int>();
+
+	foreach (MethodBehavior behavior in behaviors)
+	{
+		string paramDeclarations = GetParameterDeclarations(behavior.Method.GetParameters());
+		string paramReferences = GetParameterReferences(behavior.Method.GetParameters());
+
+		bool hasOverloads=AgentTemplateHelper.HasOverloadedMethods(behavior.Method.Name, behaviors);
+		string OnReturnMethodName=String.Format("On{0}Return",behavior.Method.Name);
+		string OnExceptionMethodName=String.Format("On{0}Exception",behavior.Method.Name);
+
+		if (hasOverloads)
+		{
+			int overloadedMethodCount=AgentTemplateHelper.GetOverloadedMethodCount(behavior.Method.Name, overloadedMethods);
+			OnReturnMethodName=String.Format("On{0}{1}Return",behavior.Method.Name,overloadedMethodCount);
+			OnExceptionMethodName=String.Format("On{0}{1}Exception",behavior.Method.Name,overloadedMethodCount);
+		}
+#>
+		#region <#= behavior.Method.Name #>
+	
+		public override void <#= OnReturnMethodName #>(Request request, object[] parameters<#
+			if (behavior.Method.ReturnType != typeof(void))
+			{ 
+				#>, <#= behavior.Method.ReturnType.Name #> returnValue<#
+			} #>)
+		{
+			throw new NotImplementedException();
+		}
+
+		public override OnExceptionAction <#= OnExceptionMethodName #>(Request request, Exception ex)
+		{
+			throw new NotImplementedException("Not implemented", ex);
+		}
+		
+		#endregion <#= behavior.Method.Name #>
+		
+<# } #>
+	}
+}
+<#@ Include File="Templates\Text\DisconnectedAgent.CS\DisconnectedAgentHelpers.cs.t4" #>

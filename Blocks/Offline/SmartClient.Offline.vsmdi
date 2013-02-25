@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Tests>
+  <edtdocversion branch="retail" build="50727" revision="42" />
+  <TestCategory type="Microsoft.VisualStudio.TestTools.Common.TestCategory">
+    <id type="Microsoft.VisualStudio.TestTools.Common.TestCategoryId">
+      <id type="System.Guid">8c43106b-9dc1-4907-a29f-aa66a61bf5b6</id>
+    </id>
+    <name type="System.String">Lists of Tests</name>
+    <description type="System.String" />
+    <enabled type="System.Boolean">True</enabled>
+    <parentCategoryId type="Microsoft.VisualStudio.TestTools.Common.TestCategoryId">
+      <id type="System.Guid">00000000-0000-0000-0000-000000000000</id>
+    </parentCategoryId>
+    <runConfiguration type="Microsoft.VisualStudio.TestTools.Common.Link">
+      <id type="System.Guid">6daa2bde-5975-4c7c-95df-1a7f4ddb79f9</id>
+      <name type="System.String">Local Test Run</name>
+      <storage type="System.String">localtestrun.testrunconfig</storage>
+      <type type="System.Type, mscorlib">Microsoft.VisualStudio.TestTools.Common.TestRunConfiguration</type>
+      <enabled type="System.Boolean">True</enabled>
+    </runConfiguration>
+  </TestCategory>
+  <TestCategory type="Microsoft.VisualStudio.TestTools.Common.TestCategory">
+    <id type="Microsoft.VisualStudio.TestTools.Common.TestCategoryId">
+      <id type="System.Guid">8c84fa94-04c1-424b-9868-57a2d4851a1d</id>
+    </id>
+    <name type="System.String">Tests Not in a List</name>
+    <description type="System.String" />
+    <enabled type="System.Boolean">True</enabled>
+    <parentCategoryId type="Microsoft.VisualStudio.TestTools.Common.TestCategoryId">
+      <id type="System.Guid">00000000-0000-0000-0000-000000000000</id>
+    </parentCategoryId>
+    <testLinks type="System.Collections.Hashtable">
+      <key type="System.Guid">3a0ffa40-7c1f-70af-30de-fc5ab201a833</key>
+      <value type="Microsoft.VisualStudio.TestTools.Common.Link">
+        <id type="System.Guid">3a0ffa40-7c1f-70af-30de-fc5ab201a833</id>
+        <name type="System.String">MessagesInQueueSurviveApplicationRestart</name>
+        <storage type="System.String">blocks\unittests\disconnectedagent.tests\bin\debug\smartclient.disconnectedagent.tests.dll</storage>
+        <type type="System.Type, mscorlib">Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</type>
+        <enabled type="System.Boolean">True</enabled>
+      </value>
+    </testLinks>
+  </TestCategory>
+</Tests>

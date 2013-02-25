@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Recipe Name="CreateSmartClientFactorySolutionCS" xmlns="http://schemas.microsoft.com/pag/gax-core" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <xi:include href="../Common/CommonTypeAliases.xml"
+				xpointer="xmlns(gax=http://schemas.microsoft.com/pag/gax-core) xpointer(/gax:Types)" />
+  <Caption>Creates a new Smart Client Solution</Caption>
+  <Description>Creates a new Smart Client Solution</Description>
+  <Arguments>
+    <xi:include href="../Common/CreateSmartClientFactorySolutionCommon.xml"
+					  xpointer="xmlns(gax=http://schemas.microsoft.com/pag/gax-core) 
+            xpointer(/Recipe/gax:Arguments/gax:Argument)" />
+    <Argument Name="RecipeLanguage" Type="System.String">
+      <ValueProvider Type="Evaluator" Expression="CS"></ValueProvider>
+    </Argument>
+
+    <Argument Name="ShellDesignerFile" Type="System.String">
+      <ValueProvider Type="Evaluator" Expression="ShellForm.Designer.cs" />
+    </Argument>
+    <Argument Name="LayoutFormDesignerFile" Type="System.String">
+      <ValueProvider Type="Evaluator" Expression="ShellLayoutView.Designer.cs" />
+    </Argument>
+    <Argument Name="ApplicationClassFile" Type="System.String">
+      <ValueProvider Type="Evaluator" Expression="SmartClientApplication.cs" />
+    </Argument>
+    
+  </Arguments>
+  <GatheringServiceData>
+    <Wizard xmlns="http://schemas.microsoft.com/pag/gax-wizards" SchemaVersion="1.0" Help="ms-help://MS.VSCC.v90/MS.VSIPCC.v90/ms.practices.scsf.2008apr/SCSF/html/03-01-010-How_to_Create_Smart_Client_Solutions.htm">
+      <Pages>
+        <Page Type="Microsoft.Practices.SmartClientFactory.CustomWizardPages.SolutionPropertiesPage, Microsoft.Practices.SmartClientFactory.GuidancePackage">
+          <Title>Create Smart Client Solution</Title>
+          <LinkTitle>Solution properties</LinkTitle>
+        </Page>
+      </Pages>
+    </Wizard>
+  </GatheringServiceData>
+  <Actions CoordinatorServiceType="Microsoft.Practices.RecipeFramework.Extensions.Coordinators.ConditionalCoordinator, Microsoft.Practices.RecipeFramework.Extensions">
+    <!-- Folder creation & library files copy -->
+    <xi:include href="../Common/CreateSmartClientFactorySolutionCommon.xml"
+					  xpointer="xmlns(gax=http://schemas.microsoft.com/pag/gax-core) 
+            xpointer(/Recipe/gax:ActionsCopyFiles/gax:Action)" />
+    
+    <!-- Unfold the shell and layout projects -->
+    <Action Name="CreateShellProjects" Type="Microsoft.Practices.SmartClientFactory.Actions.CreateShellProjectAction, Microsoft.Practices.SmartClientFactory.GuidancePackage"
+        BasicShellTemplate="Solutions\Projects\Shell.Basic.CS\Shell.vstemplate"
+        ExtendedShellTemplate="Solutions\Projects\Shell.Extended.CS\Shell.vstemplate"
+        LayoutTemplate="Solutions\Projects\Shell.LayoutModule.CS\Shell.Layout.vstemplate"
+        ShellProjectName="Shell"
+        LayoutProjectName="Infrastructure.Layout"
+        LibraryProjectName="Infrastructure.Library"
+        DestinationDirectory="Source\Infrastructure">
+      <Input Name="UseExtendedShell" RecipeArgument="CreateShellLayoutModule"/>
+      <Input Name="Root" RecipeArgument="InfrastructureSolutionFolder"/>
+      <Input Name="SupportWPFViews" RecipeArgument="SupportWPFViews" />
+      <Input Name="LibPath" ActionOutput="CreateSolutionDirectory.FullPath" />
+      <Input Name="CABWPFAssembly" RecipeArgument="CABWPFAssembly" />
+      <Output Name="ShellProject"/>
+      <Output Name="LayoutProject"/>
+      <Output Name="LibraryProject"/>
+    </Action>
+
+    <!-- Create the designer file for the shell project -->
+    <Action Name="GenerateShellFormDesigner" 
+      Condition="$(UseSimpleShell)"
+      Type="TextTemplateAction"
+      Template="Items\Shell.Basic.CS\ShellForm.Designer.cs.t4">
+      <Input Name="RootNamespace" RecipeArgument="RootNamespace" />
+      <Input Name="WorkspaceTechnology" RecipeArgument="WorkspaceTechnology" />
+      <Output Name="Content"/>
+    </Action>
+
+    <Action Name="GenerateLayoutFormDesigner"
+      Condition="$(CreateShellLayoutModule)"
+      Type="TextTemplateAction"
+      Template="Items\Shell.LayoutModule.CS\ShellLayoutView.Designer.cs.t4">
+      <Input Name="RootNamespace" RecipeArgument="RootNamespace" />
+      <Input Name="WorkspaceTechnology" RecipeArgument="WorkspaceTechnology" />
+      <Output Name="Content" />
+    </Action>
+    
+    <!-- Add designer to shell project -->
+    <Action Name="AddShellDesigner" 
+      Condition="$(UseSimpleShell)"
+      Type="Microsoft.Practices.RecipeFramework.Extensions.Actions.VisualStudio.AddItemFromStringToProjectItemByNameAction, Microsoft.Practices.RecipeFramework.Extensions" 
+      Open="false">
+      <Input Name="Content" ActionOutput="GenerateShellFormDesigner.Content" />
+      <Input Name="TargetFileName" RecipeArgument="ShellDesignerFile" />
+      <Input Name="Project" ActionOutput="CreateShellProjects.ShellProject" />
+    </Action>
+
+    <Action Name="AddLayoutFormDesigner"
+      Condition="$(CreateShellLayoutModule)"
+      Type="Microsoft.Practices.RecipeFramework.Extensions.Actions.VisualStudio.AddItemFromStringToProjectItemByNameAction, Microsoft.Practices.RecipeFramework.Extensions" 
+      Open="false">
+      <Input Name="Content" ActionOutput="GenerateLayoutFormDesigner.Content" />
+      <Input Name="TargetFileName" RecipeArgument="LayoutFormDesignerFile" />
+      <Input Name="Project" ActionOutput="CreateShellProjects.LayoutProject" />
+    </Action>
+      
+    <!-- Add Application class -->
+    <Action Name="GenerateApplicationClass"
+      Type="TextTemplateAction"
+      Template="Items\Library.CS\SmartClientApplication.cs.t4">
+      <Input Name="RootNamespace" RecipeArgument="RootNamespace" />
+      <Input Name="ApplicationBaseClass" RecipeArgument="ApplicationBaseClass" />
+      <Input Name="ApplicationBaseClassNamespace" RecipeArgument="ApplicationBaseClassNamespace" />
+      <Output Name="Content" />
+    </Action>
+
+    <Action Name="AddApplicationClass"
+      Type="Microsoft.Practices.RecipeFramework.Extensions.Actions.VisualStudio.AddItemFromStringToProjectItemByNameAction, Microsoft.Practices.RecipeFramework.Extensions"
+      Open="false">
+      <Input Name="Content" ActionOutput="GenerateApplicationClass.Content" />
+      <Input Name="TargetFileName" RecipeArgument="ApplicationClassFile" />
+      <Input Name="Project" ActionOutput="CreateShellProjects.LibraryProject" />
+    </Action>
+    
+    <!-- Sets metadata to solution and project files-->
+    <xi:include href="../Common/CreateSmartClientFactorySolutionCommon.xml"
+					  xpointer="xmlns(gax=http://schemas.microsoft.com/pag/gax-core) 
+            xpointer(/Recipe/gax:ActionsSetMetadata/gax:Action)" />
+
+    <!-- Add projects references -->
+    <xi:include href="../Common/CreateSmartClientFactorySolutionCommon.xml"
+					  xpointer="xmlns(gax=http://schemas.microsoft.com/pag/gax-core) 
+            xpointer(/Recipe/gax:ActionsAddReferences/gax:Action)" />
+
+    <!-- Display the HTML information page -->
+    <Action Name="ShowCreateSolutionHelp" Type="Microsoft.Practices.SmartClientFactory.Actions.ShowUrlAction, Microsoft.Practices.SmartClientFactory.GuidancePackage">
+      <Input Name="ShowDocs" RecipeArgument="ShowDocumentation"/>
+      <Input Name="Url" RecipeArgument="DocumentationUrl" />
+    </Action>
+  </Actions>
+</Recipe>

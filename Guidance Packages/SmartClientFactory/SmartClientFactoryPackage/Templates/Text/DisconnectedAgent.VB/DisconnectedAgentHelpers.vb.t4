@@ -1,0 +1,45 @@
+<#+ 	
+	public string GetReturnType(Type type)
+	{
+		return type == typeof(void) ? "void" : type.Name;	
+	}
+
+	public string GetParameterDeclarations(ParameterInfo[] parameters)
+	{
+		List<string> listParamDeclarations = new List<string>();
+		foreach (ParameterInfo parameter in parameters)
+		{
+		   listParamDeclarations.Add("ByVal " + parameter.Name + " As " + parameter.ParameterType.Name.Replace("[]", "()"));
+		}
+
+		return String.Join(", ", listParamDeclarations.ToArray());
+	}
+
+	public string GetParameterReferences(ParameterInfo[] parameters)
+	{
+		List<string> listParamReferences = new List<string>();
+		foreach (ParameterInfo parameter in parameters)
+		{
+		   listParamReferences.Add(parameter.Name);
+		}
+
+		return String.Join(", ", listParamReferences.ToArray());
+	}
+	
+	public string RenderImports(List<MethodInfo> usedMethods)
+	{
+		List<string> imports = AgentTemplateHelper.BuildImports(usedMethods);
+		if (!imports.Contains("System"))
+		{
+			imports.Add("System");
+		}
+		StringBuilder sb = new StringBuilder();
+		foreach (string import in imports)
+		{ 
+			sb.Append("Imports ").Append(import).Append(Environment.NewLine);
+		}	
+		
+		return sb.ToString();
+	}
+	
+#>

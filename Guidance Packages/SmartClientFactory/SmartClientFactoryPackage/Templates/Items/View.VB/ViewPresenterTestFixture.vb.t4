@@ -1,0 +1,55 @@
+<#@ Template Language="C#" #>
+<#@ Assembly name="System.dll" #>
+<#@ Import Namespace="System" #>
+<#@ property processor="PropertyProcessor" name="ModuleName" #>
+<#@ property processor="PropertyProcessor" name="ViewName" #>
+<#@ property processor="PropertyProcessor" name="ModuleNamespace" #>
+<#@ property processor="PropertyProcessor" name="ModuleTestProjectNamespace" #>
+Imports System
+Imports System.Text
+Imports System.Collections.Generic
+Imports Microsoft.VisualStudio.TestTools.UnitTesting
+Imports <#= this.ModuleNamespace #>
+
+Namespace Views
+
+    ''' <summary>
+    ''' Summary description for <#= this.ViewName #>PresenterTestFixture
+    ''' </summary>
+    <TestClass()> _
+    Public Class <#= this.ViewName #>PresenterTestFixture
+    
+        Public Sub New()
+        End Sub
+
+        #Region "Additional test attributes"
+        '
+        ' You can use the following additional attributes as you write your tests:
+        '
+        ' Use ClassInitialize to run code before running the first test in the class
+        ' <ClassInitialize()> _
+        ' Public Shared Sub MyClassInitialize(testContext As TestContext)
+        '  End Sub
+        '
+        ' Use ClassCleanup to run code after all tests in a class have run
+        ' <ClassCleanup()> _
+        ' Public Shared Sub MyClassCleanup()
+        ' End Sub
+        '
+        ' Use TestInitialize to run code before running each test 
+        ' <TestInitialize()> _
+        ' Public Sub MyTestInitialize()
+        ' End Sub
+        '
+        ' Use TestCleanup to run code after each test has run
+        ' <TestCleanup()> _
+        ' Public Sub MyTestCleanup()
+        ' End Sub
+        #End Region     
+    End Class
+    
+    Class Mock<#= this.ViewName #>
+		implements I<#= this.ViewName #>
+
+    End Class
+End Namespace

@@ -1,0 +1,186 @@
+<#@ Template Language="C#" #>
+<#@ Assembly Name="System.dll" #>
+<#@ Assembly Name = "Microsoft.Practices.SmartClientFactory.GuidancePackage.dll" #>
+<#@ Import Namespace="System" #>
+<#@ Import Namespace="System.Collections.Generic" #>
+<#@ Import Namespace="System.Reflection" #>
+<#@ Import Namespace="System.Text" #>
+<#@ Import Namespace="Microsoft.Practices.SmartClientFactory" #>
+<#@ Import Namespace="Microsoft.Practices.SmartClientFactory.Converters" #>
+<#@ property processor="PropertyProcessor" Name="ProxyType" #>
+<#@ property processor="PropertyProcessor" Name="ProxyFactoryTypeFullName" #>
+<#@ property processor="PropertyProcessor" Name="MethodsList" #>
+<#@ property processor="PropertyProcessor" Name="TargetNamespace" #>
+<#@ property processor="PropertyProcessor" Name="Behaviors" #>
+<#@ property processor="PropertyProcessor" Name="Endpoint" #>
+<#@ property processor="PropertyProcessor" Name="Expiration" #>
+<#@ property processor="PropertyProcessor" Name="MaxRetries" #>
+<#@ property processor="PropertyProcessor" Name="Stamps" #>
+<#@ property processor="PropertyProcessor" Name="Tag" #>
+using Microsoft.Practices.SmartClient.DisconnectedAgent;
+<#= RenderImports(ProxyMethodsConverter.GetMethods(this.ProxyType, this.MethodsList)) #>
+namespace <#= this.TargetNamespace #>
+{
+	// Generated code for the web service.
+	// Use this proxy to make requests to the service when working in an application that is occasionally connected
+    public partial class Agent
+    {
+		IRequestQueue requestQueue;
+
+		public Agent(IRequestQueue requestQueue)
+		{
+			this.requestQueue = requestQueue;
+		}
+<# 
+	MethodBehaviors behaviors = AgentTemplateHelper.BuildBehaviors(this.ProxyType, this.Behaviors, this.MethodsList);
+	Dictionary<string, int> overloadedMethods = new Dictionary<string, int>();
+
+	foreach (MethodBehavior behavior in behaviors)
+	{
+		string paramDeclarations = GetParameterDeclarations(behavior.Method.GetParameters());
+		string paramReferences = GetParameterReferences(behavior.Method.GetParameters());
+
+		bool hasOverloads=AgentTemplateHelper.HasOverloadedMethods(behavior.Method.Name, behaviors);
+		string GetDefaultBehaviorMethodName=String.Format("Get{0}DefaultBehavior",behavior.Method.Name);
+		string OnReturnMethodName=String.Format("On{0}Return",behavior.Method.Name);
+		string OnExceptionMethodName=String.Format("On{0}Exception",behavior.Method.Name);
+
+		if (hasOverloads)
+		{
+			int overloadedMethodCount=AgentTemplateHelper.GetOverloadedMethodCount(behavior.Method.Name, overloadedMethods);
+			GetDefaultBehaviorMethodName=String.Format("Get{0}{1}DefaultBehavior",behavior.Method.Name,overloadedMethodCount);
+			OnReturnMethodName=String.Format("On{0}{1}Return",behavior.Method.Name,overloadedMethodCount);
+			OnExceptionMethodName=String.Format("On{0}{1}Exception",behavior.Method.Name,overloadedMethodCount);
+		}
+#>
+	
+		#region <#= behavior.Method.Name #>
+
+		/// <summary>
+		/// Enqueues a request to the <c><#= behavior.Method.Name #></c> web service method through the agent.
+		/// </summary>
+		/// <returns>The unique identifier associated with the request that was enqueued.</returns>
+		public Guid <#= behavior.Method.Name #>(<#= paramDeclarations #>)
+		{
+			return <#= behavior.Method.Name #>(<#= paramReferences.Length == 0 ? "" : paramReferences + ", " #><#= GetDefaultBehaviorMethodName #>());
+		}
+		
+		/// <summary>
+		/// Enqueues a request to the <c><#= behavior.Method.Name #></c> web service method through the agent.
+		/// </summary>
+		/// <param name="behavior">The behavior associated with the offline request being enqueued.</param>
+		/// <returns>The unique identifier associated with the request that was enqueued.</returns>
+		public Guid <#= behavior.Method.Name #>(<#= paramDeclarations.Length == 0 ? "" : paramDeclarations + ", " #>OfflineBehavior behavior)
+		{
+			behavior.ReturnCallback = new CommandCallback(typeof(Callback), "<#= OnReturnMethodName #>");
+			behavior.ExceptionCallback = new CommandCallback(typeof(Callback), "<#= OnExceptionMethodName #>");
+		
+			return EnqueueRequest("<#= behavior.Method.Name #>", behavior<#= paramReferences.Length == 0 ? "" : ", " + paramReferences #>);
+		}
+
+		public static OfflineBehavior <#= GetDefaultBehaviorMethodName #>()
+		{
+			OfflineBehavior behavior = GetAgentDefaultBehavior();
+			behavior.ReturnCallback = new CommandCallback(typeof(Callback), "<#= OnReturnMethodName #>");
+			behavior.ExceptionCallback = new CommandCallback(typeof(Callback), "<#= OnExceptionMethodName #>");
+			
+<#	if (behavior.IsOverride)
+	{ #>
+<#
+		if (behavior.MaxRetries.HasValue) 
+		{ #>
+			behavior.MaxRetries = <#= behavior.MaxRetries #>;
+		<# }
+		if (behavior.Stamps.HasValue) 
+		{ #>
+			behavior.Stamps = <#= behavior.Stamps #>;
+		<# }
+		if (behavior.Expiration.HasValue) 
+		{ 
+		  #>
+			behavior.Expiration = DateTime.Now + new TimeSpan(<#= behavior.Expiration.Value.Days #>,<#= behavior.Expiration.Value.Hours #>,<#= behavior.Expiration.Value.Minutes #>,<#= behavior.Expiration.Value.Seconds #>);
+		<# } #>
+<#
+	} // end if (behavior.IsOverride)
+#>
+			return behavior;
+	}		
+
+		#endregion <#= behavior.Method.Name #>
+<# 
+	} // end foreach (MethodBehavior behavior in behaviors)
+#>
+	
+		#region Common
+
+		public static OfflineBehavior GetAgentDefaultBehavior()
+		{
+			OfflineBehavior behavior = new OfflineBehavior();
+			behavior.MaxRetries = <#= this.MaxRetries #>;
+			behavior.Stamps = <#= this.Stamps #>;<#
+		  if (this.Tag != null) 
+		  { #>
+			
+			behavior.Tag = "<#= this.Tag #>";<#
+		  }
+		  if (this.Expiration.HasValue) 
+		  { #>
+			
+			behavior.Expiration = DateTime.Now + new TimeSpan(<#= this.Expiration.Value.Days #>,<#= this.Expiration.Value.Hours #>,<#= this.Expiration.Value.Minutes #>,<#= this.Expiration.Value.Seconds #>);<#
+		  } #>
+
+			behavior.ProxyFactoryType = typeof(<#= this.ProxyFactoryTypeFullName #>);
+			
+			return behavior;
+		}
+
+		private Guid EnqueueRequest(string methodName, OfflineBehavior behavior, params object[] arguments)
+		{
+			Request request = CreateRequest(methodName, behavior, arguments);
+			
+			requestQueue.Enqueue(request);
+			
+			return request.RequestId;
+		}
+
+		private static Request CreateRequest(string methodName, OfflineBehavior behavior, params object[] arguments)
+		{
+			Request request = new Request();
+			request.MethodName = methodName;
+			request.Behavior = behavior;
+			request.CallParameters = arguments;
+
+			request.OnlineProxyType = OnlineProxyType;
+			request.Endpoint = Endpoint;
+			
+			return request;
+		}
+
+        public static Type OnlineProxyType
+        {
+            get
+            {
+                return typeof(<#= this.ProxyType.FullName #>);
+            }
+        }
+
+        public static string Endpoint
+        {
+            get
+            {
+            <# if (this.Endpoint.Equals(String.Empty))
+            {#>
+				return String.Empty;
+            <#
+            }
+            else
+            {
+            #>
+                return "<#= this.Endpoint #>";
+            <#}#>
+            }
+        }
+		#endregion
+    }
+}
+<#@ Include File="Templates\Text\DisconnectedAgent.CS\DisconnectedAgentHelpers.cs.t4" #>

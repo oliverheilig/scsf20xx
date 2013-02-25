@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Recipe Name="CreateBusinessModuleCommon">
+  <Arguments xmlns="http://schemas.microsoft.com/pag/gax-core" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <xi:include href="../Common/CommonArguments.xml"
+					  xpointer="xmlns(gax=http://schemas.microsoft.com/pag/gax-core) 
+            xpointer(/gax:Arguments/gax:Argument)" />
+
+    <Argument Name="DocumentationUrl">
+      <ValueProvider Type="Evaluator" Expression="ms-help://MS.VSCC.v90/MS.VSIPCC.v90/ms.practices.scsf.2008apr/SCSF/html/02-08-060-Add_Business_Module_Next_Steps.htm"/>
+    </Argument>
+    <Argument Name="ShowDocumentation" Type="System.Boolean">
+      <ValueProvider Type="Evaluator" Expression="false" />
+    </Argument>
+    <Argument Name="CreateModuleInterfaceLibrary" Type="System.Boolean">
+      <ValueProvider Type="Evaluator" Expression="true" />
+    </Argument>
+    <Argument Name="CreateTestProject" Type="System.Boolean">
+      <ValueProvider Type="Evaluator" Expression="false" />
+    </Argument>
+    <Argument Name="ModuleName">
+      <ValueProvider Type="Microsoft.Practices.RecipeFramework.Library.Templates.ValueProviders.ItemNameProvider, Microsoft.Practices.RecipeFramework.Library"/>
+    </Argument>
+    <Argument Name="ShellProjectGuid" Type="System.String">
+      <ValueProvider Type="Microsoft.Practices.RecipeFramework.Library.ValueProviders.GlobalValueProvider, Microsoft.Practices.RecipeFramework.Library"
+        Key="ShellProjectGuid" />
+    </Argument>
+    <Argument Name="CommonProjectGuid" Type="System.String">
+      <ValueProvider Type="Microsoft.Practices.RecipeFramework.Library.ValueProviders.GlobalValueProvider, Microsoft.Practices.RecipeFramework.Library"
+        Key="CommonProjectGuid" />
+    </Argument>
+    <Argument Name="ShellProject" Type="EnvDTE.Project, EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <ValueProvider
+        Type="Microsoft.Practices.SmartClientFactory.ValueProviders.GetProjectFromGuidProvider, Microsoft.Practices.SmartClientFactory.GuidancePackage"
+        FromArgument="ShellProjectGuid">
+        <MonitorArgument Name="ShellProjectGuid"/>
+      </ValueProvider>
+    </Argument>
+    <Argument Name="CommonProject" Type="EnvDTE.Project, EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <ValueProvider
+        Type="Microsoft.Practices.SmartClientFactory.ValueProviders.GetProjectFromGuidProvider, Microsoft.Practices.SmartClientFactory.GuidancePackage"
+        FromArgument="CommonProjectGuid">
+        <MonitorArgument Name="CommonProjectGuid"/>
+      </ValueProvider>
+    </Argument>
+    <Argument Name="ModuleProject" Type="EnvDTE.Project, EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <Converter Type="ProjectConverter" />
+      <ValueProvider Type="Microsoft.Practices.RecipeFramework.Extensions.ValueProviders.VisualStudio.FirstSelectedProjectProvider, Microsoft.Practices.RecipeFramework.Extensions" />
+    </Argument>
+    <Argument Name="RootNamespace">
+      <ValueProvider Type="Microsoft.Practices.RecipeFramework.Library.ValueProviders.GlobalValueProvider, Microsoft.Practices.RecipeFramework.Library"
+        Key="RootNamespace" />
+    </Argument>
+    <Argument Name="ModuleNamespace">
+      <ValueProvider Type="Evaluator" Expression="$(RootNamespace).$(ModuleName)">
+        <MonitorArgument Name="ModuleName"/>
+      </ValueProvider>
+    </Argument>
+    <Argument Name="SectionName">
+      <ValueProvider Type="Evaluator" Expression="Apps"/>
+    </Argument>
+    <Argument Name="CreateLayoutModule" Type="System.Boolean">
+      <ValueProvider Type="Evaluator" Expression="false"/>
+    </Argument>
+    <Argument Name="InterfaceConstantsNamespace">
+      <ValueProvider Type="Evaluator" Expression="$(RootNamespace).Infrastructure" />
+    </Argument>
+    <Argument Name="ConstantsNamespace">
+      <ValueProvider Type="Microsoft.Practices.SmartClientFactory.ValueProviders.ConditionalValueProvider, Microsoft.Practices.SmartClientFactory.GuidancePackage"
+                     ConditionValueArgument="CreateModuleInterfaceLibrary"
+                     TrueValueArgument="ModuleNamespace"
+                     FalseValueArgument="InterfaceConstantsNamespace">
+        <MonitorArgument Name="CreateModuleInterfaceLibrary"/>
+      </ValueProvider>
+    </Argument>
+    <Argument Name="ProfileCatalogItem" Required="false" Type="EnvDTE.ProjectItem, EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <ValueProvider Type="Microsoft.Practices.SmartClientFactory.ValueProviders.ProjectItemByNameExpressionProvider, Microsoft.Practices.SmartClientFactory.GuidancePackage"
+                     Project="$(ShellProject)"
+                     ItemName="ProfileCatalog.xml" />
+    </Argument>
+    <Argument Name="ExistsProfileCatalog" Type="System.Boolean" >
+      <ValueProvider Type="IsNotNullProvider"
+                     Argument="ProfileCatalogItem">
+        <MonitorArgument Name="ProfileCatalogItem"/>
+      </ValueProvider>
+    </Argument>
+  </Arguments>
+
+  <!-- Updates ProfileCatalog.xml with Modle info -->
+  <ActionsUpdateProfileCatalog  xmlns="http://schemas.microsoft.com/pag/gax-core">
+    <Action Name="GetProfileCatalog" Type="Microsoft.Practices.RecipeFramework.Library.Solution.Actions.GetProjectItemAction, Microsoft.Practices.RecipeFramework.Library"
+       ItemName="ProfileCatalog.xml" Condition="$(ExistsProfileCatalog)">
+      <Input Name="Project" RecipeArgument="ShellProject"/>
+      <Output Name="ProjectItem"/>
+    </Action>
+    
+    <Action Name="LoadXml" Type="Microsoft.Practices.RecipeFramework.Library.XML.Actions.LoadXmlAction, Microsoft.Practices.RecipeFramework.Library"
+            Condition="$(ExistsProfileCatalog)">
+      <Input Name="ProjectItem" ActionOutput="GetProfileCatalog.ProjectItem"/>
+      <Output Name="XmlDoc"/>
+    </Action>
+    <Action Name="AddSharedModule" Type="Microsoft.Practices.SmartClientFactory.Actions.AddSharedModuleAction, Microsoft.Practices.SmartClientFactory.GuidancePackage"
+            Condition="$(ExistsProfileCatalog)">
+      <Input Name="XmlDoc" ActionOutput="LoadXml.XmlDoc"/>
+      <Input Name="ModuleName" RecipeArgument="ModuleNamespace"/>
+      <Input Name="SectionName" RecipeArgument="SectionName"/>
+    </Action>
+    <Action Name="SaveXml" Type="Microsoft.Practices.RecipeFramework.Library.XML.Actions.SaveXmlAction, Microsoft.Practices.RecipeFramework.Library"
+            Condition="$(ExistsProfileCatalog)">
+      <Input Name="ProjectItem" ActionOutput="GetProfileCatalog.ProjectItem"/>
+      <Input Name="XmlDoc" ActionOutput="LoadXml.XmlDoc"/>
+    </Action>
+
+    <!--Set the correct assembly names-->
+    <Action Name="SetBusinessModuleAssemblyName" Type="Microsoft.Practices.SmartClientFactory.Actions.SetProjectAssemblyNameAction, Microsoft.Practices.SmartClientFactory.GuidancePackage">
+      <Input Name="Project" ActionOutput="UnfoldModuleProjects.ModuleProject" />
+      <Input Name="RootNamespace" RecipeArgument="RootNamespace" />
+    </Action>
+    <Action Name="SetBusinessModuleInterfaceAssemblyName" Type="Microsoft.Practices.SmartClientFactory.Actions.SetProjectAssemblyNameAction, Microsoft.Practices.SmartClientFactory.GuidancePackage"
+                Condition="$(CreateModuleInterfaceLibrary)">
+      <Input Name="Project" ActionOutput="UnfoldModuleProjects.ModuleInterfaceProject" />
+      <Input Name="RootNamespace" RecipeArgument="RootNamespace" />
+    </Action>
+    <Action Name="SetBusinessModuleTestAssemblyName" Type="Microsoft.Practices.SmartClientFactory.Actions.SetProjectAssemblyNameAction, Microsoft.Practices.SmartClientFactory.GuidancePackage"
+                Condition="$(CreateTestProject)">
+      <Input Name="Project" ActionOutput="UnfoldModuleProjects.TestProject" />
+      <Input Name="RootNamespace" RecipeArgument="RootNamespace" />
+    </Action>
+  </ActionsUpdateProfileCatalog>
+</Recipe>

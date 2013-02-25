@@ -1,0 +1,39 @@
+<VSTemplate Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+	<TemplateData>
+		<Name>Module interface (C#)</Name>
+		<Description>Creates an interface for a CAB Module</Description>
+		<ProjectType>CSharp</ProjectType>
+		<ProjectSubType>
+		</ProjectSubType>
+		<SortOrder>1000</SortOrder>
+		<CreateNewFolder>true</CreateNewFolder>
+		<DefaultName>Module.Interface</DefaultName>
+		<ProvideDefaultName>true</ProvideDefaultName>
+		<LocationField>Enabled</LocationField>
+		<EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+		<Icon>__TemplateIcon.ico</Icon>
+    <RequiredFrameworkVersion>3.5</RequiredFrameworkVersion>
+	</TemplateData>
+	<TemplateContent>
+		<Project TargetFileName="Module.Interface.csproj" File="Module.Interface.csproj.template" ReplaceParameters="true">
+			<Folder Name="Constants" TargetFolderName="Constants">
+				<ProjectItem ReplaceParameters="true" TargetFileName="CommandNames.cs">CommandNames.cs.template</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="EventTopicNames.cs">EventTopicNames.cs.template</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="UIExtensionSiteNames.cs">UIExtensionSiteNames.cs.template</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="WorkspaceNames.cs">WorkspaceNames.cs.template</ProjectItem>
+			</Folder>
+			<Folder Name="Properties" TargetFolderName="Properties">
+				<ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.cs">AssemblyInfo.cs.template</ProjectItem>
+			</Folder>
+			<Folder Name="Services" TargetFolderName="Services" />
+		</Project>
+	</TemplateContent>
+	<WizardExtension>
+		<Assembly>Microsoft.Practices.RecipeFramework.VisualStudio</Assembly>
+		<FullClassName>Microsoft.Practices.RecipeFramework.VisualStudio.Templates.UnfoldTemplate</FullClassName>
+	</WizardExtension>
+	<WizardData>
+		<Template xmlns="http://schemas.microsoft.com/pag/gax-template" SchemaVersion="1.0">
+		</Template>
+	</WizardData>
+</VSTemplate>

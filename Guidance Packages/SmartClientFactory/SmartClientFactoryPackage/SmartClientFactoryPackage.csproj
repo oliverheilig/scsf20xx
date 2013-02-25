@@ -1,0 +1,2309 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{86AA2789-94B9-44C8-A045-FA649A4531B6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Microsoft.Practices.SmartClientFactory</RootNamespace>
+    <AssemblyName>Microsoft.Practices.SmartClientFactory.GuidancePackage</AssemblyName>
+    <WarningLevel>4</WarningLevel>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <GeneratePkgDefFile>false</GeneratePkgDefFile>
+    <IncludeAssemblyInVSIXContainer>true</IncludeAssemblyInVSIXContainer>
+    <IncludeDebugSymbolsInVSIXContainer>false</IncludeDebugSymbolsInVSIXContainer>
+    <IncludeDebugSymbolsInLocalVSIXDeployment>true</IncludeDebugSymbolsInLocalVSIXDeployment>
+    <CopyBuildOutputToOutputDirectory>true</CopyBuildOutputToOutputDirectory>
+    <CopyOutputSymbolsToOutputDirectory>true</CopyOutputSymbolsToOutputDirectory>
+    <ProjectTypeGuids>{82b43b9b-a64c-4715-b499-d71e9ca2bd60};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <RecipeFrameworkPath>$(DevEnvDir)\Extensions\zuvzsoov.2wk</RecipeFrameworkPath> 
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>.\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>1668</NoWarn>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>.\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>1668</NoWarn>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility" />
+    <Reference Include="Microsoft.Build" />
+    <Reference Include="Microsoft.Build.Engine" />
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\EntLib5\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Validation, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\EntLib5\Microsoft.Practices.EnterpriseLibrary.Validation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Validation.Integration.WinForms, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\EntLib5\Microsoft.Practices.EnterpriseLibrary.Validation.Integration.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ObjectBuilder, Version=1.0.51206.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\Microsoft.Practices.ObjectBuilder.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.RecipeFramework.Extensions, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\GEL\Microsoft.Practices.RecipeFramework.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.RecipeFramework.VisualStudio, Version=1.4.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\GEL\Microsoft.Practices.RecipeFramework.VisualStudio.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.RecipeFramework.VisualStudio.Common, Version=1.4.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\GEL\Microsoft.Practices.RecipeFramework.VisualStudio.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\..\..\Lib\EntLib5\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity">
+      <HintPath>..\..\..\Lib\EntLib5\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception">
+      <HintPath>..\..\..\Lib\EntLib5\Microsoft.Practices.Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.OLE.Interop, Version=7.1.40304.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualStudio.Shell, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualStudio.Shell.Design, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(windir)\Microsoft.NET\assembly\GAC_MSIL\Microsoft.VisualStudio.Shell.Design\v4.0_10.0.0.0__b03f5f7f11d50a3a\Microsoft.VisualStudio.Shell.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.TextTemplating.10.0, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="Microsoft.WizardFramework, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>$(DevEnvDir)\Microsoft.WizardFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.WizardFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>False</Private>
+      <HintPath>$(RecipeFrameworkPath)\Microsoft.Practices.WizardFramework.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Common, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>$(RecipeFrameworkPath)\Microsoft.Practices.Common.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ComponentModel, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>$(RecipeFrameworkPath)\Microsoft.Practices.ComponentModel.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Microsoft.Practices.RecipeFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>$(RecipeFrameworkPath)\Microsoft.Practices.RecipeFramework.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Microsoft.Practices.RecipeFramework.Library, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>$(RecipeFrameworkPath)\Microsoft.Practices.RecipeFramework.Library.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Microsoft.Practices.RecipeFramework.Common, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>$(RecipeFrameworkPath)\Microsoft.Practices.RecipeFramework.Common.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EnvDTE80, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="VSLangProj, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop, Version=7.1.40304.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\..\..\Blocks\CAB-WPFExtensions\Source\CompositeUI.WPF\bin\$(Configuration)\Microsoft.Practices.CompositeUI.WPF.dll">
+      <Link>Blocks\Microsoft.Practices.CompositeUI.WPF.dll</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="..\..\..\Blocks\CAB\CS\Source\CompositeUI.WinForms\bin\$(Configuration)\Microsoft.Practices.CompositeUI.WinForms.dll">
+      <Link>Blocks\Microsoft.Practices.CompositeUI.WinForms.dll</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="..\..\..\Blocks\CAB\CS\Source\CompositeUI\bin\$(Configuration)\Microsoft.Practices.CompositeUI.dll">
+      <Link>Blocks\Microsoft.Practices.CompositeUI.dll</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\..\Blocks\Offline\Source\ConnectionMonitor\bin\$(Configuration)\Microsoft.Practices.SmartClient.ConnectionMonitor.dll">
+      <Link>Blocks\Microsoft.Practices.SmartClient.ConnectionMonitor.dll</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="..\..\..\Blocks\Offline\Source\DataAccess.EnterpriseLibrary\bin\$(Configuration)\Microsoft.Practices.SmartClient.EnterpriseLibrary.dll">
+      <Link>Blocks\Microsoft.Practices.SmartClient.EnterpriseLibrary.dll</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="..\..\..\Blocks\Offline\Source\DisconnectedAgent\bin\$(Configuration)\Microsoft.Practices.SmartClient.DisconnectedAgent.dll">
+      <Link>Blocks\Microsoft.Practices.SmartClient.DisconnectedAgent.dll</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="..\..\..\Blocks\Offline\Source\EndpointCatalog\bin\$(Configuration)\Microsoft.Practices.SmartClient.EndpointCatalog.dll">
+      <Link>Blocks\Microsoft.Practices.SmartClient.EndpointCatalog.dll</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="..\..\..\Lib\EntLib5\Microsoft.Practices.EnterpriseLibrary.Common.dll">
+      <Link>Blocks\Microsoft.Practices.EnterpriseLibrary.Common.dll</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="..\..\..\Lib\EntLib5\Microsoft.Practices.EnterpriseLibrary.Data.dll">
+      <Link>Blocks\Microsoft.Practices.EnterpriseLibrary.Data.dll</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="..\..\..\Lib\EntLib5\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll">
+      <Link>Blocks\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="..\..\..\Lib\EntLib5\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging.dll">
+      <Link>Blocks\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging.dll</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="..\..\..\Lib\EntLib5\Microsoft.Practices.EnterpriseLibrary.Logging.dll">
+      <Link>Blocks\Microsoft.Practices.EnterpriseLibrary.Logging.dll</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="..\..\..\Lib\Microsoft.Practices.ObjectBuilder.dll">
+      <Link>Blocks\Microsoft.Practices.ObjectBuilder.dll</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="img\content-bg.jpg" />
+    <Content Include="img\footer.jpg" />
+    <Content Include="img\header.jpg" />
+    <Content Include="Intro.htm" />
+    <Compile Include="..\..\..\GlobalAssemblyInfo.cs">
+      <Link>Properties\GlobalAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Actions\AddAttributeNoQuotesAction.cs" />
+    <Compile Include="Actions\AddEndpointSectionAction.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Actions\AddFieldWithValueAction.cs" />
+    <Compile Include="Actions\AddFireMethodAction.cs" />
+    <Compile Include="Actions\AddItemFromStringAction.cs" />
+    <Compile Include="Actions\AddItemFromStringToProjectItemsAction.cs" />
+    <Compile Include="Actions\AddMissingUsingAction.cs" />
+    <Compile Include="Actions\AddParameterAction.cs" />
+    <Compile Include="Actions\SetProjectAssemblyNameAction.cs" />
+    <Compile Include="Actions\TryAddReferenceAction.cs" />
+    <Compile Include="Actions\AddUsingForEventTopicNames.cs" />
+    <Compile Include="Actions\ConvertProjectToWpfAction.cs" />
+    <Compile Include="Actions\AddNetworkSectionAction.cs" />
+    <Compile Include="Actions\CreateFolderAction.cs" />
+    <Compile Include="Actions\CreateShellProjectAction.cs" />
+    <Compile Include="Actions\EnsureProjectFolderAction.cs" />
+    <Compile Include="Actions\GetProjectGuid.cs" />
+    <Compile Include="Actions\GetProjectItemAction.cs" />
+    <Compile Include="Actions\RebuildSolutionAction.cs" />
+    <Compile Include="Actions\SetGlobalValueAction.cs" />
+    <Compile Include="Actions\SetProjectStartup.cs" />
+    <Compile Include="Actions\ShowUrlAction.cs" />
+    <Compile Include="Actions\UpdateEventFireMethodAction.cs" />
+    <Compile Include="Actions\Utility.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Actions\AddSharedModuleAction.cs" />
+    <Compile Include="Actions\UnfoldModuleProjectsAction.cs" />
+    <Compile Include="Actions\WpfProjectFileConverter.cs" />
+    <Compile Include="AgentTemplateHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CABCompatibleTypes\PublicationScope.cs" />
+    <Compile Include="CABCompatibleTypes\ThreadOption.cs" />
+    <Compile Include="Converters\ProxyMethodsConverter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CustomWizardPages\CreateDSA\EndpointPage\EndpointPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomWizardPages\CreateDSA\EndpointPage\EndpointPage.Designer.cs">
+      <DependentUpon>EndpointPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomWizardPages\CreateDSA\EndpointPage\EndpointPageModel.cs" />
+    <Compile Include="CustomWizardPages\CreateDSA\EndpointPage\EndpointPagePresenter.cs" />
+    <Compile Include="CustomWizardPages\CreateDSA\EndpointPage\IEndpointPage.cs" />
+    <Compile Include="CustomWizardPages\CreateEventSubscriptionPage\CreateEventSubscriptionPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomWizardPages\CreateEventSubscriptionPage\CreateEventSubscriptionPage.Designer.cs">
+      <DependentUpon>CreateEventSubscriptionPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomWizardPages\CreateEventSubscriptionPage\CreateEventSubscriptionPageModel.cs" />
+    <Compile Include="CustomWizardPages\CreateEventSubscriptionPage\CreateEventSubscriptionPagePresenter.cs" />
+    <Compile Include="CustomWizardPages\CreateEventSubscriptionPage\ICreateEventSubscriptionPage.cs" />
+    <Compile Include="CustomWizardPages\CreateBusinessModulePage\CreateBusinessModulePage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomWizardPages\CreateBusinessModulePage\CreateBusinessModulePage.Designer.cs">
+      <DependentUpon>CreateBusinessModulePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomWizardPages\CreateBusinessModulePage\CreateBusinessModulePageModel.cs" />
+    <Compile Include="CustomWizardPages\CreateBusinessModulePage\CreateBusinessModulePagePresenter.cs" />
+    <Compile Include="CustomWizardPages\CreateBusinessModulePage\ICreateBusinessModulePage.cs" />
+    <Compile Include="CustomWizardPages\CreateEventPublicationPage\CreateEventPublicationPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomWizardPages\CreateEventPublicationPage\CreateEventPublicationPage.Designer.cs">
+      <DependentUpon>CreateEventPublicationPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomWizardPages\CreateEventPublicationPage\CreateEventPublicationPageModel.cs" />
+    <Compile Include="CustomWizardPages\CreateEventPublicationPage\CreateEventPublicationPagePresenter.cs" />
+    <Compile Include="CustomWizardPages\CreateEventPublicationPage\ICreateEventPublicationPage.cs" />
+    <Compile Include="CustomWizardPages\CreateFoundationalModulePage\CreateFoundationalModulePage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomWizardPages\CreateFoundationalModulePage\CreateFoundationalModulePage.Designer.cs">
+      <DependentUpon>CreateFoundationalModulePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomWizardPages\CreateFoundationalModulePage\CreateFoundationalModulePageModel.cs" />
+    <Compile Include="CustomWizardPages\CreateFoundationalModulePage\CreateFoundationalModulePagePresenter.cs" />
+    <Compile Include="CustomWizardPages\CreateFoundationalModulePage\ICreateFoundationalModulePage.cs" />
+    <Compile Include="CustomWizardPages\CreateViewPage\CreateViewPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomWizardPages\CreateViewPage\CreateViewPage.designer.cs">
+      <DependentUpon>CreateViewPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomWizardPages\CreateViewPage\CreateViewPageModel.cs" />
+    <Compile Include="CustomWizardPages\CreateViewPage\CreateViewPagePresenter.cs" />
+    <Compile Include="CustomWizardPages\CreateViewPage\ICreateViewPage.cs" />
+    <Compile Include="CustomWizardPages\ILanguageDependentPageModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CustomWizardPages\IServiceProviderProviderPageModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CustomWizardPages\NotationHelper.cs" />
+    <Compile Include="CustomWizardPages\SolutionPreviewHelper.cs" />
+    <Compile Include="CustomWizardPages\SolutionPropertiesPage\ISolutionPropertiesPage.cs" />
+    <Compile Include="CustomWizardPages\SolutionPropertiesPage\SolutionPropertiesModel.cs" />
+    <Compile Include="CustomWizardPages\SolutionPropertiesPage\SolutionPropertiesPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomWizardPages\SolutionPropertiesPage\SolutionPropertiesPage.designer.cs">
+      <DependentUpon>SolutionPropertiesPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomWizardPages\SolutionPropertiesPage\SolutionPropertiesPagePresenter.cs" />
+    <Compile Include="CustomWizardPages\Validators\ContainsFoldersValidatorAttribute.cs" />
+    <Compile Include="CustomWizardPages\Validators\IsTrueValidatorAttribute.cs" />
+    <Compile Include="CustomWizardPages\Validators\IsTrueValidator.cs" />
+    <Compile Include="CustomWizardPages\Validators\EventTopicSubscriptionValidatorAttribute.cs" />
+    <Compile Include="CustomWizardPages\Validators\EventTopicSubscriptionValidator.cs" />
+    <Compile Include="CustomWizardPages\Validators\EventTopicPublicationValidatorAttribute.cs" />
+    <Compile Include="CustomWizardPages\Validators\EventTopicPublicationValidator.cs" />
+    <Compile Include="CustomWizardPages\Validators\FileArrayExistsValidator.cs" />
+    <Compile Include="CustomWizardPages\Validators\FileExistsValidator.cs" />
+    <Compile Include="CustomWizardPages\Validators\FileNameValidatorAttribute.cs" />
+    <Compile Include="CustomWizardPages\Validators\FileNameValidator.cs" />
+    <Compile Include="CustomWizardPages\Validators\FileNotExistsValidator.cs" />
+    <Compile Include="CustomWizardPages\Validators\ContainsFoldersValidator.cs" />
+    <Compile Include="CustomWizardPages\Validators\IdentifierValidatorAttribute.cs" />
+    <Compile Include="CustomWizardPages\Validators\ExistingClassValidatorAttribute.cs" />
+    <Compile Include="CustomWizardPages\Validators\NamespaceValidatorAttribute.cs" />
+    <Compile Include="CustomWizardPages\Validators\IdentifierValidator.cs" />
+    <Compile Include="CustomWizardPages\Validators\NamespaceValidator.cs" />
+    <Compile Include="CustomWizardPages\Validators\PathExistsValidatorAttribute.cs" />
+    <Compile Include="CustomWizardPages\Validators\TimeSpanValidator.cs" />
+    <Compile Include="CustomWizardPages\Validators\ExistingClassValidator.cs" />
+    <Compile Include="CustomWizardPages\Validators\PathExistsValidator.cs" />
+    <EmbeddedResource Include="CustomWizardPages\CreateDSA\EndpointPage\EndpointPage.resx">
+      <DependentUpon>EndpointPage.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomWizardPages\CreateEventSubscriptionPage\CreateEventSubscriptionPage.resx">
+      <DependentUpon>CreateEventSubscriptionPage.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomWizardPages\CreateBusinessModulePage\CreateBusinessModulePage.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>CreateBusinessModulePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomWizardPages\CreateEventPublicationPage\CreateEventPublicationPage.resx">
+      <DependentUpon>CreateEventPublicationPage.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomWizardPages\CreateFoundationalModulePage\CreateFoundationalModulePage.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>CreateFoundationalModulePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomWizardPages\CreateViewPage\CreateViewPage.resx">
+      <DependentUpon>CreateViewPage.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="CustomWizardPages\Validators\TimeSpanValidatorAttribute.cs" />
+    <Compile Include="CustomWizardPages\Validators\ViewNameFileNameValidator.cs" />
+    <Compile Include="CustomWizardPages\Validators\ViewNameFileNameValidatorAttribute.cs" />
+    <Compile Include="CustomWizardPages\Validators\ViewNameFileNotExistsValidator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CustomWizardPages\Validators\ViewNameFileNotExistsValidatorAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DSACompatibleTypes\OfflineBehavior.cs" />
+    <Compile Include="DteConverter.cs" />
+    <Compile Include="Editors\AnyPublicClassBrowserEditor.cs" />
+    <Compile Include="Editors\EventArgsClassBrowserEditor.cs" />
+    <Compile Include="Editors\MethodBehavior.cs" />
+    <Compile Include="Editors\TimeSpanControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editors\TimeSpanControl.Designer.cs">
+      <DependentUpon>TimeSpanControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editors\TimeSpanEditor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Helpers\CodeModelHelper.cs" />
+    <Compile Include="Helpers\MethodBehaviorHelper.cs" />
+    <Compile Include="Helpers\XMLDocumentHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ProjectProjectItemAdapter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CustomWizardPages\SolutionPropertiesPage\SolutionPropertiesPage.resx">
+      <DependentUpon>SolutionPropertiesPage.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editors\TimeSpanControl.resx">
+      <DependentUpon>TimeSpanControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Content Include="Recipes\Common\UpdateSmartClientFactoryDSACommon.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Recipes\Common\CreateSmartClientFactoryBusinessModuleCommon.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Recipes\Common\CreateSmartClientFactoryDSACommon.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Recipes\Common\CreateSmartClientFactoryEventPublicationCommon.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Recipes\Common\CreateSmartClientFactoryEventSubscriptionCommon.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Recipes\Common\CreateSmartClientFactoryFoundationalModuleCommon.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Recipes\Common\CreateSmartClientFactorySolutionCommon.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Recipes\Common\CreateSmartClientFactoryViewCommon.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Recipes\CS\UpdateSmartClientFactoryDSA.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Recipes\CS\CreateSmartClientFactoryWPFView.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Recipes\VB\CreateSmartClientFactoryWPFView.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Recipes\VB\UpdateSmartClientFactoryDSA.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="scsf preview.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="scsf.ico">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="SmartClientDevelopment.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="EULA.rtf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <None Include="source.extension.vsixmanifest" />
+    <Content Include="Templates\Items\View.VB\View.xaml.vb.t4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Overview\header.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Overview\Intro.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Business.Tests.VB\Module.Tests.vstemplate">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Business.Tests.VB\__TemplateIcon.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Tests.VB\ModuleInitializerTestFixture.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Tests.VB\My Project\AssemblyInfo.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Tests.VB\Module.Tests.vstemplate">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Tests.VB\Support\TestableRootWorkItem.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Tests.VB\Module.Tests.vbproj.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Tests.VB\__TemplateIcon.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Tests.CS\Module.Tests.vstemplate">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Tests.CS\__TemplateIcon.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Business.Tests.CS\Module.Tests.vstemplate">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Business.Tests.CS\__TemplateIcon.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Business.VB\BusinessModuleHandle.vstemplate">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Business.VB\Module.vstemplate">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Business.VB\__TemplateIcon.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Interface.VB\Module.Interface.vstemplate">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Interface.VB\__TemplateIcon.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.VB\LayoutView.resx">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Recipes\VB\CreateSmartClientFactoryBusinessModule.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Recipes\VB\CreateSmartClientFactoryDSA.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Recipes\VB\CreateSmartClientFactoryEventPublication.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Recipes\VB\CreateSmartClientFactoryEventSubscription.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Recipes\VB\CreateSmartClientFactoryFoundationalModule.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Recipes\VB\CreateSmartClientFactorySolution.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Recipes\VB\CreateSmartClientFactoryView.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.VB\Module.Basic.vstemplate">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.VB\Module.Layout.vstemplate">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.VB\ModuleHandle.vstemplate">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.VB\__TemplateIcon.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.Basic.VB\ShellForm.resx">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Infrastructure.VB\My Project\Resources.resx">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Recipes\CS\CreateSmartClientFactoryDSA.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Recipes\CS\CreateSmartClientFactoryEventSubscription.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Recipes\CS\CreateSmartClientFactoryEventPublication.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Recipes\CS\CreateSmartClientFactoryView.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Recipes\CS\CreateSmartClientFactoryFoundationalModule.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Items\Documentation\header.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Items\Documentation\Intro.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.CS\LayoutView.resx">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Business.CS\BusinessModuleHandle.csproj.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Business.CS\BusinessModuleHandle.vstemplate">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Templates\Projects\Module.Business.CS\Module.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Business.CS\Module.csproj.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Business.CS\Module.vstemplate">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Business.CS\__TemplateIcon.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Interface.CS\Module.Interface.csproj.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Interface.CS\Module.Interface.vstemplate">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Interface.CS\__TemplateIcon.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.CS\Module.Basic.vstemplate">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.CS\Module.Layout.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.CS\Module.Layout.csproj.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.CS\Module.Layout.vstemplate">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.CS\ModuleHandle.vstemplate">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.CS\Properties\AssemblyInfo.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.CS\__TemplateIcon.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Infrastructure.VB\Infrastructure.vstemplate">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Infrastructure.VB\__TemplateIcon.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.CS\Properties\Resources.resx">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.VB\Library.vstemplate">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.VB\SolutionProfileV1.vb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.VB\SolutionProfileV2.vb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.VB\__TemplateIcon.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Module.VB\Module.vstemplate">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Module.VB\__TemplateIcon.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.Basic.CS\ShellForm.resx">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.Basic.VB\ProfileCatalog.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.Basic.VB\Shell.vstemplate">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.Basic.VB\__TemplateIcon.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.Extended.CS\ShellForm.resx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.Extended.VB\ProfileCatalog.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.Extended.VB\Shell.vstemplate">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.Extended.VB\__TemplateIcon.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.LayoutModule.CS\ShellLayoutView.resx">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Templates\Solutions\Projects\Infrastructure.CS\ActionAttribute.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Infrastructure.CS\Constants\CommandNames.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Infrastructure.CS\Constants\EventTopicNames.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Infrastructure.CS\Constants\UIExtensionSiteNames.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Infrastructure.CS\Constants\WorkspaceNames.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Infrastructure.CS\ControlledWorkItem.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Infrastructure.CS\EventArgs.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Infrastructure.CS\Infrastructure.csproj.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Infrastructure.CS\IWorkItemController.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Infrastructure.CS\Presenter.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Infrastructure.CS\Properties\AssemblyInfo.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Infrastructure.CS\Services\EntityTranslatorException.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Infrastructure.CS\Services\IActionCatalogService.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Infrastructure.CS\Services\IActionCondition.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Infrastructure.CS\Services\IEntityTranslator.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Infrastructure.CS\Services\IEntityTranslatorService.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Infrastructure.CS\Services\IImpersonationContext.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Infrastructure.CS\Services\IImpersonationService.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Infrastructure.CS\Services\IWorkspaceLocatorService.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Infrastructure.CS\WorkItemController.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.CS\BuilderStrategies\ActionStrategy.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.CS\EntityTranslators\BaseTranslator.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.CS\EntityTranslators\EntityMapperTranslator.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.CS\EntLib\EventTopicExceptionFormatter.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.CS\Library.csproj.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.CS\Properties\AssemblyInfo.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.CS\Properties\Resources.Designer.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.CS\Services\ActionCatalogException.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.CS\Services\ActionCatalogService.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.CS\Services\DependentModuleInfo.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.CS\Services\DependentModuleLoaderService.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.CS\Services\EntityTranslatorService.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.CS\Services\IDependentModuleInfo.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.CS\Services\IModuleInfoStore.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.CS\Services\IProfileCatalogService.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.CS\Services\ISolutionProfileParser.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.CS\Services\ModuleMetadataReflectionHelper.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.CS\Services\ProfileCatalogModuleInfoStore.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.CS\Services\SolutionProfileV1Parser.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.CS\Services\SolutionProfileV2Parser.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.CS\Services\WebServiceCatalogModuleInfoStore.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.CS\Services\WorkspaceLocatorService.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.CS\Services\XmlStreamDependentModuleEnumerator.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.CS\Services\XmlValidationHelper.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Items\Library.CS\SmartClientApplication.cs.t4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.CS\SolutionProfileV1.xsd">
+      <SubType>
+      </SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.CS\SolutionProfileV2.xsd">
+      <SubType>
+      </SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.CS\UI\WindowSmartpartInfo.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.CS\UI\WindowWorkspace.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.CS\UI\WindowWorkspaceSetting.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Module.CS\Module.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Module.CS\Module.csproj.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Module.CS\ModuleController.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Module.CS\Properties\AssemblyInfo.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.Basic.CS\App.config.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.Basic.CS\Constants\CommandNames.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.Basic.CS\Constants\EventTopicNames.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.Basic.CS\Constants\UIExtensionSiteNames.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.Basic.CS\Constants\WorkspaceNames.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.Basic.CS\Properties\AssemblyInfo.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.Basic.CS\Shell.csproj.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.Basic.CS\ShellApplication.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.Basic.CS\ShellForm.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.Extended.CS\App.config.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.Extended.CS\Constants\CommandNames.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.Extended.CS\Constants\EventTopicNames.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.Extended.CS\Constants\UIExtensionSiteNames.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.Extended.CS\Constants\WorkspaceNames.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.Extended.CS\Properties\AssemblyInfo.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.Extended.CS\Shell.csproj.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.Extended.CS\ShellApplication.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.Extended.CS\ShellForm.cs.template">
+      <SubType>Form</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.LayoutModule.CS\Module.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.LayoutModule.CS\Properties\AssemblyInfo.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.LayoutModule.CS\Shell.Layout.csproj.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.LayoutModule.CS\ShellLayoutView.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Items\Shell.LayoutModule.CS\ShellLayoutView.Designer.cs.t4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.LayoutModule.CS\ShellLayoutViewPresenter.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Recipes\Binding.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Recipes\Common\CommonArguments.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Recipes\Common\CommonTypeAliases.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Recipes\CS\CreateSmartClientFactoryBusinessModule.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Recipes\CS\CreateSmartClientFactorySolution.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <SubType>Designer</SubType>
+    </Content>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="References\AddEventSubscriptionRecipeReferenceCS.cs" />
+    <Compile Include="References\AddEventSubscriptionRecipeReferenceVB.cs" />
+    <Compile Include="References\UpdateDSAReferenceVB.cs" />
+    <Compile Include="References\UpdateDSAReferenceCS.cs" />
+    <Compile Include="References\WebReferenceOrProjectVB.cs" />
+    <Compile Include="References\ModuleTemplateReference.cs" />
+    <Compile Include="References\ViewTemplateReferenceCS.cs" />
+    <Compile Include="References\ViewTemplateReferenceVB.cs" />
+    <Compile Include="References\WebReferenceOrProjectCS.cs" />
+    <Content Include="Templates\Projects\Module.Business.Tests.CS\Support\TestableRootWorkItem.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Business.Tests.CS\ModuleControllerTestFixture.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Business.Tests.CS\ModuleTestFixture.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Compile Include="ValueProviders\BuiltSolutionValueProvider.cs" />
+    <Compile Include="ValueProviders\ConditionalValueProvider.cs" />
+    <Compile Include="ValueProviders\ProjectItemByNameExpressionProvider.cs" />
+    <Compile Include="ValueProviders\CurrentProxyTypeNameProvider.cs" />
+    <Compile Include="ValueProviders\ExistsClassInProject.cs" />
+    <Compile Include="ValueProviders\ProxyAddressValueProvider.cs" />
+    <Compile Include="ValueProviders\CurrentDSAClassBehaviorsValueProvider.cs" />
+    <Compile Include="ValueProviders\CurrentDSAClassProxyTypeMethods.cs" />
+    <Compile Include="ValueProviders\EmptyStringValueProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ValueProviders\ProxyTechnologyValueProvider.cs" />
+    <Compile Include="ValueProviders\RetrieveBlocksPathValueProvider.cs" />
+    <Compile Include="ValueProviders\TernaryOperationValueProvider.cs" />
+    <Compile Include="ValueProviders\CurrentDSAClassProvider.cs" />
+    <Compile Include="ValueProviders\CurrentClassProvider.cs" />
+    <Compile Include="ValueProviders\CurrentDSAClassStaticMethodValueProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ValueProviders\CurrentDSAClassStaticPropertyValueProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ValueProviders\FirstSelectedProject.cs" />
+    <Compile Include="ValueProviders\GetProjectFromGuidProvider.cs" />
+    <Compile Include="ValueProviders\IsValidExpressionProvider.cs" />
+    <Compile Include="ValueProviders\LibraryFilePathProvider.cs" />
+    <Compile Include="ValueProviders\ProjectByNameExpressionProvider.cs" />
+    <Compile Include="ValueProviders\ProjectCodeClassFromTypeNameProvider.cs" />
+    <Compile Include="ValueProviders\ProxyFactoryHelper.cs" />
+    <Compile Include="ValueProviders\ProxyFactoryValueProvider.cs" />
+    <Compile Include="ValueProviders\ProxyTypeValueProvider.cs" />
+    <Compile Include="ValueProviders\SafeNameValueProvider.cs" />
+    <Compile Include="ValueProviders\SelectTargetProjectProvider.cs" />
+    <Compile Include="ValueProviders\TargetItemsCollectionProvider.cs" />
+    <Compile Include="ValueProviders\TypeMethodsValueProvider.cs" />
+    <Compile Include="ValueProviders\VBInstallationCheck.cs" />
+    <Compile Include="ValueProviders\WsdlOperationsValueProvider.cs" />
+    <Compile Include="VsHelper.cs" />
+    <Content Include="Templates\Solutions\Projects\Library.CS\SolutionProfileV1.cs">
+      <DependentUpon>SolutionProfileV1.xsd</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.CS\SolutionProfileV2.cs">
+      <DependentUpon>SolutionProfileV2.xsd</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Business.CS\Constants\CommandNames.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Business.CS\Constants\EventTopicNames.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Business.CS\Constants\UIExtensionSiteNames.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Business.CS\Constants\WorkspaceNames.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Business.CS\ModuleController.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Business.CS\Properties\AssemblyInfo.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Interface.CS\Constants\CommandNames.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Interface.CS\Constants\EventTopicNames.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Interface.CS\Constants\UIExtensionSiteNames.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Interface.CS\Constants\WorkspaceNames.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Interface.CS\Properties\AssemblyInfo.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.CS\Constants\CommandNames.cs.t4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.CS\Constants\CommandNames.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.CS\Constants\EventTopicNames.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.CS\Constants\UIExtensionSiteNames.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.CS\Constants\WorkspaceNames.Basic.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.CS\Constants\WorkspaceNames.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.CS\LayoutView.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.CS\LayoutView.Designer.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.CS\LayoutViewPresenter.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.CS\Module.Basic.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.CS\Module.Basic.csproj.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.CS\ModuleHandle.csproj.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Items\View.CS\IView.cs.t4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Items\View.CS\Presenter.cs.t4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Items\View.CS\View.cs.t4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Items\View.CS\View.Designer.cs.t4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Infrastructure.VB\ActionAttribute.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Infrastructure.VB\Constants\CommandNames.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Infrastructure.VB\Constants\EventTopicNames.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Infrastructure.VB\Constants\UIExtensionSiteNames.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Infrastructure.VB\Constants\WorkspaceNames.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Infrastructure.VB\ControlledWorkItem.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Infrastructure.VB\EventArgs.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Infrastructure.VB\Infrastructure.vbproj.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Infrastructure.VB\IWorkItemController.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Infrastructure.VB\My Project\Application.Designer.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Infrastructure.VB\My Project\Application.myapp.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Infrastructure.VB\My Project\AssemblyInfo.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Infrastructure.VB\My Project\Resources.Designer.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Infrastructure.VB\My Project\Settings.Designer.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Infrastructure.VB\My Project\Settings.settings.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Infrastructure.VB\Presenter.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Infrastructure.VB\Services\EntityTranslatorException.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Infrastructure.VB\Services\IActionCatalogService.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Infrastructure.VB\Services\IActionCondition.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Infrastructure.VB\Services\IEntityTranslator.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Infrastructure.VB\Services\IEntityTranslatorService.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Infrastructure.VB\Services\IImpersonationContext.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Infrastructure.VB\Services\IImpersonationService.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Infrastructure.VB\Services\IWorkspaceLocatorService.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Infrastructure.VB\WorkItemController.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.VB\BuilderStrategies\ActionStrategy.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.VB\EntityTranslators\BaseTranslator.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.VB\EntityTranslators\EntityMapperTranslator.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.VB\EntLib\EventTopicExceptionFormatter.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.VB\Library.vbproj.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.VB\My Project\Application.Designer.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.VB\My Project\Application.myapp.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.VB\My Project\AssemblyInfo.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.VB\My Project\Resources.Designer.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.VB\My Project\Resources.resx.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.VB\My Project\Settings.Designer.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.VB\My Project\Settings.settings.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.VB\Services\ActionCatalogException.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.VB\Services\ActionCatalogService.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.VB\Services\DependentModuleInfo.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.VB\Services\DependentModuleLoaderService.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.VB\Services\EntityTranslatorService.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.VB\Services\IDependentModuleInfo.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.VB\Services\IModuleInfoStore.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.VB\Services\IProfileCatalogService.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.VB\Services\ISolutionProfileParser.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.VB\Services\ModuleMetadataReflectionHelper.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.VB\Services\ProfileCatalogModuleInfoStore.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.VB\Services\SolutionProfileV1Parser.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.VB\Services\SolutionProfileV2Parser.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.VB\Services\WebServiceCatalogModuleInfoStore.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.VB\Services\WorkspaceLocatorService.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.VB\Services\XmlStreamDependentModuleEnumerator.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.VB\Services\XmlValidationHelper.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Items\Library.VB\SmartClientApplication.vb.t4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.VB\SolutionProfileV1.xsd">
+      <SubType>
+      </SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.VB\SolutionProfileV2.xsd">
+      <SubType>
+      </SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.VB\UI\WindowSmartPartInfo.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.VB\UI\WindowWorkspace.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.VB\UI\WindowWorkspaceSetting.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Module.VB\Module.vbproj.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Module.VB\ModuleController.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Module.VB\ModuleInitializer.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Module.VB\My Project\Application.Designer.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Module.VB\My Project\Application.myapp.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Module.VB\My Project\AssemblyInfo.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Module.VB\My Project\Resources.Designer.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Module.VB\My Project\Resources.resx.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Module.VB\My Project\Settings.Designer.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Module.VB\My Project\Settings.settings.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.Basic.VB\App.config.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.Basic.VB\Constants\CommandNames.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.Basic.VB\Constants\EventTopicNames.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.Basic.VB\Constants\UIExtensionSiteNames.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.Basic.VB\Constants\WorkspaceNames.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.Basic.VB\My Project\Application.Designer.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.Basic.VB\My Project\Application.myapp.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.Basic.VB\My Project\AssemblyInfo.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.Basic.VB\My Project\Resources.Designer.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.Basic.VB\My Project\Resources.resx.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.Basic.VB\My Project\Settings.Designer.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.Basic.VB\My Project\Settings.settings.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.Basic.VB\Shell.vbproj.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.Basic.VB\ShellApplication.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Items\Shell.Basic.VB\ShellForm.Designer.vb.t4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.Basic.VB\ShellForm.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.VB\Constants\CommandNames.cs.t4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.VB\Constants\CommandNames.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.VB\Constants\EventTopicNames.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.VB\Constants\UIExtensionSiteNames.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.VB\Constants\WorkspaceNames.Basic.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.VB\Constants\WorkspaceNames.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.VB\LayoutView.Designer.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.VB\LayoutView.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.VB\LayoutViewPresenter.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.VB\Module.Basic.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.VB\Module.Basic.vbproj.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.VB\Module.Layout.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.VB\Module.Layout.vbproj.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.VB\ModuleHandle.vbproj.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.VB\My Project\Application.Designer.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.VB\My Project\Application.myapp.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.VB\My Project\AssemblyInfo.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.VB\My Project\Resources.Designer.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.VB\My Project\Resources.resx.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.VB\My Project\Settings.Designer.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.VB\My Project\Settings.settings.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Business.VB\BusinessModuleHandle.vbproj.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Business.VB\Constants\CommandNames.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Business.VB\Constants\EventTopicNames.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Business.VB\Constants\UIExtensionSiteNames.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Business.VB\Constants\WorkspaceNames.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Business.VB\Module.vbproj.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Business.VB\ModuleController.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Business.VB\ModuleInitializer.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Business.VB\My Project\Application.Designer.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Business.VB\My Project\Application.myapp.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Business.VB\My Project\AssemblyInfo.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Business.VB\My Project\Resources.Designer.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Business.VB\My Project\Resources.resx.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Business.VB\My Project\Settings.Designer.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Business.VB\My Project\Settings.settings.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Interface.VB\Constants\CommandNames.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Interface.VB\Constants\EventTopicNames.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Interface.VB\Constants\UIExtensionSiteNames.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Interface.VB\Constants\WorkspaceNames.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Interface.VB\Module.Interface.vbproj.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Interface.VB\My Project\Application.Designer.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Interface.VB\My Project\Application.myapp.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Interface.VB\My Project\AssemblyInfo.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Interface.VB\My Project\Resources.Designer.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Interface.VB\My Project\Resources.resx.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Interface.VB\My Project\Settings.Designer.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Interface.VB\My Project\Settings.settings.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Items\View.VB\IView.vb.t4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Items\View.VB\Presenter.vb.t4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Items\View.VB\View.Designer.vb.t4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Items\View.VB\View.vb.t4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Business.Tests.CS\Module.Tests.csproj.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Business.Tests.CS\Properties\AssemblyInfo.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Tests.CS\Module.Tests.csproj.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Tests.CS\ModuleTestFixture.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Tests.CS\Properties\AssemblyInfo.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Tests.CS\Support\TestableRootWorkItem.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Business.Tests.VB\Module.Tests.vbproj.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Business.Tests.VB\ModuleControllerTestFixture.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Business.Tests.VB\ModuleInitializerTestFixture.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Business.Tests.VB\My Project\AssemblyInfo.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.Business.Tests.VB\Support\TestableRootWorkItem.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Items\View.CS\ViewPresenterTestFixture.cs.t4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Items\View.VB\ViewPresenterTestFixture.vb.t4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Items\View.CS\View.xaml.t4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Items\View.CS\View.xaml.cs.t4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Items\View.VB\View.xaml.t4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Items\Shell.Basic.CS\ShellForm.Designer.cs.t4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Items\View.CS\Presenter.GeneratedCode.cs.t4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Items\View.CS\View.GeneratedCode.cs.t4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Items\View.CS\View.xaml.GeneratedCode.cs.t4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Items\View.VB\Presenter.GeneratedCode.vb.t4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Items\View.VB\View.GeneratedCode.vb.t4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Items\View.VB\View.xaml.GeneratedCode.vb.t4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.CS\ILayoutView.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.CS\LayoutView.GeneratedCode.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.CS\LayoutViewPresenter.GeneratedCode.cs.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.VB\ILayoutView.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.VB\LayoutView.GeneratedCode.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\Module.VB\LayoutViewPresenter.GeneratedCode.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.Extended.CS\ShellForm.Designer.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Text\DisconnectedAgent.VB\DisconnectedAgentHelpers.vb.t4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Text\DisconnectedAgent.VB\DisconnectedAgentCallbackBase.t4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Text\DisconnectedAgent.VB\DisconnectedAgentCallback.t4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Text\DisconnectedAgent.VB\DisconnectedAgent.t4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.LayoutModule.VB\ModuleInitializer.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.LayoutModule.VB\My Project\Application.Designer.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.LayoutModule.VB\My Project\Application.myapp.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.LayoutModule.VB\My Project\AssemblyInfo.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.LayoutModule.VB\My Project\Resources.Designer.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.LayoutModule.VB\My Project\Resources.resx.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.LayoutModule.VB\My Project\Settings.Designer.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.LayoutModule.VB\My Project\Settings.settings.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.LayoutModule.VB\Shell.Layout.vbproj.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Items\Shell.LayoutModule.VB\ShellLayoutView.Designer.vb.t4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.LayoutModule.VB\ShellLayoutView.resx.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.LayoutModule.VB\ShellLayoutView.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.LayoutModule.VB\ShellLayoutViewPresenter.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.Extended.VB\App.config.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.Extended.VB\My Project\Application.Designer.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.Extended.VB\My Project\Application.myapp.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.Extended.VB\My Project\AssemblyInfo.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.Extended.VB\My Project\Resources.Designer.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.Extended.VB\My Project\Resources.resx.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.Extended.VB\My Project\Settings.Designer.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.Extended.VB\My Project\Settings.settings.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.Extended.VB\Shell.vbproj.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.Extended.VB\ShellApplication.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.Extended.VB\ShellForm.Designer.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.Extended.VB\ShellForm.resx.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.Extended.VB\ShellForm.vb.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.LayoutModule.VB\Shell.Layout.vstemplate">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.LayoutModule.VB\__TemplateIcon.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\SCSFSolutionVB.vstemplate">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Text\DisconnectedAgent.CS\DisconnectedAgent.t4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Text\DisconnectedAgent.CS\DisconnectedAgentCallback.t4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Text\DisconnectedAgent.CS\DisconnectedAgentCallbackBase.t4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Text\DisconnectedAgent.CS\DisconnectedAgentHelpers.cs.t4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Infrastructure.CS\Infrastructure.vstemplate">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Infrastructure.CS\__TemplateIcon.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.CS\Library.vstemplate">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Library.CS\__TemplateIcon.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Module.CS\Module.vstemplate">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Module.CS\__TemplateIcon.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.Basic.CS\ProfileCatalog.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.Basic.CS\Shell.vstemplate">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.Basic.CS\__TemplateIcon.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.Extended.CS\ProfileCatalog.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.Extended.CS\Shell.vstemplate">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.Extended.CS\__TemplateIcon.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.LayoutModule.CS\Shell.Layout.vstemplate">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\Shell.LayoutModule.CS\__TemplateIcon.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\SCSFSolutionCS.vstemplate">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\SCSFSolution.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="TypeAlias.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.VisualBasic.PowerPacks.10.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft Visual Basic PowerPacks 10.0</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Snippets\Basic\Smart Client Development %28Ported%29\" />
+    <Folder Include="Snippets\CSharp\Smart Client Development %28Ported%29\" />
+    <Folder Include="Snippets\Visual JSharp\Smart Client Development %28Ported%29\" />
+    <Folder Include="Snippets\XML\Smart Client Development %28Ported%29\" />
+    <Folder Include="Templates\Projects\Module.Business.CS\Services\" />
+    <Folder Include="Templates\Projects\Module.Business.CS\Views\" />
+    <Folder Include="Templates\Projects\Module.Business.Tests.CS\Views\" />
+    <Folder Include="Templates\Projects\Module.Business.Tests.VB\Views\" />
+    <Folder Include="Templates\Projects\Module.Business.VB\Services\" />
+    <Folder Include="Templates\Projects\Module.Business.VB\Views\" />
+    <Folder Include="Templates\Projects\Module.CS\Services\" />
+    <Folder Include="Templates\Projects\Module.Interface.CS\Services\" />
+    <Folder Include="Templates\Solutions\Projects\Projects\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />
+  <Import Project="$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\VSSDK\Microsoft.VsSDK.targets" Condition="false" />
+  <Import Project="$(RecipeFrameworkPath)\Microsoft.Practices.RecipeFramework.Build.targets" />
+  <!--<PropertyGroup>
+    <PostBuildEventDependsOn>$(PostBuildEventDependsOn);ComputePostBuildEvent</PostBuildEventDependsOn>
+  </PropertyGroup>
+  <Target Name="ComputePostBuildEvent">
+    <CreateProperty Value="&quot;$(TargetFrameworkDirectory)\installutil.exe&quot; /ShowCallStack /i /DesignMode=true /Configuration=&quot;$(TargetDir)SmartClientFactoryPackage.xml&quot; &quot;..\..\..\SmartClientFactoryPackageInstaller\$(OutDir)SmartClientFactoryPackageInstallerApr2008.dll&quot;&#xD;&#xA;">
+      <Output TaskParameter="ValueSetByTask" PropertyName="PostBuildEvent" />
+    </CreateProperty>
+  </Target>
+  <PropertyGroup>
+    <PostBuildEvent>
+      echo.
+    </PostBuildEvent>
+  </PropertyGroup>-->
+</Project>

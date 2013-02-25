@@ -1,0 +1,91 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{A55F03F4-004D-4D31-9D81-543596A5572F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{93BDB372-0401-4B16-B89F-65F4BB1DABA5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Blocks", "Blocks", "{B1FB0CFF-44BA-4E2A-B801-606B4C7B4217}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.Interface", "Source\Infrastructure\Infrastructure.Interface\Infrastructure.Interface.csproj", "{895BECB8-2309-4D82-9BA2-279B5ADB5258}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.Library", "Source\Infrastructure\Infrastructure.Library\Infrastructure.Library.csproj", "{0B1B653C-A2AE-4C39-A3F0-A6A920448E2D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.Module", "Source\Infrastructure\Infrastructure.Module\Infrastructure.Module.csproj", "{A88E3B41-D032-4533-AC4A-AAC2EEF9FF38}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shell", "Source\Infrastructure\Shell\Shell.csproj", "{81445E57-AD53-421F-9D4A-23F57C5E72ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrganizationChart", "Source\OrganizationChart\OrganizationChart\OrganizationChart.csproj", "{1897466E-AEF8-428D-9FB4-6D261DD1F89F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeData", "Source\EmployeeData\EmployeeData\EmployeeData.csproj", "{068340C9-BFE7-4D39-AF63-BC7C70625BB9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompositeUI.WPF", "..\..\Blocks\CAB-WPFExtensions\Source\CompositeUI.WPF\CompositeUI.WPF.csproj", "{BCEBB59F-2887-4092-B539-B7E8B87F916D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompositeUI", "..\..\Blocks\CAB\CS\Source\CompositeUI\CompositeUI.csproj", "{C478E40B-A05E-4C69-9AB3-7A3BB374243F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompositeUI.WinForms", "..\..\Blocks\CAB\CS\Source\CompositeUI.WinForms\CompositeUI.WinForms.csproj", "{073BCD60-F2FB-4DB9-92FB-403C8F9E8DD0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{895BECB8-2309-4D82-9BA2-279B5ADB5258}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{895BECB8-2309-4D82-9BA2-279B5ADB5258}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{895BECB8-2309-4D82-9BA2-279B5ADB5258}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{895BECB8-2309-4D82-9BA2-279B5ADB5258}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B1B653C-A2AE-4C39-A3F0-A6A920448E2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B1B653C-A2AE-4C39-A3F0-A6A920448E2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B1B653C-A2AE-4C39-A3F0-A6A920448E2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B1B653C-A2AE-4C39-A3F0-A6A920448E2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A88E3B41-D032-4533-AC4A-AAC2EEF9FF38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A88E3B41-D032-4533-AC4A-AAC2EEF9FF38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A88E3B41-D032-4533-AC4A-AAC2EEF9FF38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A88E3B41-D032-4533-AC4A-AAC2EEF9FF38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81445E57-AD53-421F-9D4A-23F57C5E72ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81445E57-AD53-421F-9D4A-23F57C5E72ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81445E57-AD53-421F-9D4A-23F57C5E72ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81445E57-AD53-421F-9D4A-23F57C5E72ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1897466E-AEF8-428D-9FB4-6D261DD1F89F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1897466E-AEF8-428D-9FB4-6D261DD1F89F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1897466E-AEF8-428D-9FB4-6D261DD1F89F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1897466E-AEF8-428D-9FB4-6D261DD1F89F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{068340C9-BFE7-4D39-AF63-BC7C70625BB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{068340C9-BFE7-4D39-AF63-BC7C70625BB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{068340C9-BFE7-4D39-AF63-BC7C70625BB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{068340C9-BFE7-4D39-AF63-BC7C70625BB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCEBB59F-2887-4092-B539-B7E8B87F916D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCEBB59F-2887-4092-B539-B7E8B87F916D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCEBB59F-2887-4092-B539-B7E8B87F916D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCEBB59F-2887-4092-B539-B7E8B87F916D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C478E40B-A05E-4C69-9AB3-7A3BB374243F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C478E40B-A05E-4C69-9AB3-7A3BB374243F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C478E40B-A05E-4C69-9AB3-7A3BB374243F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C478E40B-A05E-4C69-9AB3-7A3BB374243F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{073BCD60-F2FB-4DB9-92FB-403C8F9E8DD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{073BCD60-F2FB-4DB9-92FB-403C8F9E8DD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{073BCD60-F2FB-4DB9-92FB-403C8F9E8DD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{073BCD60-F2FB-4DB9-92FB-403C8F9E8DD0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{93BDB372-0401-4B16-B89F-65F4BB1DABA5} = {A55F03F4-004D-4D31-9D81-543596A5572F}
+		{1897466E-AEF8-428D-9FB4-6D261DD1F89F} = {A55F03F4-004D-4D31-9D81-543596A5572F}
+		{068340C9-BFE7-4D39-AF63-BC7C70625BB9} = {A55F03F4-004D-4D31-9D81-543596A5572F}
+		{895BECB8-2309-4D82-9BA2-279B5ADB5258} = {93BDB372-0401-4B16-B89F-65F4BB1DABA5}
+		{0B1B653C-A2AE-4C39-A3F0-A6A920448E2D} = {93BDB372-0401-4B16-B89F-65F4BB1DABA5}
+		{A88E3B41-D032-4533-AC4A-AAC2EEF9FF38} = {93BDB372-0401-4B16-B89F-65F4BB1DABA5}
+		{81445E57-AD53-421F-9D4A-23F57C5E72ED} = {93BDB372-0401-4B16-B89F-65F4BB1DABA5}
+		{BCEBB59F-2887-4092-B539-B7E8B87F916D} = {B1FB0CFF-44BA-4E2A-B801-606B4C7B4217}
+		{C478E40B-A05E-4C69-9AB3-7A3BB374243F} = {B1FB0CFF-44BA-4E2A-B801-606B4C7B4217}
+		{073BCD60-F2FB-4DB9-92FB-403C8F9E8DD0} = {B1FB0CFF-44BA-4E2A-B801-606B4C7B4217}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		ShellProjectGuid = 81445e57-ad53-421f-9d4a-23f57c5e72ed
+		CommonProjectGuid = 895becb8-2309-4d82-9ba2-279b5adb5258
+		RootNamespace = Microsoft.Practices.QuickStarts.WPFIntegration
+	EndGlobalSection
+EndGlobal

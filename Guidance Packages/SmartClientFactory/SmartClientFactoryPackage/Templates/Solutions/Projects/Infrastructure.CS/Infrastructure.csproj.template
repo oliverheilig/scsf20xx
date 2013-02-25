@@ -1,0 +1,65 @@
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+	<PropertyGroup>
+		<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+		<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+		<ProductVersion>9.0.21022</ProductVersion>
+		<SchemaVersion>2.0</SchemaVersion>
+		<ProjectGuid>$guid1$</ProjectGuid>
+		<OutputType>Library</OutputType>
+		<AppDesignerFolder>Properties</AppDesignerFolder>
+		<RootNamespace>$RootNamespace$.Infrastructure.Interface</RootNamespace>
+		<AssemblyName>$RootNamespace$.Infrastructure.Interface</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+		<DebugSymbols>true</DebugSymbols>
+		<DebugType>full</DebugType>
+		<Optimize>false</Optimize>
+		<OutputPath>bin\Debug\</OutputPath>
+		<DefineConstants>DEBUG;TRACE</DefineConstants>
+		<ErrorReport>prompt</ErrorReport>
+		<WarningLevel>4</WarningLevel>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+		<DebugType>pdbonly</DebugType>
+		<Optimize>true</Optimize>
+		<OutputPath>bin\Release\</OutputPath>
+		<DefineConstants>TRACE</DefineConstants>
+		<ErrorReport>prompt</ErrorReport>
+		<WarningLevel>4</WarningLevel>
+	</PropertyGroup>
+	<ItemGroup>
+		<Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+		<Reference Include="System.Data" />
+		<Reference Include="System.Xml" />
+		<Reference Include="System.Windows.Forms" />
+	</ItemGroup>
+	<ItemGroup>
+		<Compile Include="Properties\AssemblyInfo.cs" />
+		<Compile Include="Constants\CommandNames.cs" />
+		<Compile Include="Constants\EventTopicNames.cs" />
+		<Compile Include="Constants\UIExtensionSiteNames.cs" />
+		<Compile Include="Constants\WorkspaceNames.cs" />
+		<Compile Include="Services\EntityTranslatorException.cs" />
+		<Compile Include="Services\IActionCatalogService.cs" />
+		<Compile Include="Services\IActionCondition.cs" />
+		<Compile Include="Services\IEntityTranslator.cs" />
+		<Compile Include="Services\IEntityTranslatorService.cs" />
+		<Compile Include="Services\IImpersonationContext.cs" />
+		<Compile Include="Services\IImpersonationService.cs" />
+		<Compile Include="Services\IWorkspaceLocatorService.cs" />
+		<Compile Include="ActionAttribute.cs" />
+		<Compile Include="ControlledWorkItem.cs" />
+		<Compile Include="EventArgs.cs" />
+		<Compile Include="IWorkItemController.cs" />
+		<Compile Include="Presenter.cs" />
+		<Compile Include="WorkItemController.cs" />
+	</ItemGroup>
+	<ItemGroup>
+		<Folder Include="BusinessEntities\" />
+	</ItemGroup>
+	<Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

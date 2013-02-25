@@ -1,0 +1,31 @@
+'----------------------------------------------------------------------------------------
+'patterns & practices - Smart Client Software Factory - Guidance Package
+'
+'The BaseTranslator class is a base helper implementation of an IEntityTranslator
+' 
+' 
+
+'
+'Latest version of this Guidance Package: http://go.microsoft.com/fwlink/?LinkId=62182
+'----------------------------------------------------------------------------------------
+
+Imports System
+Imports $RootNamespace$.Infrastructure.Interface.Services
+
+Namespace EntityTranslators
+    Public MustInherit Class BaseTranslator
+        Implements IEntityTranslator
+
+        Public MustOverride Function CanTranslate(ByVal targetType As System.Type, ByVal sourceType As System.Type) As Boolean Implements [Interface].Services.IEntityTranslator.CanTranslate
+
+        Public Function CanTranslate(Of TTarget, TSource)() As Boolean Implements [Interface].Services.IEntityTranslator.CanTranslate
+            Return CanTranslate(GetType(TTarget), GetType(TSource))
+        End Function
+
+        Public Function Translate(Of TTarget)(ByVal service As [Interface].Services.IEntityTranslatorService, ByVal source As Object) As TTarget Implements [Interface].Services.IEntityTranslator.Translate
+            Return CType(Translate(service, GetType(TTarget), source), TTarget)
+        End Function
+
+        Public MustOverride Function Translate(ByVal service As [Interface].Services.IEntityTranslatorService, ByVal targetType As System.Type, ByVal source As Object) As Object Implements [Interface].Services.IEntityTranslator.Translate
+    End Class
+End Namespace

@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Recipe Name="CreateViewCS" Bound="false"
+        xmlns="http://schemas.microsoft.com/pag/gax-core"
+        xmlns:xi="http://www.w3.org/2001/XInclude">
+  <xi:include href="../Common/CommonTypeAliases.xml"
+				xpointer="xmlns(gax=http://schemas.microsoft.com/pag/gax-core) xpointer(/gax:Types)" />
+  <Caption>Add View (with presenter)...</Caption>
+  <Description>Adds a view and presenter that conforms to the Model-View-Presenter pattern.</Description>
+  <HostData>
+    <Icon ID="689" />
+    <CommandBar Menu="SCFProject" />
+    <CommandBar Menu="SCFProjectFolder" />
+  </HostData>
+  <Arguments>
+    <xi:include href="../Common/CreateSmartClientFactoryViewCommon.xml"
+					  xpointer="xmlns(gax=http://schemas.microsoft.com/pag/gax-core) 
+            xpointer(/Recipe/gax:Arguments/gax:Argument)" />
+
+    <Argument Name="DocumentationUrl">
+      <ValueProvider Type="Evaluator" Expression="ms-help://MS.VSCC.v90/MS.VSIPCC.v90/ms.practices.scsf.2008apr/SCSF/html/02-08-080-Add_View_with_presenter_Recipe_Next_Steps.htm"/>
+    </Argument>
+    <Argument Name="ValidateExistingFileExtension">
+      <ValueProvider Type="Evaluator" Expression="xaml">
+      </ValueProvider>
+    </Argument>
+    <Argument Name="ViewTargetFile">
+      <ValueProvider Type="Evaluator" Expression="$(ViewName).cs">
+        <MonitorArgument Name="ViewName" />
+      </ValueProvider>
+    </Argument>
+    <Argument Name="ViewGeneratedCodeTargetFile">
+      <ValueProvider Type="Evaluator" Expression="$(ViewName).$(GeneratedCode).cs">
+        <MonitorArgument Name="ViewName" />
+      </ValueProvider>
+    </Argument>
+    <Argument Name="ViewDesignerTargetFile">
+      <ValueProvider Type="Evaluator" Expression="$(ViewName).Designer.cs">
+        <MonitorArgument Name="ViewName" />
+      </ValueProvider>
+    </Argument>
+    <Argument Name="ViewInterfaceTargetFile">
+      <ValueProvider Type="Evaluator" Expression="I$(ViewName).cs">
+        <MonitorArgument Name="ViewName" />
+      </ValueProvider>
+    </Argument>
+    <Argument Name="ViewPresenterTargetFile">
+      <ValueProvider Type="Evaluator" Expression="$(ViewName)Presenter.cs">
+        <MonitorArgument Name="ViewName" />
+      </ValueProvider>
+    </Argument>
+    <Argument Name="ViewPresenterGeneratedCodeTargetFile">
+      <ValueProvider Type="Evaluator" Expression="$(ViewName)Presenter.$(GeneratedCode).cs">
+        <MonitorArgument Name="ViewName" />
+      </ValueProvider>
+    </Argument>
+    <Argument Name="ViewPresenterTestFixtureFileName" Type="System.String">
+      <ValueProvider Type="Evaluator" Expression="$(ViewName)PresenterFixture.cs" Stage="OnBeforeActions">
+
+      </ValueProvider>
+    </Argument>
+    <Argument Name="RecipeLanguage" Type="System.String">
+      <ValueProvider Type="Evaluator" Expression="CS"></ValueProvider>
+    </Argument>
+    <Argument Name="IsWpfView" Type="System.Boolean">
+      <ValueProvider Type="Evaluator" Expression="false" />
+    </Argument>
+  </Arguments>  
+  <GatheringServiceData>
+    <Wizard xmlns="http://schemas.microsoft.com/pag/gax-wizards" SchemaVersion="1.0" Help="ms-help://MS.VSCC.v90/MS.VSIPCC.v90/ms.practices.scsf.2008apr/SCSF/html/03-01-040-How_to_Add_a_View_with_a_Presenter.htm">
+      <Pages>
+        <Page Type="Microsoft.Practices.SmartClientFactory.CustomWizardPages.CreateViewPage, Microsoft.Practices.SmartClientFactory.GuidancePackage">
+          <Title>Add View with Presenter</Title>
+          <LinkTitle>Add View with Presenter properties</LinkTitle>
+        </Page>
+      </Pages>
+    </Wizard>
+  </GatheringServiceData>
+  <Actions CoordinatorServiceType="Microsoft.Practices.RecipeFramework.Extensions.Coordinators.ConditionalCoordinator, Microsoft.Practices.RecipeFramework.Extensions">
+    <!-- Adds Winforms Reference and creates the folder for the view-->
+    <xi:include href="../Common/CreateSmartClientFactoryViewCommon.xml"
+					  xpointer="xmlns(gax=http://schemas.microsoft.com/pag/gax-core) 
+            xpointer(/Recipe/gax:ActionsAddRefToWinforms/gax:Action)" />
+    <xi:include href="../Common/CreateSmartClientFactoryViewCommon.xml"
+					  xpointer="xmlns(gax=http://schemas.microsoft.com/pag/gax-core) 
+            xpointer(/Recipe/gax:ActionsCreateViewFolder/gax:Action)" />
+
+    <!-- Generate all files for the specific language-->
+    <Action Name="GenerateView" Type="TextTemplateAction"
+        Template="Items\View.CS\View.cs.t4">
+      <Input Name="ClassName" RecipeArgument="ViewName" />
+      <Input Name="TargetNamespace" RecipeArgument="TargetNamespace" />
+      <Input Name="RootNamespace" RecipeArgument="RootNamespace"/>
+      <Output Name="Content" />
+    </Action>
+    <Action Name="GenerateViewGeneratedCode" Type="TextTemplateAction"
+        Template="Items\View.CS\View.GeneratedCode.cs.t4">
+      <Input Name="ClassName" RecipeArgument="ViewName" />
+      <Input Name="TargetNamespace" RecipeArgument="TargetNamespace" />
+      <Input Name="RootNamespace" RecipeArgument="RootNamespace"/>
+      <Output Name="Content" />
+    </Action>
+    <Action Name="GenerateViewDesigner" Type="TextTemplateAction"
+      Template="Items\View.CS\View.Designer.cs.t4">
+      <Input Name="ClassName" RecipeArgument="ViewName" />
+      <Input Name="TargetNamespace" RecipeArgument="TargetNamespace" />
+      <Input Name="RootNamespace" RecipeArgument="RootNamespace"/>
+      <Output Name="Content" />
+    </Action>
+    <Action Name="GenerateViewInterface" Type="TextTemplateAction"
+      Template="Items\View.CS\IView.cs.t4">
+      <Input Name="ClassName" RecipeArgument="ViewName" />
+      <Input Name="TargetNamespace" RecipeArgument="TargetNamespace" />
+      <Input Name="RootNamespace" RecipeArgument="RootNamespace"/>
+      <Output Name="Content" />
+    </Action>
+    <Action Name="GenerateViewPresenter" Type="TextTemplateAction"
+      Template="Items\View.CS\Presenter.cs.t4">
+      <Input Name="ClassName" RecipeArgument="ViewName" />
+      <Input Name="TargetNamespace" RecipeArgument="TargetNamespace" />
+      <Input Name="RootNamespace" RecipeArgument="RootNamespace"/>
+      <Output Name="Content" />
+    </Action>
+    <Action Name="GenerateViewPresenterGeneratedCode" Type="TextTemplateAction"
+      Template="Items\View.CS\Presenter.GeneratedCode.cs.t4">
+      <Input Name="ClassName" RecipeArgument="ViewName" />
+      <Input Name="TargetNamespace" RecipeArgument="TargetNamespace" />
+      <Input Name="RootNamespace" RecipeArgument="RootNamespace"/>
+      <Output Name="Content" />
+    </Action>
+
+    <Action Condition="$(TestProjectExists)" Name="GenerateViewPresenterTestFixture" 
+         Type="TextTemplateAction"
+         Template="Items\View.CS\ViewPresenterTestFixture.cs.t4">
+      <Input Name="ModuleName" RecipeArgument="ModuleName"/>
+      <Input Name="ViewName" RecipeArgument="ViewName"/>
+      <Input Name="ModuleNamespace" RecipeArgument="TargetNamespace"/>
+      <Input Name="ModuleTestProjectNamespace" RecipeArgument="TargetNamespace"/>
+      <Output Name="Content" />
+    </Action>
+
+    <!-- Add project items -->
+    <xi:include href="../Common/CreateSmartClientFactoryViewCommon.xml"
+					  xpointer="xmlns(gax=http://schemas.microsoft.com/pag/gax-core) 
+            xpointer(/Recipe/gax:ActionsAddItemsToProject/gax:Action)" />
+
+    <!-- Display the HTML information page -->
+    <Action Name="ShowCreateSolutionHelp" Type="Microsoft.Practices.SmartClientFactory.Actions.ShowUrlAction, Microsoft.Practices.SmartClientFactory.GuidancePackage">
+      <Input Name="ShowDocs" RecipeArgument="ShowDocumentation"/>
+      <Input Name="Url" RecipeArgument="DocumentationUrl" />
+    </Action>
+  </Actions>
+</Recipe>

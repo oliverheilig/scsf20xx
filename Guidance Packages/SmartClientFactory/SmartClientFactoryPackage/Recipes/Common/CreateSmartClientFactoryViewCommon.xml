@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Recipe Name="CreateViewCommon" >
+  <Arguments xmlns="http://schemas.microsoft.com/pag/gax-core" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <xi:include href="../Common/CommonArguments.xml"
+					  xpointer="xmlns(gax=http://schemas.microsoft.com/pag/gax-core) 
+            xpointer(/gax:Arguments/gax:Argument)" />
+
+    <Argument Name="ModuleProject" Type="EnvDTE.Project, EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <ValueProvider Type="FirstSelectedProjectProvider" />
+    </Argument>
+    <Argument Name="SelectedProjectItem" Type="EnvDTE.ProjectItem, EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" Required="false">
+      <ValueProvider Type="CurrentItemProvider"/>
+    </Argument>
+    <Argument Name="TargetProjectItems" Type="EnvDTE.ProjectItems, EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <ValueProvider  Type="Microsoft.Practices.SmartClientFactory.ValueProviders.TargetItemsCollectionProvider, Microsoft.Practices.SmartClientFactory.GuidancePackage" />
+    </Argument>
+    <Argument Name="ViewName" Required="true">
+      <ValueProvider Type="Evaluator" Expression="View1" />
+    </Argument>
+    <Argument Name="GeneratedCode" Required="true">
+      <ValueProvider Type="Evaluator" Expression="GeneratedCode" />
+    </Argument>
+    <Argument Name="RootNamespace">
+      <ValueProvider Type="Microsoft.Practices.RecipeFramework.Library.ValueProviders.GlobalValueProvider, Microsoft.Practices.RecipeFramework.Library"
+        Key="RootNamespace" />
+    </Argument>
+    <Argument Name="TargetNamespace">
+      <Converter Type="Microsoft.Practices.RecipeFramework.Library.Converters.NamespaceStringConverter, Microsoft.Practices.RecipeFramework.Library"/>
+      <ValueProvider Type="Evaluator" Expression="$(ModuleProject.Properties.Item('DefaultNamespace').Value)" />
+    </Argument>
+    <Argument Name="CreateViewFolder" Type="System.Boolean">
+      <ValueProvider Type="Evaluator" Expression="false" />
+    </Argument>
+    <Argument Name="ShowDocumentation" Type="System.Boolean">
+      <ValueProvider Type="Evaluator" Expression="false" />
+    </Argument>
+    <Argument Name="ModuleName" Type="System.String">
+      <ValueProvider Type="Evaluator" Expression="$(ModuleProject.Name)"></ValueProvider>
+    </Argument>
+    <Argument Name="TestProjectName" Type="System.String">
+      <ValueProvider Type="Evaluator" Expression="$(ModuleName).Tests"></ValueProvider>
+    </Argument>
+    <Argument Name="ModuleTestProject" Type="EnvDTE.Project, EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" Required="false">
+      <ValueProvider Type="Microsoft.Practices.SmartClientFactory.ValueProviders.ProjectByNameExpressionProvider, Microsoft.Practices.SmartClientFactory.GuidancePackage"
+                     NameExpression="$(TestProjectName)" >
+      </ValueProvider>
+    </Argument>
+    <Argument Name="TestProjectExists" Type="System.Boolean">
+      <ValueProvider Type="Microsoft.Practices.SmartClientFactory.ValueProviders.IsValidExpressionProvider, Microsoft.Practices.SmartClientFactory.GuidancePackage" 
+                     ValueExpression="$(ModuleTestProject)">
+      </ValueProvider>
+    </Argument>
+    <Argument Name="ViewsFolder" Type="System.String">
+      <ValueProvider Type="Evaluator" Expression="Views" />
+    </Argument>
+    <Argument Name="ReferenceWinforms" Type="System.String">
+      <ValueProvider Type="Evaluator" Expression="System.Windows.Forms" />
+    </Argument>
+    <Argument Name="ReferencePresentationCore" Type="System.String">
+      <ValueProvider Type="Evaluator" Expression="PresentationCore, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=x86" />
+    </Argument>
+    <Argument Name="ReferencePresentationFramework" Type="System.String">
+      <ValueProvider Type="Evaluator" Expression="PresentationFramework, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    </Argument>
+    <Argument Name="ReferenceWindowsBase" Type="System.String">
+      <ValueProvider Type="Evaluator" Expression="WindowsBase, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    </Argument>
+
+    <Argument Name="ReferenceCABWPFExtensions" Type="System.String">
+      <ValueProvider Type="Microsoft.Practices.SmartClientFactory.ValueProviders.LibraryFilePathProvider, Microsoft.Practices.SmartClientFactory.GuidancePackage" LibraryFile="Microsoft.Practices.CompositeUI.WPF.dll" />
+    </Argument>
+              
+  </Arguments>
+  
+  <!-- Adds Winforms Reference and creates the folder for the view-->
+  <ActionsAddRefToWinforms xmlns="http://schemas.microsoft.com/pag/gax-core">
+    <Action Name="AddReferenceToWinforms" Type="Microsoft.Practices.RecipeFramework.Library.Solution.Actions.AddReferenceAction, Microsoft.Practices.RecipeFramework.Library">
+      <Input Name="ReferringProject" RecipeArgument="ModuleProject"/>
+      <Input Name="ReferenceName" RecipeArgument="ReferenceWinforms" />
+    </Action>
+  </ActionsAddRefToWinforms>
+  <ActionsAddRefToWPF xmlns="http://schemas.microsoft.com/pag/gax-core">
+    <Action Name="AddReferenceToPresentationCore" Type="Microsoft.Practices.RecipeFramework.Library.Solution.Actions.AddReferenceAction, Microsoft.Practices.RecipeFramework.Library">
+      <Input Name="ReferringProject" RecipeArgument="ModuleProject"/>
+      <Input Name="ReferenceName" RecipeArgument="ReferencePresentationCore" />
+    </Action>
+    <Action Name="AddReferenceToPresentationFramework" Type="Microsoft.Practices.RecipeFramework.Library.Solution.Actions.AddReferenceAction, Microsoft.Practices.RecipeFramework.Library">
+      <Input Name="ReferringProject" RecipeArgument="ModuleProject"/>
+      <Input Name="ReferenceName" RecipeArgument="ReferencePresentationFramework" />
+    </Action>
+    <Action Name="AddReferenceToWindowsBase" Type="Microsoft.Practices.RecipeFramework.Library.Solution.Actions.AddReferenceAction, Microsoft.Practices.RecipeFramework.Library">
+      <Input Name="ReferringProject" RecipeArgument="ModuleProject"/>
+      <Input Name="ReferenceName" RecipeArgument="ReferenceWindowsBase" />
+    </Action>
+    <Action Name="AddReferenceToCABWPFExtensions"
+      Type="Microsoft.Practices.SmartClientFactory.Actions.TryAddReferenceAction, Microsoft.Practices.SmartClientFactory.GuidancePackage">
+      <Input Name="ReferringProject" RecipeArgument="ModuleProject" />
+      <Input Name="ReferenceName" RecipeArgument="ReferenceCABWPFExtensions" />
+    </Action>
+    <Action Name="ConvertToWPF"
+      Type="Microsoft.Practices.SmartClientFactory.Actions.ConvertProjectToWpfAction, Microsoft.Practices.SmartClientFactory.GuidancePackage">
+      <Input Name="Project" RecipeArgument="ModuleProject" />
+    </Action>
+  </ActionsAddRefToWPF>
+  
+  <ActionsCreateViewFolder xmlns="http://schemas.microsoft.com/pag/gax-core">
+      <Action Name="CreateFolder" Type="Microsoft.Practices.SmartClientFactory.Actions.CreateFolderAction, Microsoft.Practices.SmartClientFactory.GuidancePackage">
+      <Input Name="CreateFolder" RecipeArgument="CreateViewFolder" />
+      <Input Name="FolderName" RecipeArgument="ViewName" />
+      <Input Name="TargetCollection" RecipeArgument="TargetProjectItems" />
+      <Output Name="FolderCollection"/>
+    </Action>
+  </ActionsCreateViewFolder>
+
+  <!-- Add project items -->
+  <ActionsAddItemsToProject xmlns="http://schemas.microsoft.com/pag/gax-core">
+    <Action Name="AddView" Type="Microsoft.Practices.SmartClientFactory.Actions.AddItemFromStringToProjectItemsAction, Microsoft.Practices.SmartClientFactory.GuidancePackage" 
+            Open="false" Overwrite="false">
+      <Input Name="Content" ActionOutput="GenerateView.Content" />
+      <Input Name="TargetFileName" RecipeArgument="ViewTargetFile" />
+      <Input Name="TargetCollection"  ActionOutput="CreateFolder.FolderCollection" />
+      <Output Name="CreatedProjectItems" />
+    </Action>
+    <Action Name="AddViewGeneratedCode" Type="Microsoft.Practices.SmartClientFactory.Actions.AddItemFromStringToProjectItemsAction, Microsoft.Practices.SmartClientFactory.GuidancePackage"
+            Open="false" Overwrite="true">
+      <Input Name="Content" ActionOutput="GenerateViewGeneratedCode.Content" />
+      <Input Name="TargetFileName" RecipeArgument="ViewGeneratedCodeTargetFile" />
+      <Input Name="TargetCollection"  ActionOutput="AddView.CreatedProjectItems" />
+    </Action>
+    <Action Name="AddViewDesigner" Type="Microsoft.Practices.SmartClientFactory.Actions.AddItemFromStringToProjectItemsAction, Microsoft.Practices.SmartClientFactory.GuidancePackage" 
+            Open="false" Overwrite="false">
+      <Input Name="Content" ActionOutput="GenerateViewDesigner.Content" />
+      <Input Name="TargetFileName" RecipeArgument="ViewDesignerTargetFile" />
+      <Input Name="TargetCollection" ActionOutput="AddView.CreatedProjectItems" />
+    </Action>
+    <Action Name="AddViewInterface" Type="Microsoft.Practices.SmartClientFactory.Actions.AddItemFromStringToProjectItemsAction, Microsoft.Practices.SmartClientFactory.GuidancePackage" 
+            Open="false">
+      <Input Name="Content" ActionOutput="GenerateViewInterface.Content" />
+      <Input Name="TargetFileName" RecipeArgument="ViewInterfaceTargetFile" />
+      <Input Name="TargetCollection" ActionOutput="CreateFolder.FolderCollection" />
+    </Action>
+    <Action Name="AddViewPresenter" Type="Microsoft.Practices.SmartClientFactory.Actions.AddItemFromStringToProjectItemsAction, Microsoft.Practices.SmartClientFactory.GuidancePackage" 
+            Open="false">
+      <Input Name="Content" ActionOutput="GenerateViewPresenter.Content" />
+      <Input Name="TargetFileName" RecipeArgument="ViewPresenterTargetFile" />
+      <Input Name="TargetCollection" ActionOutput="CreateFolder.FolderCollection" />
+    </Action>
+    <Action Name="AddViewPresenterGeneratedCode" Type="Microsoft.Practices.SmartClientFactory.Actions.AddItemFromStringToProjectItemsAction, Microsoft.Practices.SmartClientFactory.GuidancePackage"
+        Open="false" Overwrite="true">
+      <Input Name="Content" ActionOutput="GenerateViewPresenterGeneratedCode.Content" />
+      <Input Name="TargetFileName" RecipeArgument="ViewPresenterGeneratedCodeTargetFile" />
+      <Input Name="TargetCollection" ActionOutput="AddViewPresenter.CreatedProjectItems" />
+    </Action>
+    <Action Condition="$(TestProjectExists)" Name="AddViewPresenterTestFixtureToModuleTestProject" 
+           Type="Microsoft.Practices.RecipeFramework.Extensions.Actions.VisualStudio.AddItemFromStringToProjectItemByNameAction, Microsoft.Practices.RecipeFramework.Extensions"
+           Open="false">
+      <Input Name="Content" ActionOutput="GenerateViewPresenterTestFixture.Content" />
+      <Input Name="ItemName" RecipeArgument="ViewsFolder"/>
+      <Input Name="TargetFileName" RecipeArgument="ViewPresenterTestFixtureFileName"/>
+      <Input Name="Project" RecipeArgument="ModuleTestProject" />
+    </Action>
+  </ActionsAddItemsToProject>
+</Recipe>

@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestLists xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestList name="Lists of Tests" id="8c43106b-9dc1-4907-a29f-aa66a61bf5b6">
+    <RunConfiguration name="Local Test Run" storage="localtestrun.testrunconfig" id="9eef7fdb-9ec8-4bb4-9cfd-aa366e85e042" type="Microsoft.VisualStudio.TestTools.Common.TestRunConfiguration" />
+  </TestList>
+</TestLists>

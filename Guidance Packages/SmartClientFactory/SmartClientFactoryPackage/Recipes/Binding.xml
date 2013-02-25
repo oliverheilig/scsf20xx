@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Recipe Name="BindingRecipe" xmlns="http://schemas.microsoft.com/pag/gax-core" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <xi:include href="Common/CommonTypeAliases.xml"
+              xpointer="xmlns(gax=http://schemas.microsoft.com/pag/gax-core) xpointer(/gax:Types)" />
+  <Caption>Creates unbound references to the guidance package</Caption>
+  <Arguments>
+    <Argument Name="VBInstalled" Type="System.Boolean">
+      <ValueProvider Type="Microsoft.Practices.SmartClientFactory.ValueProviders.VBInstallationCheck, Microsoft.Practices.SmartClientFactory.GuidancePackage"/>
+    </Argument>
+  </Arguments>
+  <Actions CoordinatorServiceType="Microsoft.Practices.RecipeFramework.Extensions.Coordinators.ConditionalCoordinator, Microsoft.Practices.RecipeFramework.Extensions">
+    <Action Name="FoundationalModuleRefCS"
+        Type="RefCreator" 
+        AssetName="Projects\Module.CS\ModuleHandle.vstemplate"
+        ReferenceType="Microsoft.Practices.SmartClientFactory.References.ModuleTemplateReference, Microsoft.Practices.SmartClientFactory.GuidancePackage" />
+    <Action Name="BusinessModuleRefCS" 
+        Type="RefCreator"
+        AssetName="Projects\Module.Business.CS\BusinessModuleHandle.vstemplate" 
+        ReferenceType="Microsoft.Practices.SmartClientFactory.References.ModuleTemplateReference, Microsoft.Practices.SmartClientFactory.GuidancePackage" />
+    <Action Name="CreateViewRefCS"
+        Type="RefCreator"
+        AssetName="CreateViewCS"
+        ReferenceType="Microsoft.Practices.SmartClientFactory.References.ViewTemplateReferenceCS, Microsoft.Practices.SmartClientFactory.GuidancePackage" />
+    <Action Name="CreateWPFViewRefCS"
+        Type="RefCreator"
+        AssetName="CreateWPFViewCS"
+        ReferenceType="Microsoft.Practices.SmartClientFactory.References.ViewTemplateReferenceCS, Microsoft.Practices.SmartClientFactory.GuidancePackage" />
+    <Action Name="AddEventPublicationRefCS"
+        Type="RefCreator"
+        AssetName="AddEventPublicationCS"
+        ReferenceType="Microsoft.Practices.SmartClientFactory.References.AddEventSubscriptionRecipeReferenceCS, Microsoft.Practices.SmartClientFactory.GuidancePackage" />
+    <Action Name="AddEventSubscriptionRefCS"
+        Type="RefCreator"
+        AssetName="AddEventSubscriptionCS"
+        ReferenceType="Microsoft.Practices.SmartClientFactory.References.AddEventSubscriptionRecipeReferenceCS, Microsoft.Practices.SmartClientFactory.GuidancePackage" />
+    <Action Name="CreateDisconnectedServiceAgentRefCS"
+			  Type="RefCreator"
+			  AssetName="CreateDisconnectedServiceAgentCS"
+			  ReferenceType="Microsoft.Practices.SmartClientFactory.References.WebReferenceOrProjectCS, Microsoft.Practices.SmartClientFactory.GuidancePackage" />
+    <Action Name="UpdateDisconnectedServiceAgentCS"
+        Type="RefCreator"
+        AssetName="UpdateDisconnectedServiceAgentCS"
+        ReferenceType="Microsoft.Practices.SmartClientFactory.References.UpdateDSAReferenceCS, Microsoft.Practices.SmartClientFactory.GuidancePackage" />
+
+    <!-- Recipes for VB -->
+    <Action Condition="$(VBInstalled)" Name="FoundationalModuleRefVB"
+        Type="RefCreator"
+        AssetName="Projects\Module.VB\ModuleHandle.vstemplate"
+        ReferenceType="Microsoft.Practices.SmartClientFactory.References.ModuleTemplateReference, Microsoft.Practices.SmartClientFactory.GuidancePackage" />
+    <Action Condition="$(VBInstalled)" Name="BusinessModuleRefVB"
+        Type="RefCreator"
+        AssetName="Projects\Module.Business.VB\BusinessModuleHandle.vstemplate"
+        ReferenceType="Microsoft.Practices.SmartClientFactory.References.ModuleTemplateReference, Microsoft.Practices.SmartClientFactory.GuidancePackage" />
+    <Action Condition="$(VBInstalled)" Name="CreateViewRefVB"
+        Type="RefCreator"
+        AssetName="CreateViewVB"
+        ReferenceType="Microsoft.Practices.SmartClientFactory.References.ViewTemplateReferenceVB, Microsoft.Practices.SmartClientFactory.GuidancePackage" />
+    <Action Condition="$(VBInstalled)" Name="CreateWPFViewRefVB"
+        Type="RefCreator"
+        AssetName="CreateWPFViewVB"
+        ReferenceType="Microsoft.Practices.SmartClientFactory.References.ViewTemplateReferenceVB, Microsoft.Practices.SmartClientFactory.GuidancePackage" />
+    <Action Condition="$(VBInstalled)" Name="AddEventPublicationRefVB"
+        Type="RefCreator"
+        AssetName="AddEventPublicationVB"
+        ReferenceType="Microsoft.Practices.SmartClientFactory.References.AddEventSubscriptionRecipeReferenceVB, Microsoft.Practices.SmartClientFactory.GuidancePackage" />
+    <Action Condition="$(VBInstalled)" Name="AddEventSubscriptionRefVB"
+        Type="RefCreator"
+        AssetName="AddEventSubscriptionVB"
+        ReferenceType="Microsoft.Practices.SmartClientFactory.References.AddEventSubscriptionRecipeReferenceVB, Microsoft.Practices.SmartClientFactory.GuidancePackage" />
+    <Action Condition="$(VBInstalled)" Name="CreateDisconnectedServiceAgentRefVB"
+			  Type="RefCreator"
+			  AssetName="CreateDisconnectedServiceAgentVB"
+			  ReferenceType="Microsoft.Practices.SmartClientFactory.References.WebReferenceOrProjectVB, Microsoft.Practices.SmartClientFactory.GuidancePackage" />
+    <Action Condition="$(VBInstalled)" Name="UpdateDisconnectedServiceAgentVB"
+        Type="RefCreator"
+        AssetName="UpdateDisconnectedServiceAgentVB"
+        ReferenceType="Microsoft.Practices.SmartClientFactory.References.UpdateDSAReferenceVB, Microsoft.Practices.SmartClientFactory.GuidancePackage" />
+  </Actions>
+</Recipe>

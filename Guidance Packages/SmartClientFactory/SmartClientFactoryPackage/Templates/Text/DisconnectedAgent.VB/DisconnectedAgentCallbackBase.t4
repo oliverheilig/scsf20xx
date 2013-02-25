@@ -1,0 +1,60 @@
+<#@ Template Language="C#" #>
+<#@ Assembly Name="System.dll" #>
+<#@ Assembly Name = "Microsoft.Practices.SmartClientFactory.GuidancePackage.dll" #>
+<#@ Import Namespace="System" #>
+<#@ Import Namespace="System.Collections.Generic" #>
+<#@ Import Namespace="System.Reflection" #>
+<#@ Import Namespace="System.Text" #>
+<#@ Import Namespace="Microsoft.Practices.SmartClientFactory" #>
+<#@ Import Namespace="Microsoft.Practices.SmartClientFactory.Converters" #>
+<#@ property processor="PropertyProcessor" Name="ProxyType" #>
+<#@ property processor="PropertyProcessor" Name="MethodsList" #>
+<#@ property processor="PropertyProcessor" Name="Behaviors" #>
+<#@ property processor="PropertyProcessor" Name="TargetNamespace" #>
+<#
+	List<MethodInfo> methods = ProxyMethodsConverter.GetMethods(this.ProxyType, this.MethodsList);
+#>
+Imports Microsoft.Practices.SmartClient.DisconnectedAgent
+<#= RenderImports(methods) #>
+Namespace <#= this.TargetNamespace #>
+	' Generated code for the web service.
+	' Use this proxy to make requests to the service when working in an application that is occasionally connected
+    Public MustInherit Class CallbackBase
+    
+<# 
+	MethodBehaviors behaviors = AgentTemplateHelper.BuildBehaviors(this.ProxyType, this.Behaviors, this.MethodsList);
+	Dictionary<string, int> overloadedMethods = new Dictionary<string, int>();
+
+	foreach (MethodBehavior behavior in behaviors)
+	{
+		string paramDeclarations = GetParameterDeclarations(behavior.Method.GetParameters());
+		string paramReferences = GetParameterReferences(behavior.Method.GetParameters());
+
+		bool hasOverloads=AgentTemplateHelper.HasOverloadedMethods(behavior.Method.Name, behaviors);
+		string OnReturnMethodName=String.Format("On{0}Return",behavior.Method.Name);
+		string OnExceptionMethodName=String.Format("On{0}Exception",behavior.Method.Name);
+
+		if (hasOverloads)
+		{
+			int overloadedMethodCount=AgentTemplateHelper.GetOverloadedMethodCount(behavior.Method.Name, overloadedMethods);
+			OnReturnMethodName=String.Format("On{0}{1}Return",behavior.Method.Name,overloadedMethodCount);
+			OnExceptionMethodName=String.Format("On{0}{1}Exception",behavior.Method.Name,overloadedMethodCount);
+		}
+#>
+		#Region "<#= behavior.Method.Name #>"
+
+		Public MustOverride Sub <#= OnReturnMethodName #>(ByVal request As Request, ByVal parameters As Object()<#
+			if (behavior.Method.ReturnType != typeof(void))
+			{ 
+				#>, returnValue As <#= behavior.Method.ReturnType.Name #><#
+			} #>)
+
+		Public MustOverride Function <#= OnExceptionMethodName #>(ByVal request As Request, ByVal ex As Exception) As OnExceptionAction
+		
+		#End Region
+		
+<# } #>
+	End Class
+
+End Namespace
+<#@ Include File="Templates\Text\DisconnectedAgent.VB\DisconnectedAgentHelpers.vb.t4" #>

@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{6D707276-16E0-4CDA-8370-9C0F50A11B44}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{B2FA45EB-E01B-489B-8819-3FEFEA7A4E49}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DE4ADD3D-A408-4ADA-9B7E-FEFC3BD7ED75}"
+	ProjectSection(SolutionItems) = preProject
+		Install\CAB_VB.wxs = Install\CAB_VB.wxs
+		Src\VB\Solution Items\GlobalAssemblyInfo.vb = Src\VB\Solution Items\GlobalAssemblyInfo.vb
+		Installer-VB.msbuild = Installer-VB.msbuild
+		localtestrun.testrunconfig = localtestrun.testrunconfig
+		SolutionGenerator_VB.config = SolutionGenerator_VB.config
+	EndProjectSection
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "CompositeUI", "Source\CompositeUI\CompositeUI.vbproj", "{695D739D-14CB-46BF-B72F-FFA386F86CD0}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "CompositeUI.WinForms", "Source\CompositeUI.WinForms\CompositeUI.WinForms.vbproj", "{BD21FDDF-D601-4DD3-85E9-D2739D0DC768}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "CompositeUI.Tests.VSTS", "UnitTests\CompositeUI\CompositeUI.Tests.VSTS.vbproj", "{A8A7CE2A-C51F-420C-138B-812C77897DDD}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "CompositeUI.WinForms.Tests.VSTS", "UnitTests\CompositeUI.WinForms\CompositeUI.WinForms.Tests.VSTS.vbproj", "{24027F30-2765-4F35-518C-47EF14267081}"
+EndProject
+Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = CompositeUI-VB-VSTS.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{695D739D-14CB-46BF-B72F-FFA386F86CD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{695D739D-14CB-46BF-B72F-FFA386F86CD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{695D739D-14CB-46BF-B72F-FFA386F86CD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{695D739D-14CB-46BF-B72F-FFA386F86CD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD21FDDF-D601-4DD3-85E9-D2739D0DC768}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD21FDDF-D601-4DD3-85E9-D2739D0DC768}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD21FDDF-D601-4DD3-85E9-D2739D0DC768}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD21FDDF-D601-4DD3-85E9-D2739D0DC768}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8A7CE2A-C51F-420C-138B-812C77897DDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8A7CE2A-C51F-420C-138B-812C77897DDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8A7CE2A-C51F-420C-138B-812C77897DDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8A7CE2A-C51F-420C-138B-812C77897DDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24027F30-2765-4F35-518C-47EF14267081}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24027F30-2765-4F35-518C-47EF14267081}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24027F30-2765-4F35-518C-47EF14267081}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24027F30-2765-4F35-518C-47EF14267081}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{695D739D-14CB-46BF-B72F-FFA386F86CD0} = {6D707276-16E0-4CDA-8370-9C0F50A11B44}
+		{BD21FDDF-D601-4DD3-85E9-D2739D0DC768} = {6D707276-16E0-4CDA-8370-9C0F50A11B44}
+		{A8A7CE2A-C51F-420C-138B-812C77897DDD} = {B2FA45EB-E01B-489B-8819-3FEFEA7A4E49}
+		{24027F30-2765-4F35-518C-47EF14267081} = {B2FA45EB-E01B-489B-8819-3FEFEA7A4E49}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile publishUrl="http://localhost/DeploymentSite" deleteExistingFiles="False" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="DeploymentSite" publishMethod="FileSystem" replaceMatchingFiles="True" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+    <file relUrl="Web.config" publishTime="05/02/2010 22:02:50" />
+    <file relUrl="bin/DeploymentSite.pdb" publishTime="05/03/2010 22:35:01" />
+    <file relUrl="Site.Master" publishTime="05/02/2010 00:35:34" />
+    <file relUrl="Account/Web.config" publishTime="05/02/2010 00:35:34" />
+    <file relUrl="Account/Register.aspx" publishTime="05/02/2010 00:35:34" />
+    <file relUrl="bin/DeploymentRepositoryProvider.pdb" publishTime="05/03/2010 22:35:00" />
+    <file relUrl="bin/DeploymentSite.dll" publishTime="05/03/2010 22:35:01" />
+    <file relUrl="Account/ChangePasswordSuccess.aspx" publishTime="05/02/2010 00:35:34" />
+    <file relUrl="Account/Login.aspx" publishTime="05/02/2010 00:35:34" />
+    <file relUrl="bin/DeploymentRepositoryProvider.dll" publishTime="05/03/2010 22:35:00" />
+    <file relUrl="Scripts/jquery-1.4.1.js" publishTime="05/02/2010 00:35:34" />
+    <file relUrl="Account/ChangePassword.aspx" publishTime="05/02/2010 00:35:34" />
+    <file relUrl="bin/SqlRepositoryProviderLib.pdb" publishTime="05/03/2010 22:35:01" />
+    <file relUrl="bin/SqlRepositoryProviderLib.dll" publishTime="05/03/2010 22:35:01" />
+    <file relUrl="Global.asax" publishTime="05/02/2010 00:35:34" />
+    <file relUrl="Scripts/jquery-1.4.1-vsdoc.js" publishTime="05/02/2010 00:35:34" />
+    <file relUrl="About.aspx" publishTime="05/02/2010 00:35:34" />
+    <file relUrl="Styles/Site.css" publishTime="05/02/2010 00:35:34" />
+    <file relUrl="Default.aspx" publishTime="05/02/2010 00:35:34" />
+    <file relUrl="Scripts/jquery-1.4.1.min.js" publishTime="05/02/2010 00:35:34" />
+  </publishProfile>
+</publishData>
