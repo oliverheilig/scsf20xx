@@ -42,7 +42,7 @@
     </TargetFrameworkProfile>
     <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
     <OldToolsVersion>4.0</OldToolsVersion>
-    <RecipeFrameworkPath>$(DevEnvDir)\Extensions\zuvzsoov.2wk</RecipeFrameworkPath> 
+    <RecipeFrameworkPath>$(DevEnvDir)\Extensions\zuvzsoov.2wk</RecipeFrameworkPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -103,6 +103,7 @@
     </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation">
       <HintPath>..\..\..\Lib\EntLib5\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Practices.Unity">
       <HintPath>..\..\..\Lib\EntLib5\Microsoft.Practices.Unity.dll</HintPath>
