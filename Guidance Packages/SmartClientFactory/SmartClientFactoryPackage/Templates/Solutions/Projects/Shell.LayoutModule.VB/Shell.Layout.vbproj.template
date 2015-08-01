@@ -10,7 +10,7 @@
     <RootNamespace>$RootNamespace$.Infrastructure.Layout</RootNamespace>
     <AssemblyName>$RootNamespace$.Infrastructure.Layout</AssemblyName>
     <MyType>Windows</MyType>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>

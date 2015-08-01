@@ -160,7 +160,7 @@ namespace Microsoft.Practices.CompositeUI.WPF
 
         private TObject DecodeNullObject<TObject>(object innerValue)
         {
-            if (innerValue == typeof(NullObject))
+            if ((Type)innerValue == typeof(NullObject))
             {
                 return default(TObject);
             }

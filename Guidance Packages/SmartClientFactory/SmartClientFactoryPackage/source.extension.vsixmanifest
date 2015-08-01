@@ -12,18 +12,16 @@
     <PreviewImage>scsf preview.png</PreviewImage>
     <InstalledByMsi>false</InstalledByMsi>
     <SupportedProducts>
-      <VisualStudio Version="11.0">
+      <VisualStudio Version="14.0">
         <Edition>Ultimate</Edition>
         <Edition>Premium</Edition>
         <Edition>Pro</Edition>
+        <Edition>Community</Edition>
       </VisualStudio>
     </SupportedProducts>
-    <SupportedFrameworkRuntimeEdition MinVersion="3.5" MaxVersion="4.5" />
+    <SupportedFrameworkRuntimeEdition MinVersion="4.5" MaxVersion="4.5" />
   </Identifier>
   <References>
-    <Reference Id="OpenGAX" MinVersion="3.0">
-      <Name>Guidance Automation Extensions</Name>
-    </Reference>
   </References>
   <Content>
     <VsPackage>|%CurrentProject%;PkgdefProjectOutputGroup|</VsPackage>

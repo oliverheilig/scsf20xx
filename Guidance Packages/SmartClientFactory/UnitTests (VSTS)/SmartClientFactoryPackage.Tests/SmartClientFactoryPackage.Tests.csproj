@@ -71,9 +71,7 @@
     <Compile Include="ConvertProjectToWPFTestFixture.cs" />
     <Compile Include="MethodBehaviorHelperTestFixture.cs" />
     <Compile Include="Mocks\MockProxyFactory.cs" />
-    <Compile Include="ProxyFactoryHelperTestFixture.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="ProxyFactoryHelperTestFixture.cs" />
     <Compile Include="CreateBusinessModulePagePresenterTestFixture.cs" />
     <Compile Include="CreateEventPublicationPagePresenterTestFixture.cs" />
     <Compile Include="CreateEventSubscriptionPagePresenterTestFixture.cs" />

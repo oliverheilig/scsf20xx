@@ -9,7 +9,7 @@
 		<AppDesignerFolder>Properties</AppDesignerFolder>
 		<RootNamespace>$ModuleNamespace$.Interface</RootNamespace>
 		<AssemblyName>$ModuleNamespace$.Interface</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
 	</PropertyGroup>
 	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
 		<DebugSymbols>true</DebugSymbols>

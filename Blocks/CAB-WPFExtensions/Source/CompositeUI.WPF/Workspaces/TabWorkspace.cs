@@ -72,9 +72,9 @@ namespace Microsoft.Practices.CompositeUI.WPF
 		/// <summary>
 		/// Gets the collection of pages that the tab workspace uses.
 		/// </summary>
-		public ReadOnlyDictionary<Control, TabPage> Pages
+		public Microsoft.Practices.CompositeUI.Utility.ReadOnlyDictionary<Control, TabPage> Pages
 		{
-			get { return new ReadOnlyDictionary<Control, TabPage>(pages); }
+			get { return new Microsoft.Practices.CompositeUI.Utility.ReadOnlyDictionary<Control, TabPage>(pages); }
 		}
 
 		#endregion

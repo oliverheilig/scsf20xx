@@ -11,7 +11,7 @@
     <RootNamespace>$RootNamespace$.Infrastructure.Shell</RootNamespace>
     <AssemblyName>$RootNamespace$.Infrastructure.Shell</AssemblyName>
     <MyType>WindowsForms</MyType>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
